@@ -17,9 +17,6 @@ get_header(); ?>
 
 			get_template_part( 'template-parts/content', get_post_format() );
 
-			//display call  to action elements
-			do_action('el_display_post_call_to_action', $post);
-
 			//displays the comments template
 			do_action('el_display_comment_template');
 

@@ -12,18 +12,12 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class('el-row nested'); ?>>
 	<header class="entry-header el-col-medium-8 el-col-medium-offset-2 small-align-cente">
 		<?php
-		if ( is_single() ) :
-			the_title( '<h1 class="entry-title big fat">', '</h1>' );
-		else :
-			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
-		endif;
-
 		//Entry meta if post
 		if ( get_post_type() == 'post' ){
 			
 			echo '<div class="entry-meta">';
-				retail_motion_posted_on();
-				retail_motion_categories_and_tags();
+				pacific_posted_on();
+				pacific_categories_and_tags();
 			echo '</div>';
 			
 		}?>
@@ -42,7 +36,7 @@
 				'after'  => '</div>',
 			) );
 		?>
-		<hr class="orange medium"/>
+		<hr class="medium"/>
 	</div><!-- .entry-content -->
 	
 

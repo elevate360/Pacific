@@ -5,7 +5,7 @@
  */
 
  
-$el_blogs = el_blogs::getInstance();
+$el_pacific_theme = $el_pacific_theme::getInstance();
 get_header(); ?>
 <div class="el-row">
 	<div id="primary" class="content-area">
@@ -15,21 +15,18 @@ get_header(); ?>
 		if ( have_posts() ) :
 
 			//term header
-			echo '<header class="el-row">';
-				echo '<h1 class="el-col-small-12 page-title small-align-center fat">Articles Categorised: ' . single_tag_title('', false) .'</h1>';
-			echo '</header>';
 
 			//get a listing of our categories as links
-			$categories = $el_blogs::get_post_term_links('category');
+			$categories = $el_pacific_theme::get_post_term_links('category');
 			echo $categories;
 
 			/* Start the Loop */
-			echo '<div class="el-row inner blog-listing">';
+			echo '<div class="el-row inner blog-listing masonry-elements">';
 			while ( have_posts() ) : the_post();
 
 				$html = '';
 				
-				$html .= $el_blogs::get_post_card_html($post->ID);
+				$html .= $el_pacific_theme::get_post_card_html($post->ID);
 				
 				echo $html;
 

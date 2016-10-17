@@ -10,16 +10,13 @@ html {
 	box-sizing: inherit;
 }
 
-body {
-	background: $color__background-body; 
-}
-
 blockquote, q {
-	color: $color__orange;
+	color: inherit;
 	padding-top: 25px;
 	padding-bottom: 25px;
-	border-top: solid 1px $color__red;
-	border-bottom: solid 1px $color__red;
+	border-color: inherit;
+	border-top: solid 1px;
+	border-bottom: solid 1px;
 	margin: 0px 0px 1.5em 0px;
 	font-style: italic;
 	font-size: 1.35em;
@@ -45,20 +42,10 @@ blockquote, q {
 }
 
 hr {
-	background-color: $color__background-hr;
+	background-color: inherit;
 	border: 0;
 	height: 1px;
 	margin-bottom: 1.5em;
-	
-	&.orange{
-	  background-color: $color__orange;
-	}
-	&.red{
-	  background-color: $color__red;
-	}
-	&.yellow{
-	  background-color: $color__yellow;
-	}
 	
 	&.fat{
 	  height: 5px;

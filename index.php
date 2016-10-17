@@ -13,7 +13,7 @@
  */
 
  
-$el_blogs = el_blogs::getInstance();
+$el_pacific_theme = el_pacific_theme::getInstance();
 get_header(); ?>
 <div class="el-row">
 	<div id="primary" class="content-area el-col-small-12">
@@ -22,26 +22,17 @@ get_header(); ?>
 		<?php
 		if ( have_posts() ) :
 
-			//blog header
-			echo '<div class="el-row inner">';
-				echo '<header class="page-header el-col-small-8 small-align-center el-col-small-offset-2">';
-					echo '<h1 class="page-title big fat">Our Blog</h1>';
-				echo '</header>';
-			echo '</div>';
-			
-						
-
 			//get a listing of our categories as links
-			$categories = $el_blogs::get_post_term_links();
+			$categories = $el_pacific_theme::get_post_term_links();
 			echo $categories;
 
 			//Listing of masonry blogs
-			echo '<div class="el-row animation-container inner blog-listing masonry-elements">';
+			echo '<div class="el-row animation-container inner blog-listing masonry-elements small-margin-top-bottom-medium">';
 			while ( have_posts() ) : the_post();
 
 				$html = '';
 				
-				$html .= $el_blogs::get_post_card_html($post->ID);
+				$html .= $el_pacific_theme::get_post_card_html($post->ID);
 				
 				echo $html;
 

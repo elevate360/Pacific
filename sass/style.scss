@@ -1,9 +1,9 @@
 /*!
-Theme Name: Retail Motion
-Theme URI: http://underscores.me/
+Theme Name: Pacific
+Theme URI: https://elevate360.com.au/
 Author: Simon Codrington
 Author URI: https://www.simoncodrington.com.au
-Description: A custom theme for Retail Motion.
+Description: A new awesome website from Elevate360
 Version: 1.0.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -75,7 +75,7 @@ ADD this later maybe
 @import "site/site";
 
 /*--------------------------------------------------------------
-# Theme Modules (all theme components)
+# Blogs (blog styling)
 --------------------------------------------------------------*/
-@import "../inc/modules/module_stylesheet"
+@import "blogs/blogs";
 

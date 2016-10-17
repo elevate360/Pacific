@@ -4,21 +4,11 @@
 
 
 .site-footer{
-  background-color: $color__slate;
-  color: $color__white;
-  
-  a{
-    color: $color__white;
-  }
-  
+ 
   //widgets in footer
   .widget{
     box-shadow: none;
     padding: 0px;
-    
-    .widget-title{
-      color: $color__white;
-    }
-    
+ 
   }
 }

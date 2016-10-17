@@ -11,12 +11,16 @@
 	// Site title and description.
 	wp.customize( 'blogname', function( value ) {
 		value.bind( function( to ) {
-			$( '.site-title a' ).text( to );
+			$( '.site-title a, .site-title' ).text( to );
+			console.log("asdasdsadasdsa");
 		} );
 	} );
+	
+	
 	wp.customize( 'blogdescription', function( value ) {
 		value.bind( function( to ) {
 			$( '.site-description' ).text( to );
+			console.log("Hello world");
 		} );
 	} );
 
@@ -39,4 +43,18 @@
 			}
 		} );
 	} );
+	
+	// wp.customize('pacific_background_size', function( value ){
+		// value.bind(function( to ){
+// 			
+			// console.log("pacific background");
+			// $('body').css('background-size', to);
+// 			
+		// });
+// 		
+	// });
+	
+	
+	
+	
 } )( jQuery );

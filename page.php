@@ -7,8 +7,8 @@
 get_header(); ?>
 
 <div class="el-row inner">
-	<div id="primary" class="el-col-small-12 content-area small-margin-top-small medium-margin-top-medium">
-		<main id="main" class="site-main animation-container" role="main">
+	<div id="primary" class="el-col-small-12 content-area">
+		<main id="main" class="site-main animation-container small-padding-top-bottom-medium" role="main">
 
 			<?php
 			while ( have_posts() ) : the_post();

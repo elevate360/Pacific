@@ -1,12 +1,8 @@
 <?php
 /**
- * The template for displaying the footer.
- *
- * Contains the closing of the #content div and all content after.
- *
- * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
- *
- * @package Retail_Motion
+ * Displays the footer
+ * - Displays widget areas
+ * - Displays optional bottom menu bar
  */
 
 ?>
@@ -14,7 +10,7 @@
 	</div><!-- #content -->
 
 	<footer id="colophon" class="site-footer el-row" role="contentinfo">
-		<div class="site-info el-row inner small-padding-top-bottom-large">
+		<div class="site-info el-row inner small-padding-top-bottom-medium">
 			<?php
 			//get sidebars if applicable
 			if(is_active_sidebar('widget-footer-1')){
@@ -56,7 +52,7 @@
 			</div>
 			
 			<div class="attribution el-col-small-12">
-				<p>Designed and Developed by Elevate</p>
+				<a href="//elevate360.com.au/">Designed and Developed by Elevate</a>
 			</div>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->

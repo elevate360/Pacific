@@ -180,14 +180,13 @@
   li.current_page_item{
     
     > a{
-      color: $color__orange;
       font-weight: 400;
     }
   }
   
   a{
     display: inline-block;
-    color: $color__white;
+    color: #fff;
     margin-bottom: 5px;
   }
   .link-text{

@@ -1,25 +1,17 @@
 <?php
-/**
- * Template part for displaying page content in page.php.
- *
- * @link https://codex.wordpress.org/Template_Hierarchy
- *
- * @package Retail_Motion
+/*
+ * Page Content Template
  */
-
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class('el-row nested'); ?>>
-	<header class="entry-header el-col-small-12 el-col-medium-8 el-col-medium-offset-2 small-align-center">
-		<?php the_title( '<h1 class="entry-title big fat">', '</h1>' ); ?>
-	</header><!-- .entry-header -->
+<article id="post-<?php the_ID(); ?>" <?php post_class('el-row'); ?>>
 
 	<div class="entry-content el-col-small-12 el-col-medium-8 el-col-medium-offset-2">
 		<?php
 			the_content();
-
+			
 			wp_link_pages( array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'retail-motion' ),
+				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'pacific' ),
 				'after'  => '</div>',
 			) );
 		?>
@@ -37,7 +29,7 @@
 					'<span class="edit-link">',
 					'</span>',
 					'',
-					'button orange small'
+					'button black small'
 				);
 			?>
 		</footer><!-- .entry-footer -->
