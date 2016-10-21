@@ -24,10 +24,12 @@
 		add_action('after_setup_theme', array($this, 'register_navigation_menus')); //register navigation menu locations
 		add_action('init', array($this, 'add_excerpt_to_pages')); 
 		
-		
+		add_action('el_display_post_navigation', array($this, 'display_post_navigation'));
+		add_action('el_display_comment_template', array($this, 'el_display_comment_template'));
 		
 		//universal shortcodes
-		add_action('init', array($this, 'register_shortcodes'),10, 1);
+		//add_action('init', array($this, 'register_shortcodes'),10, 1);
+	
 
  	}
 
@@ -275,6 +277,8 @@
 	
 
 	//registers universal shortcodes for use
+	/*
+	 * TODO: Come back to this later and extract to a plugin, themecheck rules complain about it being in the theme
 	public function register_shortcodes(){
 		add_shortcode('el_row', array($this, 'render_shortcodes'));
 		add_shortcode('el_col', array($this, 'render_shortcodes'));
@@ -312,7 +316,7 @@
 		}
 			
 		return $html;
-	}
+	}*/
 
 	//displays the comments template on single items, wrapped in the grid style
 	public static function el_display_comment_template(){
@@ -407,13 +411,13 @@
 	
 	//displays the next / prev post navigation on single posts
 	public function display_post_navigation(){
-		$html .= '';
+		$html = '';
 		
 		$html .= '<div class="el-row animation-container">';
-			$html .= '<div class="el-col-small-12">';
+			$html .= '<div class="el-col-small-12 el-col-medium-8 el-col-medium-offset-2">';
 				$args = array(
-					'prev_text'	=> '<p class="control"><i class="icon fa fa-angle-left" aria-hidden="true"></i> Previous</p><div class="title">%title</div>',
-					'next_text'	=> '<p class="control">Next <i class="icon fa fa-angle-right" aria-hidden="true"></i></p><div class="title">%title</div>'
+					'prev_text'	=> '<p class="control button black"><i class="icon fa fa-angle-left" aria-hidden="true"></i> Previous</p><div class="title">%title</div>',
+					'next_text'	=> '<p class="control button black">Next <i class="icon fa fa-angle-right" aria-hidden="true"></i></p><div class="title">%title</div>'
 				);
 				$html .= get_the_post_navigation($args);
 			$html .= '</div>';
@@ -437,6 +441,14 @@
 		wp_enqueue_script( 'theme-public-script' , get_stylesheet_directory_uri() . '/js/el_pacific_theme_scripts.js', array('jquery', 'jquery-masonry'));	
 		wp_enqueue_script( 'retail-motion-navigation', get_template_directory_uri() . '/js/navigation.js');
 		wp_enqueue_script( 'retail-motion-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js' );
+		
+		//Enqueue fonts from google
+		if(get_theme_mod('pacific_body_font')){
+			wp_enqueue_style('pacific-body-font', '//fonts.googleapis.com/css?family=' . get_theme_mod('pacific_body_font'));
+		}
+		if(get_theme_mod('pacific_header_font')){
+			wp_enqueue_style('pacific-header-font', '//fonts.googleapis.com/css?family=' . get_theme_mod('pacific_header_font'));
+		}
 
 		//comment reply on on singular post pages
 		if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -558,9 +570,6 @@
 				
 			}
 		}
-
-		
-		
 	}
 
 	//TODO: COME BACK TO THIS SOON TO ADJUST

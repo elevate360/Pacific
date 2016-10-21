@@ -17,7 +17,7 @@ get_header(); ?>
 
 			<div class="el-row nested">
 				<header class="page-header el-col-small-12 el-col-medium-8 el-col-medium-offset-2 small-align-center">
-					<h1 class="page-title"><?php printf( esc_html__( 'Search Results for: %s', 'retail-motion' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
+					<h1 class="page-title"><?php printf( esc_html__( 'Search Results for: %s', 'pacific' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
 				</header><!-- .page-header -->
 			</div>
 

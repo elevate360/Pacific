@@ -30,6 +30,63 @@ function add_theme_customizer_support($wp_customize){
 	//if we have support for custom background
 	if(current_theme_supports('custom-background')){
 			
+		//FONTS		
+		$google_fonts = array(); 
+		$google_api = 'https://www.googleapis.com/webfonts/v1/webfonts?sort=alpha&key=AIzaSyCxW8RZ-xZVyfbY-nriW_E7VimgydHa_uo';
+	    $font_content = wp_remote_get( $google_api, array('sslverify'   => false) );
+		
+	    if(!empty($font_content) && !isset($font_content->error)){
+			$font_content = json_decode($font_content['body']);
+		
+			foreach($font_content->items as $font){
+				$google_fonts[$font->family] = $font->family;
+			}
+		}
+		
+		$wp_customize->add_section('pacific_fonts',
+			array(
+				'title'				=> 'Fonts',
+				'description'		=> 'Control how the fonts display across your site'
+			)
+		);
+		
+		
+		$wp_customize->add_setting('pacific_body_font', 
+			array(
+				'default'			=> 'Montserrat',
+				'sanitize_callback'	=> 'esc_html'
+			)
+		);
+		$wp_customize->add_setting('pacific_header_font', 
+			array(
+				'default'			=> 'Montserrat',
+				'sanitize_callback'	=> 'esc_html'
+			)
+		);
+		$wp_customize->add_control('pacific_body_font',
+			array(
+				'label'				=> 'Body Font',
+				'description'		=> 'Select the font family to use for your body text',
+				'section'			=> 'pacific_fonts',
+				'type'				=> 'select',
+				'choices'			=> $google_fonts
+			)
+		);
+		$wp_customize->add_control('pacific_header_font',
+			array(
+				'label'				=> 'Header Font',
+				'description'		=> 'Select the font family to use for your H1-h6 tags',
+				'section'			=> 'pacific_fonts',
+				'type'				=> 'select',
+				'choices'			=> $google_fonts
+			)
+		);
+			
+			
+			
+			
+			
+			
 		//COLOURS
 		//body color
 		$wp_customize->add_setting('pacific_text_color', 
@@ -44,6 +101,25 @@ function add_theme_customizer_support($wp_customize){
 			array(
 				'label'				=> 'Text Color',
 				'description'		=> 'Color for standard text / body content',
+				'section'			=> 'colors',
+				'type'				=> 'color'
+				)
+			)
+		);
+		
+		//link color
+		$wp_customize->add_setting('pacific_link_color', 
+			array(
+				'default'			=> '#555555',
+				'sanitize_callback'	=> 'sanitize_hex_color'
+			)
+		); 
+		$wp_customize->add_control(new WP_Customize_Color_Control(
+			$wp_customize, 
+			'pacific_link_color',
+			array(
+				'label'				=> 'Link Text Color',
+				'description'		=> 'Color used for standard links on the site',
 				'section'			=> 'colors',
 				'type'				=> 'color'
 				)
@@ -135,7 +211,8 @@ function add_theme_customizer_support($wp_customize){
 		//Additional custom-background settings
 		$wp_customize->add_setting('pacific_background_size',
 			array(
-				'default'			=> 'cover'
+				'default'			=> 'cover',
+				'sanitize_callback' => 'esc_html'
 			)
 		);
 		$wp_customize->add_control('pacific_background_size', 
@@ -168,23 +245,27 @@ function add_theme_customizer_support($wp_customize){
 		);	
 		$wp_customize->add_setting('pacific_header_button_primary_text',
 			array(
-				'default'			=> ''
+				'default'			=> '',
+				'sanitize_callback'	=> 'esc_html'
 			)
 		);	
 		$wp_customize->add_setting('pacific_header_button_primary_url',
 			array(
-				'default'			=> ''
+				'default'			=> '',
+				'sanitize_callback'	=> 'esc_url'
 			)
 		);
 
 		$wp_customize->add_setting('pacific_header_button_secondary_text',
 			array(
-				'default'			=> ''
+				'default'			=> '',
+				'sanitize_callback'	=> 'esc_html'
 			)
 		);	
 		$wp_customize->add_setting('pacific_header_button_secondary_url',
 			array(
-				'default'			=> ''
+				'default'			=> '',
+				'sanitize_callback'	=> 'esc_url'
 			)
 		);	
 		
@@ -266,7 +347,10 @@ function output_dynamic_customizer_styles(){
 	//universal color options
 	$pacific_text_color = get_theme_mod('pacific_text_color');
 	$pacific_header_color = get_theme_mod('pacific_header_color');
+	$pacific_link_color = get_theme_mod('pacific_link_color', '#555');
 	$pacific_accent_color = get_theme_mod('pacific_accent_color', '#3487bf');
+	$pacific_body_font = get_theme_mod('pacific_body_font', 'Montserrat');
+	$pacific_header_font = get_theme_mod('pacific_header_font', 'Montserrat');
 	//footer color options
 	$pacific_footer_background_color = get_theme_mod('pacific_footer_background_color', '#333'); 
 	$pacific_footer_text_color = get_theme_mod('pacific_footer_text_color', '#fff'); 
@@ -291,9 +375,29 @@ function output_dynamic_customizer_styles(){
 		}
 		<?php } ?>
 		
+		<?php if(!empty($pacific_body_font)){?>
+		body{
+			font-family: <?php echo $pacific_body_font; ?>;
+		}
+		<?php } ?>
+		
 		<?php if(!empty($pacific_header_color)){ ?>
 		h1,h2,h3,h4,h5,h6{
 			color: <?php echo $pacific_header_color; ?>;
+		}
+		<?php } ?>
+		
+		<?php if(!empty($pacific_header_font)){?>
+		h1,h2,h3,h4,h5,h6{
+			font-family: <?php echo $pacific_header_font; ?>;
+		}
+		<?php } ?>
+		
+		<?php if(!empty($pacific_link_color)){?> 
+		a,
+		a:active,
+		a:visited{
+			color: <?php echo $pacific_link_color; ?>;
 		}
 		<?php } ?>
 		
@@ -344,16 +448,23 @@ function output_dynamic_customizer_styles(){
 		}
 		<?php } ?>
 		
+		
 		<?php if(!empty($pacific_accent_color)){?>
-		li.current_page_item > a,
-		.vertical-nav li.current_page_item > a{
-			color: <?php echo $pacific_accent_color;?>;
+		.term-list .button.active, 
+		.term-list .button:hover, 
+		.term-list .button:active{
+			background-color: <?php echo $pacific_accent_color; ?>;
 		}
 		<?php } ?>
-		
 		
 	</style>
 	<?php
 	
 }
 add_action('wp_head', 'output_dynamic_customizer_styles', 99, 1);
+
+
+
+
+
+

@@ -22,7 +22,7 @@ function pacific_posted_on() {
 	);
 
 	$posted_on = sprintf(
-		esc_html_x( '%s', 'post date', 'retail-motion' ),
+		esc_html_x( '%s', 'post date', 'pacific' ),
 		$time_string 
 	);
 
@@ -42,12 +42,12 @@ function pacific_categories_and_tags() {
 	// Hide category and tag text for pages.
 	if ( get_post_type() == 'post' ) {
 		
-		$categories_list = get_the_category_list( esc_html__( ', ', 'retail-motion' ) );
+		$categories_list = get_the_category_list( esc_html__( ', ', 'pacific' ) );
 		if ( $categories_list && pacific_categorized_blog() ) {
 			printf( '<span class="cat-links small-margin-right-small">' . '<i class="fa fa-file" aria-hidden="true"></i> %1$s</span>', $categories_list ); 
 		}
 
-		$tags_list = get_the_tag_list( '', esc_html__( ', ', 'retail-motion' ) );
+		$tags_list = get_the_tag_list( '', esc_html__( ', ', 'pacific' ) );
 		if ( $tags_list ) {
 			printf( '<span class="tags-links small-margin-right-small">' . '<i class="fa fa-tags" aria-hidden="true"></i> %1$s</span>', $tags_list ); 
 		}
@@ -56,13 +56,13 @@ function pacific_categories_and_tags() {
 
 	if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
 		echo '<span class="comments-link">';
-		comments_popup_link( sprintf( wp_kses( __( 'Leave a Comment<span class="screen-reader-text"> on %s</span>', 'retail-motion' ), array( 'span' => array( 'class' => array() ) ) ), get_the_title() ) );
+		comments_popup_link( sprintf( wp_kses( __( 'Leave a Comment<span class="screen-reader-text"> on %s</span>', 'pacific' ), array( 'span' => array( 'class' => array() ) ) ), get_the_title() ) );
 		echo '</span>';
 	}
 
 	edit_post_link(
 		sprintf(
-			esc_html__( 'Edit %s', 'retail-motion' ),
+			esc_html__( 'Edit %s', 'pacific' ),
 			the_title( '<span class="screen-reader-text">"', '"</span>', false )
 		),
 		'<span class="edit-link">',

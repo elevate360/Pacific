@@ -4,6 +4,7 @@
 	margin: 0 0 1.5em;
 	@include box-shadow();
 	padding: 15px;
+	background: #fff;
 
 	/* Make sure select elements fit in widgets. */
 	select {

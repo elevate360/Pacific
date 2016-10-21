@@ -2182,8 +2182,8 @@ textarea {
 
 h1, h2, h3, h4, h5, h6 {
   clear: both;
-  font-weight: 400;
-  line-height: 1.25em;
+  font-weight: bold;
+  line-height: 1.35em;
   color: #1f3243;
 }
 h1.inline, h2.inline, h3.inline, h4.inline, h5.inline, h6.inline {
@@ -2387,7 +2387,7 @@ img {
 }
 
 ul, ol {
-  margin: 0 0 1.5em 3em;
+  margin: 0em;
 }
 
 ul {
@@ -2400,8 +2400,7 @@ ol {
 
 li > ul,
 li > ol {
-  margin-bottom: 0;
-  margin-left: 1.5em;
+  padding-left: 1em;
 }
 
 dt {
@@ -2470,11 +2469,10 @@ button,
 input[type="button"],
 input[type="reset"],
 input[type="submit"] {
-  border: 1px solid;
-  border-radius: 5px;
-  color: #111;
-  border: solid 1px #ffffff;
-  background: transparent;
+  border-radius: 0px;
+  color: #fff;
+  background: #333;
+  border: 0px;
   line-height: 1;
   padding: 12px 20px;
 }
@@ -2543,6 +2541,10 @@ input[type="submit"].no-border {
   border: 0px;
 }
 
+.submit-wrap {
+  display: inline-block;
+}
+
 input[type="text"],
 input[type="email"],
 input[type="url"],
@@ -2561,8 +2563,9 @@ input[type="color"],
 textarea {
   color: #666;
   border: 1px solid #ccc;
-  border-radius: 3px;
-  padding: 3px;
+  padding: 5px 10px;
+  min-height: 40px;
+  max-width: 100%;
 }
 input[type="text"]:focus,
 input[type="email"]:focus,
@@ -3015,10 +3018,11 @@ object {
 --------------------------------------------------------------*/
 .widget {
   margin: 0 0 1.5em;
-  -webkit-box-shadow: 0px 4px 15px rgba(51, 51, 51, 0.3);
-  -moz-box-shadow: 0px 4px 15px rgba(51, 51, 51, 0.3);
-  box-shadow: 0px 4px 15px rgba(51, 51, 51, 0.3);
+  -webkit-box-shadow: 0px 4px 15px rgba(51, 51, 51, 0.2);
+  -moz-box-shadow: 0px 4px 15px rgba(51, 51, 51, 0.2);
+  box-shadow: 0px 4px 15px rgba(51, 51, 51, 0.2);
   padding: 15px;
+  background: #fff;
   /* Make sure select elements fit in widgets. */
 }
 .widget select {
@@ -3176,6 +3180,9 @@ object {
   border-bottom: rgba(255, 255, 255, 0.4) solid 2px;
   border-radius: 0px;
   transition: all 300ms linear;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 .site-header .site-search .search-input:focus,
 .site-header .site-search .search-input:active,
@@ -3271,6 +3278,7 @@ object {
 .site-footer .widget {
   box-shadow: none;
   padding: 0px;
+  background: transparent;
 }
 
 /*--------------------------------------------------------------
@@ -3366,11 +3374,8 @@ object {
   background: #efefef;
 }
 .term-list .button {
-  background: #ffffff;
-}
-.term-list .button.active, .term-list .button:hover, .term-list .button:active {
-  background: #f79238;
-  color: #ffffff;
+  background: #fff;
+  color: #333;
 }
 
 .nav-links .page-numbers {
@@ -3390,6 +3395,69 @@ object {
 }
 .nav-links .page-numbers.current {
   background: #aaa;
+}
+
+/*
+ * Comment Styling (used on posts and pages)
+ */
+.comments-area .comment-list {
+  margin: 0px;
+  padding: 0px;
+  list-style-type: none;
+}
+.comments-area .comment-list .comment {
+  padding: 0px;
+}
+.comments-area .comment-list .comment .comment-author img {
+  border-radius: 50%;
+  vertical-align: middle;
+  margin-right: 7px;
+}
+.comments-area .comment-list .comment .comment-author .fn {
+  text-transform: uppercase;
+  font-size: 90%;
+}
+.comments-area .comment-list .comment-body {
+  border-bottom: dashed 1px #e8e8e8;
+  padding-bottom: 10px;
+  position: relative;
+  border-left: solid 3px orange;
+  padding-left: 15px;
+  background: #f9f9f9;
+  padding: 15px;
+  margin-bottom: 15px;
+}
+.comments-area .comment-list .comment-content {
+  font-style: italic;
+  margin: 10px auto;
+}
+.comments-area .comment-list .comment-metadata {
+  margin-top: 5px;
+}
+.comments-area .comment-respond {
+  background: #f1f1f1;
+  padding: 15px;
+  margin-bottom: 15px;
+}
+.comments-area .comment-respond #cancel-comment-reply-link {
+  background: #333;
+  color: #fff;
+  font-weight: normal;
+  padding: 6px 12px;
+  display: inline-block;
+  float: right;
+  font-size: 80%;
+}
+.comments-area .comment-list a {
+  color: inherit;
+}
+.comments-area .comment-edit-link {
+  float: right;
+}
+.comments-area a.comment-reply-link {
+  background: orange;
+  color: #fff;
+  padding: 6px 12px;
 }
 
 /*# sourceMappingURL=style.css.map */

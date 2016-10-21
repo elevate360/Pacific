@@ -9,7 +9,7 @@
 
 get_header(); ?>
 <div class="el-row inner">
-	<div id="primary" class="content-area">
+	<div id="primary" class="content-area el-col-small-9">
 		<main id="main" class="site-main" role="main">
 
 		<?php

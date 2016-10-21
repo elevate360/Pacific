@@ -138,14 +138,9 @@
     
   }
   .button{
-    background: $color__white;
-    
-    &.active,
-    &:hover,
-    &:active{
-      background: $color__orange;
-      color: $color__white;
-    }
+    background: #fff;
+    color: #333;
+   
   }
 }
 

@@ -11,6 +11,7 @@
 
 	<?php 
 	//Output the header image 
+	$header_image = '';
 	if(current_theme_supports('custom-header')){
 		
 		//header background color (can either be set or removed for transparency)
@@ -23,10 +24,20 @@
 		if(get_custom_header()){
 			$header = get_custom_header();
 			if($header->url){
-				echo '<div class="header-background-image background-image" style="background-image: url(' . $header->url . ');"></div>';
+				$header_image = '<div class="header-background-image background-image" style="background-image: url(' . $header->url . ');"></div>';
 			}
 		}
 	}
+
+	//check for featured image (overrides default header)
+	if(has_post_thumbnail($object)){
+		
+		$post_thumbnail_id = get_post_thumbnail_id($object->ID);
+		$image_url = wp_get_attachment_image_src($post_thumbnail_id, 'large', false)[0];
+		$header_image = '<div class="header-background-image background-image" style="background-image: url(' . $image_url . ');"></div>';
+	}
+	echo $header_image;
+	
 	?>
 
 	<div class="header-inner el-row inner small-padding-top-bottom-small medium-padding-top-bottom-medium medium-padding-bottom-large">
@@ -70,6 +81,7 @@
 		<!--Main content block-->
 		<div class="content clear el-col-small-12 el-col-medium-8 el-col-medium-offset-2 small-align-center medium-margin-top-large medium-margin-bottom-large">
 			
+		
 			<?php 
 			//post, page types
 			if(is_a($object, 'WP_Post')){
@@ -89,9 +101,16 @@
 				$title = $term_prefix . $object->name; 
 				$subtitle = $object->description;
 			}
+			//on date archive e.g month / year
+			else if(is_date()){
+				$title = single_month_title('', false);
+			}
+			
 			?>
 			<?php if(!empty($title) || !empty($subtitle)){
-				if(!empty($title)){?>
+			
+				if(!empty($title)){
+					?>
 					<h1 class="title uppercase big fat"><?php echo $title; ?></h1>
 				<?php }
 				if(!empty($subtitle)){?>
@@ -142,10 +161,11 @@
 			</div>
 			<!--social media-->
 			<?php
-			$el_pacific_theme = el_pacific_theme::getInstance();
-			$social_media =  $el_pacific_theme::el_display_social_media_icons();
+			//TODO: Removed for now, add future support soon
+			//$el_pacific_theme = el_pacific_theme::getInstance();
+			////$social_media =  $el_pacific_theme::el_display_social_media_icons();
 			
-			echo $social_media;
+			//echo $social_media;
 			?>
 			
 		</div>

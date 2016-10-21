@@ -14,18 +14,18 @@
 
  
 $el_pacific_theme = el_pacific_theme::getInstance();
-get_header(); ?>
-<div class="el-row">
-	<div id="primary" class="content-area el-col-small-12">
+get_header(); 
+
+//get a listing of our categories as links
+$categories = $el_pacific_theme::get_post_term_links();
+echo $categories;
+?>
+<div class="el-row inner">
+	<div id="primary" class="content-area el-col-small-9">
 		<main id="main" class="site-main" role="main">
 
 		<?php
 		if ( have_posts() ) :
-
-			//get a listing of our categories as links
-			$categories = $el_pacific_theme::get_post_term_links();
-			echo $categories;
-
 			//Listing of masonry blogs
 			echo '<div class="el-row animation-container inner blog-listing masonry-elements small-margin-top-bottom-medium">';
 			while ( have_posts() ) : the_post();
@@ -58,6 +58,7 @@ get_header(); ?>
 
 		</main><!-- #main -->
 	</div><!-- #primary -->
+	<?php get_sidebar() ?>
 </div>
 <?php
 get_footer();

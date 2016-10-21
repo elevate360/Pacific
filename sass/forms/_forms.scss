@@ -4,11 +4,10 @@ button,
 input[type="button"],
 input[type="reset"],
 input[type="submit"] {
-  border: 1px solid;
-  border-radius: 5px;
-  color: $color__black;
-  border: solid 1px $color__white;
-  background: transparent; 
+  border-radius: 0px;
+  color: #fff;
+  background: #333;
+  border: 0px; 
   line-height: 1;
   padding: 12px 20px;
   
@@ -60,6 +59,10 @@ input[type="submit"] {
   
 }
 
+.submit-wrap{
+  display: inline-block;
+}
+
 input[type="text"],
 input[type="email"],
 input[type="url"],
@@ -78,8 +81,9 @@ input[type="color"],
 textarea {
   color: $color__text-input;
   border: 1px solid $color__border-input;
-  border-radius: 3px;
-  padding: 3px;
+  padding: 5px 10px;
+  min-height:40px;
+  max-width: 100%;
 
   &:focus {
     color: $color__text-input-focus;

@@ -6,22 +6,20 @@
 
  
 $el_pacific_theme = $el_pacific_theme::getInstance();
-get_header(); ?>
-<div class="el-row">
-	<div id="primary" class="content-area">
+get_header(); 
+//get a listing of our categories as links
+$categories = $el_pacific_theme::get_post_term_links('category');
+echo $categories;
+?>
+<div class="el-row inner">
+	<div id="primary" class="content-area el-col-medium-9">
 		<main id="main" class="site-main" role="main">
 
 		<?php
 		if ( have_posts() ) :
 
-			//term header
-
-			//get a listing of our categories as links
-			$categories = $el_pacific_theme::get_post_term_links('category');
-			echo $categories;
-
 			/* Start the Loop */
-			echo '<div class="el-row inner blog-listing masonry-elements">';
+			echo '<div class="el-row inner blog-listing masonry-elements small-margin-top-bottom-medium">';
 			while ( have_posts() ) : the_post();
 
 				$html = '';
@@ -52,6 +50,7 @@ get_header(); ?>
 
 		</main><!-- #main -->
 	</div><!-- #primary -->
+	<?php get_sidebar(); ?>
 </div>
 <?php
 get_footer();

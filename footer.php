@@ -52,7 +52,9 @@
 			</div>
 			
 			<div class="attribution el-col-small-12">
-				<a href="//elevate360.com.au/">Designed and Developed by Elevate</a>
+				<p>
+					<a href="//elevate360.com.au/">Proudly powered by WordPress | Pacific by Elevate</a>
+				</p>
 			</div>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->

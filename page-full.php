@@ -1,13 +1,13 @@
 <?php
 /*
- * used to display standard pages with sidebar
+ * Template Name: Full Width
+ * used to display a full width page
  */
 
-get_header(); 
-?>
+get_header(); ?>
 
 <div class="el-row inner">
-	<div id="primary" class="el-col-small-9 content-area">
+	<div id="primary" class="el-col-small-12 content-area">
 		<main id="main" class="site-main animation-container small-padding-top-bottom-medium" role="main">
 
 			<?php
@@ -23,6 +23,5 @@ get_header();
 
 		</main><!-- #main -->
 	</div><!-- #primary -->
-	<?php get_sidebar(); ?> 
 </div>
 <?php get_footer(); ?>
