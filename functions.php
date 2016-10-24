@@ -466,109 +466,79 @@
 			
 		global $wp_version;
 		
-		$supported_featured = array(
-			//feed links to the head (posts / comments)
-			array(
-				'feature_name' 	=> 'automatic-feed-links',
-				'feature_args' 	=> array()
-			), 
-			//post thumbnails
-			array(
-				'feature_name' 	=> 'post-thumbnails',
-				'feature_args' 	=> array()
-			), 
-			//HTML5 markup
-			array(
-				'feature_name' 	=> 'html5',
-				'feature_args' 	=> array('search-form', 'comment-form', 'comment-list', 'gallery', 'caption')
-			), 
-			//Custom background
-			array(
-				'feature_name'	=> 'custom-background',
-				'feature_args'	=> array(
-					'default-color'          => 'fffffff',
-    				'default-image'          => '',
-    				'default-repeat'         => 'no-repeat',
-    				'default-position-x'     => 'center',
-    				'default-attachment'     => 'scroll',
-    				'wp-head-callback'       => array($this, 'pacific_custom_background_styles'),
-    				'admin-head-callback'    => '',
-   					'admin-preview-callback' => ''
-				)
-			),
-			//post formats
-			array(
-				'feature_name' 	=> 'post-formats',
-				'feature_args' 	=> array('aside', 'link', 'image', 'quote', 'status', 'video', 'audio', 'chat')
-			),
-			//Custom header
-			array(
-				'feature_name'	=> 'custom-header',
-				'feature_args'	=> array(
-					'default-image'          => '',
-					'width'                  => 1200,
-					'height'                 => 675,
-					'flex-height'            => false,
-					'flex-width'             => false,
-					'uploads'                => true,
-					'random-default'         => false,
-					'header-text'            => false,
-					'default-text-color'     => 'CC00EE',
-					'wp-head-callback'       => array($this, 'pacific_custom_header_styles'),
-					'admin-head-callback'    => '',
-					'admin-preview-callback' => '',
-				)
-			)
-
-		);
+		//automatic feed links
+		add_theme_support('automatic-feed-links');
 		
+		//post thumbnails
+		add_theme_support('post-thumbnails');
+
+		//HTML5 markup
+		$html5_args = array('search-form', 'comment-form', 'comment-list', 'gallery', 'caption');
+		add_theme_support('html5', $html5_args);
+
+			
+		//Custom background
+		$custom_background_args = array(
+			'default-color'          => 'fffffff',
+			'default-image'          => '',
+			'default-repeat'         => 'no-repeat',
+			'default-position-x'     => 'center',
+			'default-attachment'     => 'scroll',
+			'wp-head-callback'       => array($this, 'pacific_custom_background_styles'),
+			'admin-head-callback'    => '',
+			'admin-preview-callback' => ''
+		);
+			
+		add_theme_support('custom-background', $custom_background_args);
+			
+					
+		//post formats
+		$post_formats_args = array('aside', 'link', 'image', 'quote', 'status', 'video', 'audio', 'chat');
 		//add support for new `post-format` elements (WP 3.9)
 		if($wp_version >= '3.9.0'){
-			foreach($supported_featured as $feature){
-				//push new support elements
-				if($feature['feature_name'] == 'post-formats'){
-					array_push($feature['feature_args'], 'gallery');
-					array_push($feature['feature_args'], 'caption');
-				}
-			}
-		}		
-					
+			array_push($post_formats_args, 'gallery');
+			array_push($post_formats_args, 'caption');
+		}
+		add_theme_support('post-formats', $post_formats_args);
+		
+		
+		//Custom header
+		$custom_header_args = array(
+			'default-image'          => '',
+			'width'                  => 1200,
+			'height'                 => 675,
+			'flex-height'            => false,
+			'flex-width'             => false,
+			'uploads'                => true,
+			'random-default'         => false,
+			'header-text'            => false,
+			'default-text-color'     => 'CC00EE',
+			'wp-head-callback'       => array($this, 'pacific_custom_header_styles'),
+			'admin-head-callback'    => '',
+			'admin-preview-callback' => '',
+		);
+		add_theme_support( 'custom-header' , $custom_header_args);
+		
+		
 		//add support for `the-title` (WP 4.1)
 		if($wp_version >= '4.1.0'){
-			$supported_featured[] = array(
-				'feature_name' 	=> 'title-tag',
-				'feature_args' 	=> array()
-			);
+			add_theme_support( 'title-tag' );
 		}
+		
 		
 		//add support for 'custom-logo' (WP 4.5)
 		if($wp_version >= '4.5'){
 				
-			$supported_featured[] = array(
-				'feature_name'	=> 'custom-logo',
-				'feature_args'	=> array(
-					'height'      => 100,
-					'width'       => 400,
-					'flex-height' => true,
-					'flex-width'  => true,
-					'header-text'  => array(get_bloginfo('name'), get_bloginfo('description'))
-				)
-			);
-		}
-
-		//theme filter to change defaults
-		$supported_featured = apply_filters('pacific_theme_support', $supported_featured);
-
-		//registern support
-		if($supported_featured){
-			foreach($supported_featured as $feature){
-				if(!empty($feature['feature_args'])){
-					add_theme_support($feature['feature_name'], $feature['feature_args']);
-				}else{
-					add_theme_support($feature['feature_name']);
-				}
+			$logo_args = array(
+				'height'      => 100,
+				'width'       => 400,
+				'flex-height' => true,
+				'flex-width'  => true,
+				'header-text'  => array(get_bloginfo('name'), get_bloginfo('description'))
+			);	
 				
-			}
+			add_theme_support('custom-logo', $logo_args);	
+			
 		}
 	}
 
@@ -619,9 +589,9 @@
 	}
 
 
+	//TODO: Combine with customizer output so CSS is outputted in one style
 	//outputs the styling for any custom background set in theme customizer
 	public function pacific_custom_background_styles(){
-		
 		
 		$bg_image = get_background_image();
 		
