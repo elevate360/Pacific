@@ -1,16 +1,7 @@
 a {
-  color: $color__orange;
   text-decoration: none;
   transition: all 250ms linear;
 
-  &:visited {
-    color: $color__orange;
-  }
-  &:hover,
-  &:focus,
-  &:active {
-    color: $color__yellow;
-  }
   &:focus {
     outline: thin dotted;
   }

@@ -233,7 +233,7 @@ function add_theme_customizer_support($wp_customize){
 		//Additional custom-header settings to control output
 		$wp_customize->add_setting('pacific_header_background_color',
 			array(
-				'default'			=> '#ffffff',
+				'default'			=> '#efefef',
 				'sanitize_callback' => 'sanitize_hex_color'
 			)
 		);

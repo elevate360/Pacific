@@ -439,6 +439,7 @@ th, td {
   float: left;
   padding: 0px 15px;
   width: 100%;
+  min-height: 1px;
 }
 .el-col.collapse,
 [class*='el-col'].collapse {
@@ -2602,15 +2603,8 @@ textarea {
 # Navigation
 --------------------------------------------------------------*/
 a {
-  color: #f79238;
   text-decoration: none;
   transition: all 250ms linear;
-}
-a:visited {
-  color: #f79238;
-}
-a:hover, a:focus, a:active {
-  color: #febd55;
 }
 a:focus {
   outline: thin dotted;

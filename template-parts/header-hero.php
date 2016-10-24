@@ -10,6 +10,9 @@
 <header id="masthead" class="site-header el-row" role="banner">
 
 	<?php 
+	
+
+	
 	//Output the header image 
 	$header_image = '';
 	if(current_theme_supports('custom-header')){
@@ -85,10 +88,16 @@
 		<!--Main content block-->
 		<div class="content clear el-col-small-12 el-col-medium-8 el-col-medium-offset-2 small-align-center medium-margin-top-large medium-margin-bottom-large">
 			
+			
 		
 			<?php 
+			
+			//check if we're on the homepage and it's set to be a listing of the latest posts
+			if( is_home() && is_front_page() ){
+				$title = 'Latest News';
+			}
 			//post, page types
-			if(is_a($object, 'WP_Post')){
+			else if(is_a($object, 'WP_Post')){
 				$title = apply_filters('the_title', $object->post_title);
 				$subtitle = apply_filters('the_excerpt', $object->post_excerpt);
 			}
