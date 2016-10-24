@@ -3,27 +3,15 @@ Theme Name: Pacific
 Theme URI: https://elevate360.com.au/
 Author: Simon Codrington
 Author URI: https://www.simoncodrington.com.au
-Description: A new awesome website from Elevate360
+Description: The Pacific Theme is built for small businesses looking to stand out. Pacific combines fluid design and user-based functionality to form something that is truly seaworthy. A theme that blasts all difficulty out of the water, it has all the building blocks necessary to establish your online presence. A certain level of customisation is also available to make sure your business feel uniquely yours. Create an engaging, bold and sleek looking website design using Pacific.
 Version: 1.0.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Text Domain: retail-motion
-Tags:
-
-This theme, like WordPress, is licensed under the GPL.
-Use it to make something cool, have fun, and share what you've learned with others.
-
-Retail Motion is based on Underscores http://underscores.me/, (C) 2012-2016 Automattic, Inc.
-Underscores is distributed under the terms of the GNU GPL v2 or later.
-
-Normalizing styles have been helped along thanks to the fine work of
-Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
-*/
+Text Domain: pacific
+Tags: one-column, two-columns, right-sidebar, grid-layout, custom-background, custom-colors, custom-header, custom-menu, custom-logo, featured-image-header, featured-images, footer-widgets, full-width-template, theme-options, threaded-comments, blog
 
 /*--------------------------------------------------------------
->>> TABLE OF CONTENTS:
-----------------------------------------------------------------
-ADD this later maybe
+# Variables / mixins
 --------------------------------------------------------------*/
 @import "variables-site/variables-site";
 @import "mixins/mixins-master";
@@ -38,6 +26,7 @@ ADD this later maybe
 --------------------------------------------------------------*/
 @import "universal/universal";
 @import "universal/animations";
+@import "universal/tables";
 
 /*--------------------------------------------------------------
 # Grid (Responsive and universal site layouts)

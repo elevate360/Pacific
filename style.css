@@ -3,26 +3,15 @@ Theme Name: Pacific
 Theme URI: https://elevate360.com.au/
 Author: Simon Codrington
 Author URI: https://www.simoncodrington.com.au
-Description: A new awesome website from Elevate360
+Description: The Pacific Theme is built for small businesses looking to stand out. Pacific combines fluid design and user-based functionality to form something that is truly seaworthy. A theme that blasts all difficulty out of the water, it has all the building blocks necessary to establish your online presence. A certain level of customisation is also available to make sure your business feel uniquely yours. Create an engaging, bold and sleek looking website design using Pacific.
 Version: 1.0.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Text Domain: retail-motion
-Tags:
+Text Domain: pacific
+Tags: one-column, two-columns, right-sidebar, grid-layout, custom-background, custom-colors, custom-header, custom-menu, custom-logo, featured-image-header, featured-images, footer-widgets, full-width-template, theme-options, threaded-comments, blog
 
-This theme, like WordPress, is licensed under the GPL.
-Use it to make something cool, have fun, and share what you've learned with others.
-
-Retail Motion is based on Underscores http://underscores.me/, (C) 2012-2016 Automattic, Inc.
-Underscores is distributed under the terms of the GNU GPL v2 or later.
-
-Normalizing styles have been helped along thanks to the fine work of
-Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
-*/
 /*--------------------------------------------------------------
->>> TABLE OF CONTENTS:
-----------------------------------------------------------------
-ADD this later maybe
+# Variables / mixins
 --------------------------------------------------------------*/
 /*main breakpoints for responsive*/
 /*Aspect ratios*/
@@ -378,6 +367,11 @@ th {
   outline: 0;
 }
 
+.entry-meta span {
+  display: inline-block;
+  margin-right: 15px;
+}
+
 /*
  * Animations, used throghout the site
  */
@@ -403,6 +397,15 @@ th {
   transform: translate3d(0%, 0%, 1px);
 }
 
+/*
+ * Tables
+ * Universal table settings
+ */
+th, td {
+  padding: 6px 12px;
+  border: solid 1px #eee;
+}
+
 /*--------------------------------------------------------------
 # Grid (Responsive and universal site layouts)
 --------------------------------------------------------------*/
@@ -415,7 +418,7 @@ th {
   margin: 0px auto;
 }
 .el-row.inner {
-  max-width: 1380px;
+  max-width: 1280px;
 }
 .el-row:before, .el-row:after {
   content: ' ';
@@ -2339,6 +2342,7 @@ html {
 
 blockquote, q {
   color: inherit;
+  display: block;
   padding-top: 25px;
   padding-bottom: 25px;
   border-color: inherit;
@@ -2414,7 +2418,7 @@ dd {
 .entry-content ol {
   list-style-type: none;
   counter-reset: section;
-  margin: 0% 0% 1.5em 0%;
+  margin: 1rem 0rem 1.5rem 1.5rem;
   padding: 0%;
 }
 .entry-content ol li {
@@ -2436,7 +2440,7 @@ dd {
 }
 .entry-content ul {
   list-style-type: none;
-  margin: 0% 0% 1.5em 0%;
+  margin: 1rem 0rem 1.5rem 1.5rem;
   padding: 0%;
 }
 .entry-content ul li {
@@ -3024,9 +3028,16 @@ object {
   padding: 15px;
   background: #fff;
   /* Make sure select elements fit in widgets. */
+  /*search widget*/
 }
 .widget select {
   max-width: 100%;
+}
+.widget.widget_search .search-input {
+  width: 100%;
+}
+.widget.widget_search .search-submit {
+  margin-top: 15px;
 }
 
 /*--------------------------------------------------------------

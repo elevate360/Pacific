@@ -18,7 +18,7 @@
 	</div><!-- .entry-content -->
 
 	<?php if ( get_edit_post_link() ) : ?>
-		<footer class="entry-footer el-col-small-12 el-col-medium-8 el-col-medium-offset-2">
+		<footer class="entry-footer el-col-small-12 el-col-medium-8 el-col-medium-offset-2 small-margin-bottom-small">
 			<?php
 				edit_post_link(
 					sprintf(

@@ -10,4 +10,16 @@
 	select {
 		max-width: 100%;
 	}
+	
+	
+	/*search widget*/
+	&.widget_search{
+	  .search-input{
+	    width: 100%;
+	  }
+	  .search-submit{
+	    margin-top: 15px;
+	  }
+	}
+	
 }

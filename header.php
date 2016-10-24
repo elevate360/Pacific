@@ -22,7 +22,7 @@ global $template;
 
 ?>
 <div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'retail-motion' ); ?></a>
+	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'pacific' ); ?></a>
 
 	<?php get_template_part("template-parts/header-hero"); ?>
 

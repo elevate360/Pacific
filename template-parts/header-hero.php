@@ -23,6 +23,7 @@
 		//custom header image
 		if(get_custom_header()){
 			$header = get_custom_header();
+			
 			if($header->url){
 				$header_image = '<div class="header-background-image background-image" style="background-image: url(' . $header->url . ');"></div>';
 			}
@@ -30,12 +31,15 @@
 	}
 
 	//check for featured image (overrides default header)
-	if(has_post_thumbnail($object)){
-		
-		$post_thumbnail_id = get_post_thumbnail_id($object->ID);
-		$image_url = wp_get_attachment_image_src($post_thumbnail_id, 'large', false)[0];
-		$header_image = '<div class="header-background-image background-image" style="background-image: url(' . $image_url . ');"></div>';
+	if($object){
+		if(has_post_thumbnail($object)){
+
+			$post_thumbnail_id = get_post_thumbnail_id($object->ID);
+			$image_url = wp_get_attachment_image_src($post_thumbnail_id, 'large', false)[0];
+			$header_image = '<div class="header-background-image background-image" style="background-image: url(' . $image_url . ');"></div>';
+		}
 	}
+	
 	echo $header_image;
 	
 	?>

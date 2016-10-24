@@ -51,9 +51,9 @@
 				 ?>
 			</div>
 			
-			<div class="attribution el-col-small-12">
+			<div class="attribution el-col-small-12 small-align-center">
 				<p>
-					<a href="//elevate360.com.au/">Proudly powered by WordPress | Pacific by Elevate</a>
+					Proudly powered by <a href="//wordpress.org/" target="_blank">WordPress</a> | Pacific by <a href="//elevate360.com.au/" target="_blank">Elevate</a>
 				</p>
 			</div>
 		</div><!-- .site-info -->

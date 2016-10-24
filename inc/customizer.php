@@ -388,7 +388,7 @@ function output_dynamic_customizer_styles(){
 		<?php } ?>
 		
 		<?php if(!empty($pacific_header_font)){?>
-		h1,h2,h3,h4,h5,h6{
+		h1,h2,h3,h4,h5,h6,.site-title,.site-description{
 			font-family: <?php echo $pacific_header_font; ?>;
 		}
 		<?php } ?>

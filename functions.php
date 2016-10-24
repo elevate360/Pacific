@@ -363,19 +363,19 @@
 	public function register_widget_areas(){
 		//Page with sidebar template	
 		register_sidebar( array(
-			'name'          => esc_html__( 'Standard Page Sidebar', 'retail-motion' ),
+			'name'          => esc_html__( 'Standard Page Sidebar', 'pacific' ),
 			'id'            => 'widget-page-sidebar',
-			'description'   => esc_html__( 'Displayed when selecting the \'Page with Sidebar\' page template' , 'retail-motion' ),
+			'description'   => esc_html__( 'Displayed when selecting the \'Page with Sidebar\' page template' , 'pacific' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
 			'before_title'  => '<h3 class="widget-title small-margin-top-none small-margin-bottom-small">',
-			'after_title'   => '</h3><hr class="orange medium"/>',
+			'after_title'   => '</h3><hr class="orange small"/>',
 		) );
 		//Footer 1 widget
 		register_sidebar( array(
-			'name'          => esc_html__( 'Footer Widget 1', 'retail-motion' ),
+			'name'          => esc_html__( 'Footer Widget 1', 'pacific' ),
 			'id'            => 'widget-footer-1',
-			'description'   => esc_html__( 'First widget zone displayed in the footer' , 'retail-motion' ),
+			'description'   => esc_html__( 'First widget zone displayed in the footer' , 'pacific' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
 			'before_title'  => '<h3 class="widget-title">',
@@ -383,9 +383,9 @@
 		) );
 		//Footer 2 widget
 		register_sidebar( array(
-			'name'          => esc_html__( 'Footer Widget 2', 'retail-motion' ),
+			'name'          => esc_html__( 'Footer Widget 2', 'pacific' ),
 			'id'            => 'widget-footer-2',
-			'description'   => esc_html__( 'Second widget zone displayed in the footer' , 'retail-motion' ),
+			'description'   => esc_html__( 'Second widget zone displayed in the footer' , 'pacific' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
 			'before_title'  => '<h3 class="widget-title">',
@@ -394,9 +394,9 @@
 		
 		//Footer 3 widget
 		register_sidebar( array(
-			'name'          => esc_html__( 'Footer Widget 3', 'retail-motion' ),
+			'name'          => esc_html__( 'Footer Widget 3', 'pacific' ),
 			'id'            => 'widget-footer-3',
-			'description'   => esc_html__( 'Third widget zone displayed in the footer' , 'retail-motion' ),
+			'description'   => esc_html__( 'Third widget zone displayed in the footer' , 'pacific' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
 			'before_title'  => '<h3 class="widget-title">',
@@ -439,8 +439,8 @@
 		
 		wp_enqueue_script( 'jquery-masonry' , array('jquery')); //masonry, used for blogs /  listings
 		wp_enqueue_script( 'theme-public-script' , get_stylesheet_directory_uri() . '/js/el_pacific_theme_scripts.js', array('jquery', 'jquery-masonry'));	
-		wp_enqueue_script( 'retail-motion-navigation', get_template_directory_uri() . '/js/navigation.js');
-		wp_enqueue_script( 'retail-motion-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js' );
+		wp_enqueue_script( 'pacific-navigation', get_template_directory_uri() . '/js/navigation.js');
+		wp_enqueue_script( 'pacific-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js' );
 		
 		//Enqueue fonts from google
 		if(get_theme_mod('pacific_body_font')){
@@ -458,7 +458,7 @@
 	
 	//loads textdomain
 	public function load_theme_textdomain(){
-		load_theme_textdomain( 'retail-motion', get_template_directory() . '/languages' );
+		load_theme_textdomain( 'pacific', get_template_directory() . '/languages' );
 	}
 	
 	//adds theme support for various WP elements

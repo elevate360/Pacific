@@ -26,7 +26,7 @@ function pacific_posted_on() {
 		$time_string 
 	);
 
-	echo '<h3 class="posted-on small-margin-bottom-small fat small">' . $posted_on . '</h3>'; 
+	echo '<span class="posted-on small-margin-bottom-small fat small"><strong>Date: </strong>' . $posted_on . '</span>'; 
 
 }
 endif;
@@ -44,12 +44,12 @@ function pacific_categories_and_tags() {
 		
 		$categories_list = get_the_category_list( esc_html__( ', ', 'pacific' ) );
 		if ( $categories_list && pacific_categorized_blog() ) {
-			printf( '<span class="cat-links small-margin-right-small">' . '<i class="fa fa-file" aria-hidden="true"></i> %1$s</span>', $categories_list ); 
+			printf( '<span class="cat-links small-margin-right-small"><strong>' . __( 'Categories', 'pacific' ) . '</strong>' . '%1$s</span>', $categories_list ); 
 		}
 
 		$tags_list = get_the_tag_list( '', esc_html__( ', ', 'pacific' ) );
 		if ( $tags_list ) {
-			printf( '<span class="tags-links small-margin-right-small">' . '<i class="fa fa-tags" aria-hidden="true"></i> %1$s</span>', $tags_list ); 
+			printf( '<span class="tags-links small-margin-right-small"><strong>' . __( 'Tags', 'pacific' ) . '</strong>', $tags_list ); 
 		}
 	}
 
@@ -68,7 +68,7 @@ function pacific_categories_and_tags() {
 		'<span class="edit-link">',
 		'</span>',
 		'',
-		'button small orange'
+		'button small black'
 	);
 }
 endif;
