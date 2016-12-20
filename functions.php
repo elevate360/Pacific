@@ -379,7 +379,7 @@
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
 			'before_title'  => '<h3 class="widget-title">',
-			'after_title'   => '</h3>',
+			'after_title'   => '</h3>'
 		) );
 		//Footer 2 widget
 		register_sidebar( array(
@@ -389,7 +389,7 @@
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
 			'before_title'  => '<h3 class="widget-title">',
-			'after_title'   => '</h3>',
+			'after_title'   => '</h3>'
 		) );
 		
 		//Footer 3 widget
@@ -400,8 +400,20 @@
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
 			'before_title'  => '<h3 class="widget-title">',
-			'after_title'   => '</h3>',
+			'after_title'   => '</h3>'
 		) );
+		
+		//Bottom of post widget area
+		register_sidebar(array(
+			'name'          => esc_html__( 'Post Bottom Widget Area', 'pacific' ),
+			'id'            => 'widget-post-bottom-sidebar',
+			'description'   => esc_html__( 'Widget zone that is displayed at the bottom of the post (before comments if enabled). Displayed as a single column' , 'pacific' ),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h3 class="widget-title small-margin-top-none">',
+			'after_title'   => '</h3>'	
+		));
+		
 	}
 	
 	//Set content width

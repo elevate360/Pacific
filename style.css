@@ -2740,7 +2740,7 @@ a.button.no-border {
 }
 .vertical-nav.nav-menu .background-overlay {
   position: fixed;
-  background: rgba(31, 50, 67, 0.85);
+  background: rgba(25, 25, 25, 0.8);
   opacity: 1;
   width: 100%;
   height: 100%;
@@ -3080,6 +3080,7 @@ object {
 }
 .site-header .icon {
   cursor: pointer;
+  font-size: 1.75em;
 }
 .site-header .fold-arrow {
   position: absolute;

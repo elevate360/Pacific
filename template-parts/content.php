@@ -24,6 +24,15 @@
 			) );
 		?>
 	</div><!-- .entry-content -->
+	
+	<?php
+	//display widget zone if required
+	if(is_active_sidebar( 'widget-post-bottom-sidebar' )){?>
+		<div class="el-col-small-12 el-col-medium-8 el-col-medium-offset-2 widget-area small-margin-top-bottom-medium small-margin-top-small">
+			<?php dynamic_sidebar( 'widget-post-bottom-sidebar' ); ?>
+		</div>
+	<?php }?>
+	
 	<footer class="entry-header el-col-medium-8 el-col-medium-offset-2 small-align-center">
 		<?php
 		//Entry meta if post
@@ -34,7 +43,7 @@
 				<?php
 				pacific_posted_on();
 				pacific_categories_and_tags();?>
-				<hr class="small"/>
+				
 				<?php 
 			echo '</div>';
 			
