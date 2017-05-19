@@ -441,7 +441,7 @@
 	
 	//admin only scripts / styles
 	public function enqueue_admin_scripts_and_styles(){
-		wp_enqueue_style('theme-font-awesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css');
+		wp_enqueue_style( 'font-awesome', get_template_directory_uri() .'/font-awesome/css/font-awesome.min.css', array(), '4.7.0' );
 	}
 	
 	//public only scripts / styles
