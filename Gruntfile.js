@@ -11,7 +11,7 @@ module.exports = function (grunt) {
 		// Check textdomain errors.
 		checktextdomain: {
 			options:{
-				text_domain: '<%= pkg.name %>',
+				text_domain: 'pacific',
 				keywords: [
 					'__:1,2d',
 					'_e:1,2d',
@@ -219,8 +219,7 @@ module.exports = function (grunt) {
 	grunt.registerTask( 'css', [
 		'sass',
 		'postcss',
-		'wpcss',
-		'cssmin'
+		'wpcss'
 	]);
 
 	grunt.registerTask( 'dist', [

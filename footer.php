@@ -31,30 +31,32 @@
 			?>
 			<div class="menu-inner el-col-small-12 medium-margin-top-large">
 				<?php
-				
-				
+
+
 				?>
-				<?php 
+				<?php
 					//display menu if set
 					if(has_nav_menu('footer')){
-						
+
 						$menu_args = array(
-							'theme_location' 	=> 'secondary', 
-							'menu_id' 			=> 'footer-menu', 
+							'theme_location' 	=> 'secondary',
+							'menu_id' 			=> 'footer-menu',
 							'container_class'	=> 'nav-menu'
-							
+
 						);
-						
+
 						wp_nav_menu( $menu_args );
 					}
-				
+
 				 ?>
 			</div>
-			
+
 			<div class="attribution el-col-small-12 small-align-center">
-				<p>
-					Proudly powered by <a href="//wordpress.org/" target="_blank">WordPress</a> | Pacific by <a href="//elevate360.com.au/" target="_blank">Elevate</a>
-				</p>
+				<p class="site-info">
+					<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'pacific' ) ); ?>"><?php printf( esc_html__( 'Proudly powered by %s', 'pacific' ), 'WordPress' ); ?></a>
+					<span class="sep"> | </span>
+					<?php printf( esc_html__( 'Theme: %1$s by %2$s.', 'pacific' ), 'pacific', '<a href="https://automattic.com/" rel="designer">Elevate</a>' ); ?>
+				</p><!-- .site-info -->
 			</div>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->

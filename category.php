@@ -4,11 +4,11 @@
  * Category Term Archive
  */
 
- 
-$el_pacific_theme = $el_pacific_theme::getInstance();
-get_header(); 
+
+$pacific_init = Pacific_Init::getInstance();
+get_header();
 //get a listing of our categories as links
-$categories = $el_pacific_theme::get_post_term_links('category');
+$categories = $pacific_init::get_post_term_links('category');
 echo $categories;
 ?>
 <div class="el-row inner">
@@ -23,9 +23,9 @@ echo $categories;
 			while ( have_posts() ) : the_post();
 
 				$html = '';
-				
-				$html .= $el_pacific_theme::get_post_card_html($post->ID);
-				
+
+				$html .= $pacific_init::get_post_card_html($post->ID);
+
 				echo $html;
 
 			endwhile;
@@ -41,7 +41,7 @@ echo $categories;
 				);
 				the_posts_pagination($post_pagination_args);
 			echo '</div>';
-				
+
 		else :
 
 			get_template_part( 'template-parts/content', 'none' );
