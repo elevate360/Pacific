@@ -7,7 +7,7 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package Retail_Motion
+ * @package Pacific
  */
 
 /*

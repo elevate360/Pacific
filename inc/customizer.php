@@ -19,11 +19,12 @@ function pacific_customize_register($wp_customize){
 	//$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
 
 	//if we have support for custom background
-	if(current_theme_supports('custom-background')){
+	if( current_theme_supports( 'custom-background' ) ){
 
 		//FONTS
 		$google_fonts = array();
-		$google_api = 'https://www.googleapis.com/webfonts/v1/webfonts?sort=alpha&key=AIzaSyCxW8RZ-xZVyfbY-nriW_E7VimgydHa_uo';
+		$google_api = 'https://www.googleapis.com/webfonts/v1/webfonts?key=AIzaSyBwIX97bVWr3-6AIUvGkcNnmFgirefZ6Sw';
+		//$google_api = 'https://raw.githubusercontent.com/jonathantneal/google-fonts-complete/master/google-fonts.json';
 	    $font_content = wp_remote_get( $google_api, array('sslverify'   => false) );
 
 	    if(!empty($font_content) && !isset($font_content->error)){
@@ -42,18 +43,13 @@ function pacific_customize_register($wp_customize){
 		);
 
 
-		$wp_customize->add_setting('pacific_body_font',
+		$wp_customize->add_setting( 'pacific_body_font',
 			array(
 				'default'			=> 'Montserrat',
-				'sanitize_callback'	=> 'esc_html'
+				'sanitize_callback'	=> 'pacific_sanitize_html'
 			)
 		);
-		$wp_customize->add_setting('pacific_header_font',
-			array(
-				'default'			=> 'Montserrat',
-				'sanitize_callback'	=> 'esc_html'
-			)
-		);
+
 		$wp_customize->add_control('pacific_body_font',
 			array(
 				'label'				=> __( 'Body Font', 'pacific' ),
@@ -63,6 +59,14 @@ function pacific_customize_register($wp_customize){
 				'choices'			=> $google_fonts
 			)
 		);
+
+		$wp_customize->add_setting( 'pacific_header_font',
+			array(
+				'default'			=> 'Montserrat',
+				'sanitize_callback'	=> 'pacific_sanitize_html'
+			)
+		);
+
 		$wp_customize->add_control('pacific_header_font',
 			array(
 				'label'				=> __( 'Header Font', 'pacific' ),
@@ -83,7 +87,7 @@ function pacific_customize_register($wp_customize){
 		$wp_customize->add_setting('pacific_text_color',
 			array(
 				'default'			=> '#333333',
-				'sanitize_callback'	=> 'sanitize_hex_color'
+				'sanitize_callback'	=> 'pacific_sanitize_hex_color'
 			)
 		);
 		$wp_customize->add_control(new WP_Customize_Color_Control(
@@ -102,7 +106,7 @@ function pacific_customize_register($wp_customize){
 		$wp_customize->add_setting('pacific_link_color',
 			array(
 				'default'			=> '#555555',
-				'sanitize_callback'	=> 'sanitize_hex_color'
+				'sanitize_callback'	=> 'pacific_sanitize_hex_color'
 			)
 		);
 		$wp_customize->add_control(new WP_Customize_Color_Control(
@@ -121,7 +125,7 @@ function pacific_customize_register($wp_customize){
 		$wp_customize->add_setting('pacific_header_color',
 			array(
 				'default'			=> '#333333',
-				'sanitize_callback'	=> 'sanitize_hex_color'
+				'sanitize_callback'	=> 'pacific_sanitize_hex_color'
 			)
 		);
 		$wp_customize->add_control(new WP_Customize_Color_Control(
@@ -142,13 +146,13 @@ function pacific_customize_register($wp_customize){
 		$wp_customize->add_setting('pacific_footer_background_color',
 			array(
 				'default'			=> '#333333',
-				'sanitize_callback'	=> 'sanitize_hex_color'
+				'sanitize_callback'	=> 'pacific_sanitize_hex_color'
 			)
 		);
 		$wp_customize->add_setting('pacific_footer_text_color',
 			array(
 				'default'			=> '#ffffff',
-				'sanitize_callback'	=> 'sanitize_hex_color'
+				'sanitize_callback'	=> 'pacific_sanitize_hex_color'
 			)
 		);
 
@@ -180,7 +184,7 @@ function pacific_customize_register($wp_customize){
 		$wp_customize->add_setting('pacific_accent_color',
 			array(
 				'default'			=> '#3487BF',
-				'sanitize_callback'	=> 'sanitize_hex_color'
+				'sanitize_callback'	=> 'pacific_sanitize_hex_color'
 			)
 		);
 		$wp_customize->add_control(new WP_Customize_Color_Control(
@@ -200,38 +204,38 @@ function pacific_customize_register($wp_customize){
 		$wp_customize->add_setting('pacific_header_background_color',
 			array(
 				'default'			=> '#efefef',
-				'sanitize_callback' => 'sanitize_hex_color'
+				'sanitize_callback' => 'pacific_sanitize_hex_color'
 			)
 		);
 		$wp_customize->add_setting('pacific_header_text_color',
 			array(
 				'default'			=> '#333333',
-				'sanitize_callback' => 'sanitize_hex_color'
+				'sanitize_callback' => 'pacific_sanitize_hex_color'
 			)
 		);
 		$wp_customize->add_setting('pacific_header_button_primary_text',
 			array(
 				'default'			=> '',
-				'sanitize_callback'	=> 'esc_html'
+				'sanitize_callback'	=> 'pacific_sanitize_html'
 			)
 		);
 		$wp_customize->add_setting('pacific_header_button_primary_url',
 			array(
 				'default'			=> '',
-				'sanitize_callback'	=> 'esc_url'
+				'sanitize_callback'	=> 'pacific_sanitize_url'
 			)
 		);
 
 		$wp_customize->add_setting('pacific_header_button_secondary_text',
 			array(
 				'default'			=> '',
-				'sanitize_callback'	=> 'esc_html'
+				'sanitize_callback'	=> 'pacific_sanitize_html'
 			)
 		);
 		$wp_customize->add_setting('pacific_header_button_secondary_url',
 			array(
 				'default'			=> '',
-				'sanitize_callback'	=> 'esc_url'
+				'sanitize_callback'	=> 'pacific_sanitize_url'
 			)
 		);
 
@@ -309,7 +313,7 @@ add_action('customize_register','pacific_customize_register');
 function pacific_output_dynamic_customizer_styles(){
 	//background image options
 	$pacific_background_size = get_theme_mod('pacific_background_size');
-	$background_color = get_theme_mod('background_color', get_theme_support('custom-background', 'default-color'));
+	$background_color = get_theme_mod('background_color', get_theme_support('custom-background', '#ffffff') );
 	//universal color options
 	$pacific_text_color = get_theme_mod('pacific_text_color');
 	$pacific_header_color = get_theme_mod('pacific_header_color');
@@ -337,25 +341,25 @@ function pacific_output_dynamic_customizer_styles(){
 
 		<?php if(!empty($pacific_text_color)){ ?>
 		body {
-			color: <?php echo $pacific_text_color; ?>;
+			color: <?php echo esc_attr( $pacific_text_color ); ?>;
 		}
 		<?php } ?>
 
-		<?php if(!empty($pacific_body_font)){?>
+		<?php if( !empty( $pacific_body_font ) ){?>
 		body{
-			font-family: <?php echo $pacific_body_font; ?>;
+			font-family: <?php echo esc_attr( $pacific_body_font ); ?>;
 		}
 		<?php } ?>
 
 		<?php if(!empty($pacific_header_color)){ ?>
 		h1,h2,h3,h4,h5,h6{
-			color: <?php echo $pacific_header_color; ?>;
+			color: <?php echo esc_attr( $pacific_header_color ); ?>;
 		}
 		<?php } ?>
 
 		<?php if(!empty($pacific_header_font)){?>
 		h1,h2,h3,h4,h5,h6,.site-title,.site-description{
-			font-family: <?php echo $pacific_header_font; ?>;
+			font-family: <?php echo esc_attr( $pacific_header_font ); ?>;
 		}
 		<?php } ?>
 
@@ -363,13 +367,13 @@ function pacific_output_dynamic_customizer_styles(){
 		a,
 		a:active,
 		a:visited{
-			color: <?php echo $pacific_link_color; ?>;
+			color: <?php echo esc_attr( $pacific_link_color ); ?>;
 		}
 		<?php } ?>
 
 		<?php if(!empty($pacific_footer_background_color)){ ?>
 		.site-footer{
-			background-color: <?php echo $pacific_footer_background_color; ?>;
+			background-color: <?php echo esc_attr( $pacific_footer_background_color ); ?>;
 		}
 		<?php } ?>
 
@@ -382,34 +386,34 @@ function pacific_output_dynamic_customizer_styles(){
 		.site-footer h4,
 		.site-footer h5,
 		.site-footer h6{
-			color: <?php echo $pacific_footer_text_color; ?>;
+			color: <?php echo esc_attr( $pacific_footer_text_color ); ?>;
 		}
 		<?php } ?>
 
 		<?php if(!empty($pacific_accent_color)){ ?>
 		hr{
-			background-color: <?php echo $pacific_accent_color; ?>;
+			background-color: <?php echo esc_attr( $pacific_accent_color ); ?>;
 		}
 		blockquote, q{
-			border-top-color: <?php echo $pacific_accent_color; ?>;
-			border-bottom-color: <?php echo $pacific_accent_color; ?>;
-			color: <?php echo $pacific_accent_color; ?>;
+			border-top-color: <?php echo esc_attr( $pacific_accent_color ); ?>;
+			border-bottom-color: <?php echo esc_attr( $pacific_accent_color ); ?>;
+			color: <?php echo esc_attr( $pacific_accent_color ); ?>;
 		}
 		.entry-content ul li:before,
 		.entry-content ol li:before{
-			background-color: <?php echo $pacific_accent_color; ?>;
+			background-color: <?php echo esc_attr( $pacific_accent_color ); ?>;
 		}
 		<?php } ?>
 
 		<?php if(!empty($pacific_header_text_color)){?>
 		.site-header .header-inner{
-			color: <?php echo $pacific_header_text_color; ?>;
+			color: <?php echo esc_attr( $pacific_header_text_color ); ?>;
 		}
 		<?php } ?>
 
 		<?php if(!empty($pacific_accent_color)){?>
 		.nav-links .page-numbers{
-			background-color: <?php echo $pacific_accent_color; ?>;
+			background-color: <?php echo esc_attr( $pacific_accent_color ); ?>;
 			color: #fff;
 		}
 		<?php } ?>
@@ -419,7 +423,7 @@ function pacific_output_dynamic_customizer_styles(){
 		.term-list .button.active,
 		.term-list .button:hover,
 		.term-list .button:active{
-			background-color: <?php echo $pacific_accent_color; ?>;
+			background-color: <?php echo esc_attr( $pacific_accent_color ); ?>;
 		}
 		<?php } ?>
 
@@ -427,7 +431,7 @@ function pacific_output_dynamic_customizer_styles(){
 	<?php
 
 }
-add_action('wp_head', 'pacific_output_dynamic_customizer_styles', 99, 1);
+add_action( 'wp_head', 'pacific_output_dynamic_customizer_styles', 99 );
 
 
 

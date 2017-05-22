@@ -442,11 +442,11 @@
 	public function enqueue_public_scripts_and_styles(){
 
 		//Enqueue fonts from google
-		if( get_theme_mod( 'pacific_body_font' ) ){
-			wp_enqueue_style( 'pacific-body-font', '//fonts.googleapis.com/css?family=' . get_theme_mod('pacific_body_font') );
+		if( get_theme_mod( 'pacific_body_font' ) !== '' ){
+			wp_enqueue_style( 'pacific-body-font', '//fonts.googleapis.com/css?family=' . get_theme_mod('pacific_body_font', 'Montserrat') );
 		}
-		if( get_theme_mod( 'pacific_header_font' ) ){
-			wp_enqueue_style( 'pacific-header-font', '//fonts.googleapis.com/css?family=' . get_theme_mod('pacific_header_font') );
+		if( get_theme_mod( 'pacific_header_font' ) !== '' ){
+			wp_enqueue_style( 'pacific-header-font', '//fonts.googleapis.com/css?family=' . get_theme_mod('pacific_header_font', 'Montserrat') );
 		}
 
 		wp_enqueue_style( 'font-awesome', get_template_directory_uri() .'/font-awesome/css/font-awesome.min.css', array(), '4.7.0' );
@@ -487,7 +487,7 @@
 
 		//Custom background
 		$custom_background_args = array(
-			'default-color'          => 'fffffff',
+			'default-color'          => 'ffffff',
 			'default-image'          => '',
 			'default-repeat'         => 'no-repeat',
 			'default-position-x'     => 'center',
@@ -691,6 +691,11 @@ require get_template_directory() . '/inc/template-tags.php';
  * Custom functions that act independently of the theme templates.
  */
 require get_template_directory() . '/inc/extras.php';
+
+/**
+ * Sanitization callbacks.
+ */
+require get_template_directory() . '/inc/sanitization-callbacks.php';
 
 /**
  * Customizer additions.

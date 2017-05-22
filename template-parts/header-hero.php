@@ -20,7 +20,7 @@ $object = get_queried_object();
 		//header background color (can either be set or removed for transparency)
 		$header_background_color = get_theme_mod('pacific_header_background_color');
 		if($header_background_color){
-			echo '<div class="header-background-color" style="background-color:' . $header_background_color . '"></div>';
+			echo '<div class="header-background-color" style="background-color:' . esc_attr( $header_background_color ) . '"></div>';
 		}
 
 		//custom header image
@@ -28,7 +28,7 @@ $object = get_queried_object();
 			$header = get_custom_header();
 
 			if($header->url){
-				$header_image = '<div class="header-background-image background-image" style="background-image: url(' . $header->url . ');"></div>';
+				$header_image = '<div class="header-background-image background-image" style="background-image: url(' . esc_url( $header->url ) . ');"></div>';
 			}
 		}
 	}
@@ -39,7 +39,7 @@ $object = get_queried_object();
 
 			$post_thumbnail_id = get_post_thumbnail_id($object->ID);
 			$image_url = wp_get_attachment_image_src($post_thumbnail_id, 'large', false)[0];
-			$header_image = '<div class="header-background-image background-image" style="background-image: url(' . $image_url . ');"></div>';
+			$header_image = '<div class="header-background-image background-image" style="background-image: url(' . esc_url( $image_url ) . ');"></div>';
 		}
 	}
 
@@ -59,8 +59,8 @@ $object = get_queried_object();
 				}
 			}
 			//Display sitetitle and description if required
-			$show_title_description = get_theme_mod('header_text');
-			if($show_title_description){
+			$show_title_description = get_theme_mod( 'header_text', true );
+			if($show_title_description == true ){
 				$site_name = get_bloginfo('name');
 				$site_description = get_bloginfo('description');
 
@@ -106,9 +106,9 @@ $object = get_queried_object();
 
 				$term_prefix = '';
 				if($object->taxonomy === 'category'){
-					$term_prefix = 'Categorised Under: ';
+					$term_prefix = __( 'Categorised Under: ', 'pacific' );
 				}if($object->taxonomy === 'post_tag'){
-					$term_prefix = 'Tagged As: ';
+					$term_prefix = __( 'Tagged As: ', 'pacific' );
 				}
 
 				$title = $term_prefix . $object->name;
@@ -124,10 +124,10 @@ $object = get_queried_object();
 
 				if(!empty($title)){
 					?>
-					<h1 class="title uppercase big fat"><?php echo $title; ?></h1>
+					<h1 class="title uppercase big fat"><?php echo esc_attr( $title ); ?></h1>
 				<?php }
 				if(!empty($subtitle)){?>
-					<h3 class="subtitle"><?php echo $subtitle; ?></h3>
+					<h3 class="subtitle"><?php echo htmlspecialchars_decode( esc_attr( $subtitle ) ); ?></h3>
 				<?php }
 			}?>
 
@@ -142,10 +142,10 @@ $object = get_queried_object();
 				if(!empty($pacific_header_button_primary_text) || !empty($pacific_header_button_secondary_text)){?>
 					<div class="cta-buttons">
 					<?php if(!empty($pacific_header_button_primary_text)){?>
-						<a class="button big white small-margin-left-small small-margin-right-small small-margin-bottom-small" href="<?php echo $pacific_header_button_primary_url; ?>" title="<?php echo $pacific_header_button_primary_text; ?>"><?php echo $pacific_header_button_primary_text; ?></a>
+						<a class="button big white small-margin-left-small small-margin-right-small small-margin-bottom-small" href="<?php echo esc_url( $pacific_header_button_primary_url ); ?>" title="<?php echo esc_attr( $pacific_header_button_primary_text ); ?>"><?php echo esc_attr( $pacific_header_button_primary_text ); ?></a>
 					<?php } ?>
 					<?php if(!empty($pacific_header_button_secondary_text)){ ?>
-						<a class="button big white small-margin-left-small small-margin-right-small small-margin-bottom-small" href="<?php echo $pacific_header_button_secondary_url; ?>" title="<?php echo $pacific_header_button_secondary_text; ?>"><?php echo $pacific_header_button_secondary_text; ?></a>
+						<a class="button big white small-margin-left-small small-margin-right-small small-margin-bottom-small" href="<?php echo esc_url( $pacific_header_button_secondary_url ); ?>" title="<?php echo esc_attr( $pacific_header_button_secondary_text ); ?>"><?php echo esc_attr( $pacific_header_button_secondary_text ); ?></a>
 					<?php }?>
 					</div>
 				<?php }
@@ -165,7 +165,7 @@ $object = get_queried_object();
 					'theme_location' 	=> 'primary',
 					'menu_id' 			=> 'primary-menu',
 					'container' 		=> false,
-					'link_before'			=> '<div class="link-text">',
+					'link_before'		=> '<div class="link-text">',
 					'link_after' 		=> '</div><div class="submenu-toggle"><i class="fa fa-angle-down" aria-hidden="true"></i></div>'
 				);
 
