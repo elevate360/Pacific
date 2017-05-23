@@ -26,10 +26,6 @@
 		add_action( 'el_display_post_navigation', array( $this, 'display_post_navigation') );
 		add_action( 'el_display_comment_template', array( $this, 'el_display_comment_template') );
 
-		//universal shortcodes
-		//add_action('init', array($this, 'register_shortcodes'),10, 1);
-
-
  	}
 
 	//hook to display featured posts
@@ -269,49 +265,6 @@
 		return $html;
 	}
 
-
-	//registers universal shortcodes for use
-	/*
-	 * TODO: Come back to this later and extract to a plugin, themecheck rules complain about it being in the theme
-	public function register_shortcodes(){
-		add_shortcode('el_row', array($this, 'render_shortcodes'));
-		add_shortcode('el_col', array($this, 'render_shortcodes'));
-	}
-
-	//output for the shortcodes
-	public function render_shortcodes($atts, $content = '', $tag){
-
-		$html = '';
-
-		//Row shortcode - [el_row][/el_row]
-		if($tag == 'el_row'){
-			$html .= '<div class="el-row">';
-				$html .= do_shortcode(trim($content));
-			$html .= '</div>';
-		}
-
-		//Column shortcode - [el_col small="12" medium="6" large="4"][/el_col]
-		else if($tag == 'el_col'){
-			//column arguments
-			$args = shortcode_atts(array(
-				'small'	 => '12',
-				'medium' => '',
-				'large'	 => ''
-			), $atts, $tag);
-
-			//build output
-			$classes = 'el-col-small-' . $args['small'];
-			$classes .= (!empty($args['medium'])) ? ' el-col-medium-' . $args['medium'] : '';
-			$classes .= (!empty($args['large'])) ? ' el-col-large-' . $args['large'] : '';
-
-			$html .= '<div class="' . $classes .'">';
-				$html .= do_shortcode(trim($content));
-			$html .= '</div>';
-		}
-
-		return $html;
-	}*/
-
 	//displays the comments template on single items, wrapped in the grid style
 	public static function el_display_comment_template(){
 		//display post navigation
@@ -499,17 +452,6 @@
 
 		add_theme_support( 'custom-background', $custom_background_args );
 
-
-		//post formats
-		$post_formats_args = array( 'aside', 'link', 'image', 'quote', 'status', 'video', 'audio', 'chat' );
-		//add support for new `post-format` elements (WP 3.9)
-		if( $wp_version >= '3.9.0' ){
-			array_push( $post_formats_args, 'gallery' );
-			array_push( $post_formats_args, 'caption' );
-		}
-		add_theme_support( 'post-formats', $post_formats_args );
-
-
 		//Custom header
 		$custom_header_args = array(
 			'default-image'          => '',
@@ -548,6 +490,12 @@
 			add_theme_support('custom-logo', $logo_args);
 
 		}
+
+		/*
+		 * This theme styles the visual editor to resemble the theme style,
+		 * specifically font, colors, icons, and column width.
+		 */
+		add_editor_style( array( 'editor-style.css' ) );
 	}
 
 	//TODO: COME BACK TO THIS SOON TO ADJUST

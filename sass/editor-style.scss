@@ -1,0 +1,119 @@
+@import "variables-site/variables-site";
+@import "mixins/mixins-master";
+
+body,
+button,
+input,
+select,
+textarea {
+	color: $color__text-main;
+	font-family: $font__main;
+	@include font-size(1);
+	line-height: $font__line-height-body;
+}
+
+body.post-type-page,
+body.post-type-post {
+	max-width: 720px;
+}
+
+blockquote, q {
+	quotes: "" "";
+
+	&:before,
+	&:after {
+		content: "";
+	}
+}
+
+hr {
+	background-color: $color__background-hr;
+	border: 0;
+	height: 1px;
+	margin-bottom: 1.5em;
+}
+
+img {
+	height: auto; /* Make sure images are scaled correctly. */
+	max-width: 100%; /* Adhere to container width. */
+}
+
+figure {
+	margin: 1em 0; /* Extra wide images within figure tags don't overflow the content area. */
+}
+
+a {
+  text-decoration: none;
+  transition: all 250ms linear;
+
+  &:focus {
+    outline: thin dotted;
+  }
+  &:hover,
+  &:active {
+    outline: 0;
+  }
+}
+
+.button,
+a.button{
+  display: inline-block;
+  padding: 12px 20px;
+  border-radius: 0px;
+  border: solid 1px #fff;
+  text-decoration: none;
+  font-weight: 400;
+  color: #333;
+  transition: all 300ms ease-in;
+
+  &.small{
+    @include font-size(0.9);
+    padding: 8px 13px;
+  }
+  &.fat{
+    font-weight: 700;
+  }
+  &.large{
+    @include font-size(1.2);
+    padding: 18px 24px;
+  }
+
+  //White button
+  &.white{
+    color: #fff;
+    border: solid 1px #fff;
+
+    &:active,
+    &:focus,
+    &:hover{
+      background: #fff;
+      color: #333;
+    }
+
+  }
+  //black button
+  &.black{
+    color: #333;
+    border: solid 1px #333;
+
+    &:active,
+    &:focus,
+    &:hover{
+      background: #333;
+      color: #fff;
+    }
+
+  }
+  &.no-border{
+    border: 0px;
+  }
+}
+
+@import "elements/lists";
+@import "elements/tables";
+
+@import "typography/headings";
+
+@import "typography/copy";
+
+@import "media/media";

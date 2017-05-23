@@ -74,10 +74,11 @@ module.exports = function (grunt) {
 		sass: {
 			dist: {
 				options: {
-					sourceMap: true
+					sourceMap: false
 				},
 				files: [{
-					'style.css': 'sass/style.scss'
+					'style.css': 'sass/style.scss',
+					'editor-style.css': 'sass/editor-style.scss'
 				}]
 			}
 		},
@@ -93,6 +94,10 @@ module.exports = function (grunt) {
 			main: {
 				src: 'style.css',
 				dest: 'style.css'
+			},
+			editor: {
+				src: 'editor-style.css',
+				dest: 'editor-style.css'
 			}
 		},
 
@@ -102,7 +107,8 @@ module.exports = function (grunt) {
 	                commentSpacing: true
 	            },
 	            files: {
-	            	'style.css': ['style.css']
+	            	'style.css': ['style.css'],
+	            	'editor-style.css': ['editor-style.css']
 	            }
 	        }
 	    },
@@ -123,6 +129,7 @@ module.exports = function (grunt) {
 			css: {
 				files: [
 					'sass/style.scss',
+					'sass/editor-style.scss',
 					'sass/blogs/*.scss',
 					'sass/elements/*.scss',
 					'sass/forms/*.scss',
