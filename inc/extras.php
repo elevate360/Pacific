@@ -24,6 +24,10 @@ function pacific_body_classes( $classes ) {
 		$classes[] = 'hfeed';
 	}
 
+	if ( is_front_page() ) {
+		$classes[] = 'is-front-page';
+	}
+
 	return $classes;
 }
 add_filter( 'body_class', 'pacific_body_classes' );

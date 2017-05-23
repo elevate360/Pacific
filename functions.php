@@ -396,10 +396,10 @@
 
 		//Enqueue fonts from google
 		if( get_theme_mod( 'pacific_body_font' ) !== '' ){
-			wp_enqueue_style( 'pacific-body-font', '//fonts.googleapis.com/css?family=' . get_theme_mod('pacific_body_font', 'Montserrat') );
+			wp_enqueue_style( 'pacific-body-font', '//fonts.googleapis.com/css?family=' . str_replace( ' ', '+', esc_attr( get_theme_mod('pacific_body_font', 'Montserrat') ) ) );
 		}
 		if( get_theme_mod( 'pacific_header_font' ) !== '' ){
-			wp_enqueue_style( 'pacific-header-font', '//fonts.googleapis.com/css?family=' . get_theme_mod('pacific_header_font', 'Montserrat') );
+			wp_enqueue_style( 'pacific-header-font', '//fonts.googleapis.com/css?family=' . str_replace( ' ', '+', esc_attr( get_theme_mod('pacific_header_font', 'Montserrat') ) ) );
 		}
 
 		wp_enqueue_style( 'font-awesome', get_template_directory_uri() .'/font-awesome/css/font-awesome.min.css', array(), '4.7.0' );
@@ -419,6 +419,8 @@
 
 	//loads textdomain
 	public function load_theme_textdomain(){
+		load_theme_textdomain( 'pacific', trailingslashit( WP_LANG_DIR ) . 'themes/' );
+		load_theme_textdomain( 'pacific', get_stylesheet_directory() . '/languages' );
 		load_theme_textdomain( 'pacific', get_template_directory() . '/languages' );
 	}
 
@@ -644,6 +646,11 @@ require get_template_directory() . '/inc/extras.php';
  * Sanitization callbacks.
  */
 require get_template_directory() . '/inc/sanitization-callbacks.php';
+
+/**
+ * Google Fonts.
+ */
+require get_template_directory() . '/inc/google-fonts.php';
 
 /**
  * Customizer additions.

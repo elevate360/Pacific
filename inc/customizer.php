@@ -21,20 +21,6 @@ function pacific_customize_register($wp_customize){
 	//if we have support for custom background
 	if( current_theme_supports( 'custom-background' ) ){
 
-		//FONTS
-		$google_fonts = array();
-		$google_api = 'https://www.googleapis.com/webfonts/v1/webfonts?key=AIzaSyBwIX97bVWr3-6AIUvGkcNnmFgirefZ6Sw';
-		//$google_api = 'https://raw.githubusercontent.com/jonathantneal/google-fonts-complete/master/google-fonts.json';
-	    $font_content = wp_remote_get( $google_api, array('sslverify'   => false) );
-
-	    if(!empty($font_content) && !isset($font_content->error)){
-			$font_content = json_decode($font_content['body']);
-
-			foreach($font_content->items as $font){
-				$google_fonts[$font->family] = $font->family;
-			}
-		}
-
 		$wp_customize->add_section('pacific_fonts',
 			array(
 				'title'				=> __( 'Fonts', 'pacific' ),
@@ -56,7 +42,7 @@ function pacific_customize_register($wp_customize){
 				'description'		=> __( 'Select the font family to use for your body text', 'pacific' ),
 				'section'			=> 'pacific_fonts',
 				'type'				=> 'select',
-				'choices'			=> $google_fonts
+				'choices'			=> pacific_google_fonts()
 			)
 		);
 
@@ -73,12 +59,53 @@ function pacific_customize_register($wp_customize){
 				'description'		=> __( 'Select the font family to use for your H1-h6 tags', 'pacific' ),
 				'section'			=> 'pacific_fonts',
 				'type'				=> 'select',
-				'choices'			=> $google_fonts
+				'choices'			=> pacific_google_fonts()
 			)
 		);
 
 
+		// Front Page Template Hero
+		$wp_customize->add_section(
+			'front_page_hero' ,
+			array(
+				'title' 			=> __( 'Hero Setting', 'pacific' ),
+		) );
 
+		$wp_customize->add_setting(
+			'hero_title' ,
+			array(
+			    'default' 			=> esc_attr__( 'A Compass For Small Business', 'pacific' ),
+			    'transport'			=> 'postMessage',
+			    'sanitize_callback' => 'pacific_sanitize_nohtml',
+		) );
+
+		$wp_customize->add_control(
+			'hero_title',
+			array(
+				'label'    		=> __( 'Hero Title', 'pacific' ),
+				'section'  		=> 'front_page_hero',
+				'settings' 		=> 'hero_title',
+				'type'     		=> 'text'
+			)
+		);
+
+		$wp_customize->add_setting(
+			'hero_subtitle' ,
+			array(
+			    'default' 			=> esc_attr__( 'The Captain Of WordPress Theme – Create an engaging, bold and sleek looking website design using Pacific.', 'pacific' ),
+			    'transport'			=> 'postMessage',
+			    'sanitize_callback' => 'pacific_sanitize_nohtml',
+		) );
+
+		$wp_customize->add_control(
+			'hero_subtitle',
+			array(
+				'label'    		=> __( 'Hero Subtitle', 'pacific' ),
+				'section'  		=> 'front_page_hero',
+				'settings' 		=> 'hero_subtitle',
+				'type'     		=> 'textarea'
+			)
+		);
 
 
 

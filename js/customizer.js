@@ -15,8 +15,8 @@
 			console.log("asdasdsadasdsa");
 		} );
 	} );
-	
-	
+
+
 	wp.customize( 'blogdescription', function( value ) {
 		value.bind( function( to ) {
 			$( '.site-description' ).text( to );
@@ -43,18 +43,30 @@
 			}
 		} );
 	} );
-	
+
+	wp.customize( 'hero_title', function( value ) {
+		value.bind( function( to ) {
+			$( '.is-front-page .site-header .title' ).text( to );
+		} );
+	} );
+
+	wp.customize( 'hero_subtitle', function( value ) {
+		value.bind( function( to ) {
+			$( '.is-front-page .site-header .subtitle' ).text( to );
+		} );
+	} );
+
 	// wp.customize('pacific_background_size', function( value ){
 		// value.bind(function( to ){
-// 			
+//
 			// console.log("pacific background");
 			// $('body').css('background-size', to);
-// 			
+//
 		// });
-// 		
+//
 	// });
-	
-	
-	
-	
+
+
+
+
 } )( jQuery );
