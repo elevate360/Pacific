@@ -4,7 +4,7 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package Retail_Motion
+ * @package Pacific
  */
 
 ?>
@@ -24,7 +24,7 @@
 			) );
 		?>
 	</div><!-- .entry-content -->
-	
+
 	<?php
 	//display widget zone if required
 	if(is_active_sidebar( 'widget-post-bottom-sidebar' )){?>
@@ -32,23 +32,23 @@
 			<?php dynamic_sidebar( 'widget-post-bottom-sidebar' ); ?>
 		</div>
 	<?php }?>
-	
+
 	<footer class="entry-header el-col-medium-8 el-col-medium-offset-2 small-align-center">
 		<?php
 		//Entry meta if post
 		if ( get_post_type() == 'post' ){
-			
+
 			echo '<div class="entry-meta">'; ?>
 				<hr class="small"/>
 				<?php
 				pacific_posted_on();
 				pacific_categories_and_tags();?>
-				
-				<?php 
+
+				<?php
 			echo '</div>';
-			
+
 		}?>
 	</footer><!-- .entry-header -->
-			
+
 
 </article><!-- #post-## -->

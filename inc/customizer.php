@@ -1,349 +1,346 @@
 <?php
 /**
- * Customizer elements for the theme. 
+ * Customizer elements for the theme.
  *
  */
 
- 
-function retail_motion_customize_register( $wp_customize ) {
-	
-}
-add_action( 'customize_register', 'retail_motion_customize_register' );
-
-
 //JS functionality for dynamically changing the live customizer
-function retail_motion_customize_preview_js() {
-	wp_enqueue_script( 'retail_motion_customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), '20151215', true );
+function pacific_customize_preview_js() {
+	wp_enqueue_script( 'pacific_customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), '20151215', true );
 }
-add_action( 'customize_preview_init', 'retail_motion_customize_preview_js' );
-
-
+add_action( 'customize_preview_init', 'pacific_customize_preview_js' );
 
 //add additional theme customizer elements
-function add_theme_customizer_support($wp_customize){
-	
+function pacific_customize_register($wp_customize){
+
 	//update site name, description and show/hide so they are dynamic in the editor
 	//$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
 	//$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
 	//$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
-	
+
 	//if we have support for custom background
-	if(current_theme_supports('custom-background')){
-			
-		//FONTS		
-		$google_fonts = array(); 
-		$google_api = 'https://www.googleapis.com/webfonts/v1/webfonts?sort=alpha&key=AIzaSyCxW8RZ-xZVyfbY-nriW_E7VimgydHa_uo';
-	    $font_content = wp_remote_get( $google_api, array('sslverify'   => false) );
-		
-	    if(!empty($font_content) && !isset($font_content->error)){
-			$font_content = json_decode($font_content['body']);
-		
-			foreach($font_content->items as $font){
-				$google_fonts[$font->family] = $font->family;
-			}
-		}
-		
+	if( current_theme_supports( 'custom-background' ) ){
+
 		$wp_customize->add_section('pacific_fonts',
 			array(
-				'title'				=> 'Fonts',
-				'description'		=> 'Control how the fonts display across your site'
+				'title'				=> __( 'Fonts', 'pacific' ),
+				'description'		=> __( 'Control how the fonts display across your site', 'pacific' )
 			)
 		);
-		
-		
-		$wp_customize->add_setting('pacific_body_font', 
+
+
+		$wp_customize->add_setting( 'pacific_body_font',
 			array(
 				'default'			=> 'Montserrat',
-				'sanitize_callback'	=> 'esc_html'
+				'sanitize_callback'	=> 'pacific_sanitize_html'
 			)
 		);
-		$wp_customize->add_setting('pacific_header_font', 
-			array(
-				'default'			=> 'Montserrat',
-				'sanitize_callback'	=> 'esc_html'
-			)
-		);
+
 		$wp_customize->add_control('pacific_body_font',
 			array(
-				'label'				=> 'Body Font',
-				'description'		=> 'Select the font family to use for your body text',
+				'label'				=> __( 'Body Font', 'pacific' ),
+				'description'		=> __( 'Select the font family to use for your body text', 'pacific' ),
 				'section'			=> 'pacific_fonts',
 				'type'				=> 'select',
-				'choices'			=> $google_fonts
+				'choices'			=> pacific_google_fonts()
 			)
 		);
+
+		$wp_customize->add_setting( 'pacific_header_font',
+			array(
+				'default'			=> 'Montserrat',
+				'sanitize_callback'	=> 'pacific_sanitize_html'
+			)
+		);
+
 		$wp_customize->add_control('pacific_header_font',
 			array(
-				'label'				=> 'Header Font',
-				'description'		=> 'Select the font family to use for your H1-h6 tags',
+				'label'				=> __( 'Header Font', 'pacific' ),
+				'description'		=> __( 'Select the font family to use for your H1-h6 tags', 'pacific' ),
 				'section'			=> 'pacific_fonts',
 				'type'				=> 'select',
-				'choices'			=> $google_fonts
+				'choices'			=> pacific_google_fonts()
 			)
 		);
-			
-			
-			
-			
-			
-			
+
+
+		// Front Page Template Hero
+		$wp_customize->add_section(
+			'front_page_hero' ,
+			array(
+				'title' 			=> __( 'Hero Setting', 'pacific' ),
+		) );
+
+		$wp_customize->add_setting(
+			'hero_title' ,
+			array(
+			    'default' 			=> esc_attr__( 'A Compass For Small Business', 'pacific' ),
+			    'transport'			=> 'postMessage',
+			    'sanitize_callback' => 'pacific_sanitize_nohtml',
+		) );
+
+		$wp_customize->add_control(
+			'hero_title',
+			array(
+				'label'    		=> __( 'Hero Title', 'pacific' ),
+				'section'  		=> 'front_page_hero',
+				'settings' 		=> 'hero_title',
+				'type'     		=> 'text'
+			)
+		);
+
+		$wp_customize->add_setting(
+			'hero_subtitle' ,
+			array(
+			    'default' 			=> esc_attr__( 'The Captain Of WordPress Theme – Create an engaging, bold and sleek looking website design using Pacific.', 'pacific' ),
+			    'transport'			=> 'postMessage',
+			    'sanitize_callback' => 'pacific_sanitize_nohtml',
+		) );
+
+		$wp_customize->add_control(
+			'hero_subtitle',
+			array(
+				'label'    		=> __( 'Hero Subtitle', 'pacific' ),
+				'section'  		=> 'front_page_hero',
+				'settings' 		=> 'hero_subtitle',
+				'type'     		=> 'textarea'
+			)
+		);
+
+
+
 		//COLOURS
 		//body color
-		$wp_customize->add_setting('pacific_text_color', 
+		$wp_customize->add_setting('pacific_text_color',
 			array(
 				'default'			=> '#333333',
-				'sanitize_callback'	=> 'sanitize_hex_color'
+				'sanitize_callback'	=> 'pacific_sanitize_hex_color'
 			)
-		); 
+		);
 		$wp_customize->add_control(new WP_Customize_Color_Control(
-			$wp_customize, 
+			$wp_customize,
 			'pacific_text_color',
 			array(
-				'label'				=> 'Text Color',
-				'description'		=> 'Color for standard text / body content',
+				'label'				=> __( 'Text Color', 'pacific' ),
+				'description'		=> __( 'Color for standard text / body content', 'pacific' ),
 				'section'			=> 'colors',
 				'type'				=> 'color'
 				)
 			)
 		);
-		
+
 		//link color
-		$wp_customize->add_setting('pacific_link_color', 
+		$wp_customize->add_setting('pacific_link_color',
 			array(
 				'default'			=> '#555555',
-				'sanitize_callback'	=> 'sanitize_hex_color'
+				'sanitize_callback'	=> 'pacific_sanitize_hex_color'
 			)
-		); 
+		);
 		$wp_customize->add_control(new WP_Customize_Color_Control(
-			$wp_customize, 
+			$wp_customize,
 			'pacific_link_color',
 			array(
-				'label'				=> 'Link Text Color',
-				'description'		=> 'Color used for standard links on the site',
+				'label'				=> __( 'Link Text Color', 'pacific' ),
+				'description'		=> __( 'Color used for standard links on the site', 'pacific' ),
 				'section'			=> 'colors',
 				'type'				=> 'color'
 				)
 			)
 		);
-		
+
 		//header (h1-h6) color
-		$wp_customize->add_setting('pacific_header_color', 
+		$wp_customize->add_setting('pacific_header_color',
 			array(
 				'default'			=> '#333333',
-				'sanitize_callback'	=> 'sanitize_hex_color'
+				'sanitize_callback'	=> 'pacific_sanitize_hex_color'
 			)
-		); 
+		);
 		$wp_customize->add_control(new WP_Customize_Color_Control(
-			$wp_customize, 
+			$wp_customize,
 			'pacific_header_color',
 			array(
-				'label'				=> 'H1 - H6 Color',
-				'description'		=> 'Color for H1-H6 tags',
+				'label'				=> __( 'H1 - H6 Color', 'pacific' ),
+				'description'		=> __( 'Color for H1-H6 tags', 'pacific' ),
 				'section'			=> 'colors',
 				'type'				=> 'color'
 				)
 			)
 		);
-		
-		
-		//Footer Color Settings		
+
+
+		//Footer Color Settings
 		//Footer background color
-		$wp_customize->add_setting('pacific_footer_background_color', 
+		$wp_customize->add_setting('pacific_footer_background_color',
 			array(
 				'default'			=> '#333333',
-				'sanitize_callback'	=> 'sanitize_hex_color'
+				'sanitize_callback'	=> 'pacific_sanitize_hex_color'
 			)
-		); 
-		$wp_customize->add_setting('pacific_footer_text_color', 
+		);
+		$wp_customize->add_setting('pacific_footer_text_color',
 			array(
 				'default'			=> '#ffffff',
-				'sanitize_callback'	=> 'sanitize_hex_color'
+				'sanitize_callback'	=> 'pacific_sanitize_hex_color'
 			)
-		); 
-		
+		);
+
 		$wp_customize->add_control(new WP_Customize_Color_Control(
-			$wp_customize, 
+			$wp_customize,
 			'pacific_footer_background_color',
 			array(
-				'label'				=> 'Footer Background Color',
-				'description'		=> 'Background color for the footer.',
+				'label'				=> __( 'Footer Background Color', 'pacific' ),
+				'description'		=> __( 'Background color for the footer.', 'pacific' ),
 				'section'			=> 'colors',
 				'type'				=> 'color'
 				)
 			)
 		);
 		$wp_customize->add_control(new WP_Customize_Color_Control(
-			$wp_customize, 
+			$wp_customize,
 			'pacific_footer_text_color',
 			array(
-				'label'				=> 'Footer Text Color',
-				'description'		=> 'Colour used for text including headers when displayed in the footer',
+				'label'				=> __( 'Footer Text Color', 'pacific' ),
+				'description'		=> __( 'Colour used for text including headers when displayed in the footer', 'pacific' ),
 				'section'			=> 'colors',
 				'type'				=> 'color'
 				)
 			)
 		);
-		
-		
-		//Misc settings 
-		$wp_customize->add_setting('pacific_accent_color', 
+
+
+		//Misc settings
+		$wp_customize->add_setting('pacific_accent_color',
 			array(
 				'default'			=> '#3487BF',
-				'sanitize_callback'	=> 'sanitize_hex_color'
+				'sanitize_callback'	=> 'pacific_sanitize_hex_color'
 			)
-		); 
+		);
 		$wp_customize->add_control(new WP_Customize_Color_Control(
-			$wp_customize, 
+			$wp_customize,
 			'pacific_accent_color',
 			array(
-				'label'				=> 'Theme Accent Colour',
-				'description'		=> 'Colour used for various small element such as blockquote text, UL / OL bullets and dividers',
+				'label'				=> __( 'Theme Accent Colour', 'pacific' ),
+				'description'		=> __( 'Colour used for various small element such as blockquote text, UL / OL bullets and dividers', 'pacific' ),
 				'section'			=> 'colors',
 				'type'				=> 'color'
 				)
 			)
 		);
-		
-		
-		
-			
-		//CUSTOM BACKGROUND
-		//Additional custom-background settings
-		$wp_customize->add_setting('pacific_background_size',
-			array(
-				'default'			=> 'cover',
-				'sanitize_callback' => 'esc_html'
-			)
-		);
-		$wp_customize->add_control('pacific_background_size', 
-			array(
-				'label'				=> 'Background Size',
-				'description'		=> 'How the background image will pan and scale',
-				'section'			=> 'background_image',
-				'type'				=> 'radio',
-				'settings'			=> 'pacific_background_size',
-				'choices'			=> array(
-					'cover'				=> 'Cover',
-					'contain'			=> 'Contain'
-				)
-			)
-		);
-		
+
 		//CUSTOM HEADER
 		//Additional custom-header settings to control output
 		$wp_customize->add_setting('pacific_header_background_color',
 			array(
 				'default'			=> '#efefef',
-				'sanitize_callback' => 'sanitize_hex_color'
+				'sanitize_callback' => 'pacific_sanitize_hex_color'
 			)
 		);
 		$wp_customize->add_setting('pacific_header_text_color',
 			array(
 				'default'			=> '#333333',
-				'sanitize_callback' => 'sanitize_hex_color'
+				'sanitize_callback' => 'pacific_sanitize_hex_color'
 			)
-		);	
+		);
 		$wp_customize->add_setting('pacific_header_button_primary_text',
 			array(
 				'default'			=> '',
-				'sanitize_callback'	=> 'esc_html'
+				'sanitize_callback'	=> 'pacific_sanitize_html'
 			)
-		);	
+		);
 		$wp_customize->add_setting('pacific_header_button_primary_url',
 			array(
 				'default'			=> '',
-				'sanitize_callback'	=> 'esc_url'
+				'sanitize_callback'	=> 'pacific_sanitize_url'
 			)
 		);
 
 		$wp_customize->add_setting('pacific_header_button_secondary_text',
 			array(
 				'default'			=> '',
-				'sanitize_callback'	=> 'esc_html'
+				'sanitize_callback'	=> 'pacific_sanitize_html'
 			)
-		);	
+		);
 		$wp_customize->add_setting('pacific_header_button_secondary_url',
 			array(
 				'default'			=> '',
-				'sanitize_callback'	=> 'esc_url'
+				'sanitize_callback'	=> 'pacific_sanitize_url'
 			)
-		);	
-		
-		
-		$wp_customize->add_control(new WP_Customize_Color_Control(
-			$wp_customize, 
+		);
+
+
+		$wp_customize->add_control( new WP_Customize_Color_Control(
+			$wp_customize,
 			'pacific_header_background_color',
 			array(
-				'label'				=> 'Header Background Color',
-				'description'		=> 'Background color for the header, useful if you don\'t want to upload an image',
+				'label'				=> __( 'Header Background Color', 'pacific' ),
+				'description'		=> __( 'Background color for the header, useful if you don\'t want to upload an image', 'pacific' ),
 				'section'			=> 'header_image',
 				'type'				=> 'color'
 				)
 			)
 		);
 		$wp_customize->add_control(new WP_Customize_Color_Control(
-			$wp_customize, 
+			$wp_customize,
 			'pacific_header_text_color',
 			array(
-				'label'				=> 'Header Text Color',
-				'description'		=> 'Colour of the main title and subtitle when displayed in the header. Also determines search / nav icon colour',
+				'label'				=> __( 'Header Text Color', 'pacific' ),
+				'description'		=> __( 'Colour of the main title and subtitle when displayed in the header. Also determines search / nav icon colour', 'pacific' ),
 				'section'			=> 'header_image',
 				'type'				=> 'color'
 				)
 			)
 		);
-		$wp_customize->add_control('pacific_header_button_primary_text', 
+		$wp_customize->add_control('pacific_header_button_primary_text',
 			array(
-				'label'				=> 'Primary CTA Text',
-				'description'		=> 'The main call to action text button displayed in the header',
+				'label'				=> __( 'Primary CTA Text', 'pacific' ),
+				'description'		=> __( 'The main call to action text button displayed in the header', 'pacific' ),
 				'section'			=> 'header_image',
 				'type'				=> 'text',
 				'settings'			=> 'pacific_header_button_primary_text',
 			)
 		);
-		$wp_customize->add_control('pacific_header_button_primary_url', 
+		$wp_customize->add_control('pacific_header_button_primary_url',
 			array(
-				'label'				=> 'Primary CTA URL',
-				'description'		=> 'The URL the main call to action button will link to',
+				'label'				=> __( 'Primary CTA URL', 'pacific' ),
+				'description'		=> __( 'The URL the main call to action button will link to', 'pacific' ),
 				'section'			=> 'header_image',
 				'type'				=> 'url',
 				'settings'			=> 'pacific_header_button_primary_url',
 			)
 		);
-		$wp_customize->add_control('pacific_header_button_secondary_text', 
+		$wp_customize->add_control('pacific_header_button_secondary_text',
 			array(
-				'label'				=> 'Secondary CTA Text',
-				'description'		=> 'The secondary call to action text button displayed in the header',
+				'label'				=> __( 'Secondary CTA Text', 'pacific' ),
+				'description'		=> __( 'The secondary call to action text button displayed in the header', 'pacific' ),
 				'section'			=> 'header_image',
 				'type'				=> 'text',
 				'settings'			=> 'pacific_header_button_secondary_text',
 			)
 		);
-		$wp_customize->add_control('pacific_header_button_secondary_url', 
+		$wp_customize->add_control('pacific_header_button_secondary_url',
 			array(
-				'label'				=> 'Secondary CTA URL',
-				'description'		=> 'The URL the secondary call to action button will link to',
+				'label'				=> __( 'Secondary CTA URL', 'pacific' ),
+				'description'		=> __( 'The URL the secondary call to action button will link to', 'pacific' ),
 				'section'			=> 'header_image',
 				'type'				=> 'url',
 				'settings'			=> 'pacific_header_button_secondary_url',
 			)
 		);
-		
-		
+
+
 	}
-	
-	
-	
+
+
+
 }
 
-add_action('customize_register','add_theme_customizer_support');
+add_action('customize_register','pacific_customize_register');
 
 
 //Output dynamic styles to the head based on customizer
-function output_dynamic_customizer_styles(){
+function pacific_output_dynamic_customizer_styles(){
 	//background image options
 	$pacific_background_size = get_theme_mod('pacific_background_size');
-	$background_color = get_theme_mod('background_color', get_theme_support('custom-background', 'default-color'));
+	$background_color = get_theme_mod('background_color', get_theme_support('custom-background', '#ffffff') );
 	//universal color options
 	$pacific_text_color = get_theme_mod('pacific_text_color');
 	$pacific_header_color = get_theme_mod('pacific_header_color');
@@ -352,61 +349,61 @@ function output_dynamic_customizer_styles(){
 	$pacific_body_font = get_theme_mod('pacific_body_font', 'Montserrat');
 	$pacific_header_font = get_theme_mod('pacific_header_font', 'Montserrat');
 	//footer color options
-	$pacific_footer_background_color = get_theme_mod('pacific_footer_background_color', '#333'); 
-	$pacific_footer_text_color = get_theme_mod('pacific_footer_text_color', '#fff'); 
+	$pacific_footer_background_color = get_theme_mod('pacific_footer_background_color', '#333');
+	$pacific_footer_text_color = get_theme_mod('pacific_footer_text_color', '#fff');
 	//custom header options
 	$pacific_header_text_color = get_theme_mod('pacific_header_text_color', '#333');
-	
+
 	?>
 	<style type="text/css" id="theme-customizier-styles">
 		body{
 			background-size: <?php echo $pacific_background_size; ?>;
 		}
-		
+
 		<?php if(!empty($background_color)){ ?>
 		body{
 			background-color: #<?php echo $background_color; ?>;
 		}
 		<?php } ?>
-		
+
 		<?php if(!empty($pacific_text_color)){ ?>
 		body {
-			color: <?php echo $pacific_text_color; ?>;
+			color: <?php echo esc_attr( $pacific_text_color ); ?>;
 		}
 		<?php } ?>
-		
-		<?php if(!empty($pacific_body_font)){?>
+
+		<?php if( !empty( $pacific_body_font ) ){?>
 		body{
-			font-family: <?php echo $pacific_body_font; ?>;
+			font-family: <?php echo esc_attr( $pacific_body_font ); ?>;
 		}
 		<?php } ?>
-		
+
 		<?php if(!empty($pacific_header_color)){ ?>
 		h1,h2,h3,h4,h5,h6{
-			color: <?php echo $pacific_header_color; ?>;
+			color: <?php echo esc_attr( $pacific_header_color ); ?>;
 		}
 		<?php } ?>
-		
+
 		<?php if(!empty($pacific_header_font)){?>
 		h1,h2,h3,h4,h5,h6,.site-title,.site-description{
-			font-family: <?php echo $pacific_header_font; ?>;
+			font-family: <?php echo esc_attr( $pacific_header_font ); ?>;
 		}
 		<?php } ?>
-		
-		<?php if(!empty($pacific_link_color)){?> 
+
+		<?php if(!empty($pacific_link_color)){?>
 		a,
 		a:active,
 		a:visited{
-			color: <?php echo $pacific_link_color; ?>;
+			color: <?php echo esc_attr( $pacific_link_color ); ?>;
 		}
 		<?php } ?>
-		
+
 		<?php if(!empty($pacific_footer_background_color)){ ?>
 		.site-footer{
-			background-color: <?php echo $pacific_footer_background_color; ?>;
+			background-color: <?php echo esc_attr( $pacific_footer_background_color ); ?>;
 		}
 		<?php } ?>
-		
+
 		<?php if(!empty($pacific_footer_text_color)){ ?>
 		.site-footer,
 		.site-footer a,
@@ -416,52 +413,52 @@ function output_dynamic_customizer_styles(){
 		.site-footer h4,
 		.site-footer h5,
 		.site-footer h6{
-			color: <?php echo $pacific_footer_text_color; ?>;
+			color: <?php echo esc_attr( $pacific_footer_text_color ); ?>;
 		}
 		<?php } ?>
-		
+
 		<?php if(!empty($pacific_accent_color)){ ?>
 		hr{
-			background-color: <?php echo $pacific_accent_color; ?>;
+			background-color: <?php echo esc_attr( $pacific_accent_color ); ?>;
 		}
 		blockquote, q{
-			border-top-color: <?php echo $pacific_accent_color; ?>;
-			border-bottom-color: <?php echo $pacific_accent_color; ?>;
-			color: <?php echo $pacific_accent_color; ?>;
+			border-top-color: <?php echo esc_attr( $pacific_accent_color ); ?>;
+			border-bottom-color: <?php echo esc_attr( $pacific_accent_color ); ?>;
+			color: <?php echo esc_attr( $pacific_accent_color ); ?>;
 		}
 		.entry-content ul li:before,
 		.entry-content ol li:before{
-			background-color: <?php echo $pacific_accent_color; ?>;
+			background-color: <?php echo esc_attr( $pacific_accent_color ); ?>;
 		}
 		<?php } ?>
-		
+
 		<?php if(!empty($pacific_header_text_color)){?>
 		.site-header .header-inner{
-			color: <?php echo $pacific_header_text_color; ?>;
+			color: <?php echo esc_attr( $pacific_header_text_color ); ?>;
 		}
 		<?php } ?>
-		
+
 		<?php if(!empty($pacific_accent_color)){?>
 		.nav-links .page-numbers{
-			background-color: <?php echo $pacific_accent_color; ?>;
+			background-color: <?php echo esc_attr( $pacific_accent_color ); ?>;
 			color: #fff;
 		}
 		<?php } ?>
-		
-		
+
+
 		<?php if(!empty($pacific_accent_color)){?>
-		.term-list .button.active, 
-		.term-list .button:hover, 
+		.term-list .button.active,
+		.term-list .button:hover,
 		.term-list .button:active{
-			background-color: <?php echo $pacific_accent_color; ?>;
+			background-color: <?php echo esc_attr( $pacific_accent_color ); ?>;
 		}
 		<?php } ?>
-		
+
 	</style>
 	<?php
-	
+
 }
-add_action('wp_head', 'output_dynamic_customizer_styles', 99, 1);
+add_action( 'wp_head', 'pacific_output_dynamic_customizer_styles', 99 );
 
 
 

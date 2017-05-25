@@ -3,13 +3,13 @@
  * Displays post listings (used when displaying posts on the homepage or as the dedicated blog page)
  */
 
-$el_pacific_theme = el_pacific_theme::getInstance();
-get_header(); 
+$pacific_init = Pacific_Init::getInstance();
+get_header();
 
 //get a listing of our categories as links
-$categories = $el_pacific_theme::get_post_term_links();
+$categories = $pacific_init::get_post_term_links();
 echo $categories;
- 
+
 
 get_header(); ?>
 <div class="el-row inner">
@@ -23,9 +23,9 @@ get_header(); ?>
 			while ( have_posts() ) : the_post();
 
 				$html = '';
-				
-				$html .= $el_pacific_theme::get_post_card_html($post->ID);
-				
+
+				$html .= $pacific_init::get_post_card_html($post->ID);
+
 				echo $html;
 
 			endwhile;
@@ -41,7 +41,7 @@ get_header(); ?>
 				);
 				the_posts_pagination($post_pagination_args);
 			echo '</div>';
-				
+
 		else :
 
 			get_template_part( 'template-parts/content', 'none' );
@@ -50,7 +50,7 @@ get_header(); ?>
 
 		</main><!-- #main -->
 	</div><!-- #primary -->
-	
+
 </div>
 <?php
 

@@ -4,7 +4,7 @@
  *
  * @link https://codex.wordpress.org/Creating_an_Error_404_Page
  *
- * @package Retail_Motion
+ * @package Pacific
  */
 
 get_header(); ?>
@@ -24,7 +24,7 @@ get_header(); ?>
 						<li><?php esc_html_e( 'see if you can find your content via our search form below', 'pacific' ); ?></li>
 						<li><?php esc_html_e( 'Use the main navigation menu at the top to find what you\'re looking for', 'pacific' ); ?></li>
 					</ul>
-					
+
 					<?php
 						get_search_form();
 					?>

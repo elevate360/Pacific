@@ -1,224 +1,398 @@
-# Copyright (C) 2016 Automattic
-# This file is distributed under the GNU General Public License v2 or later.
+# <!=Copyright (C) 2017 Simon Codrington
+# This file is distributed under the GNU General Public License v2 or later.=!>
 msgid ""
 msgstr ""
-"Project-Id-Version: _s 1.0.0\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/tags/_s\n"
-"POT-Creation-Date: 2016-02-14 21:43:07+00:00\n"
+"Project-Id-Version: Pacific 1.0.2\n"
+"Report-Msgid-Bugs-To: https://github.com/elevate360/Pacific/issues/new\n"
+"POT-Creation-Date: 2017-05-25 19:19:48+00:00\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
+"Last-Translator: LANGUAGE <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-Language: English\n"
+"X-Poedit-Country: UNITED STATES\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-KeywordsList: "
+"__;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c;_nc:4c,1,2;_"
+"x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;\n"
+"X-Textdomain-Support: yes\n"
+"X-Generator: grunt-wp-i18n1.0.0\n"
 
 #: 404.php:17
-#@ _s
-msgid "Oops! That page can&rsquo;t be found."
+msgid "We found nothing, we're sorry"
 msgstr ""
 
 #: 404.php:21
-#@ _s
-msgid "It looks like nothing was found at this location. Maybe try one of the links below or a search?"
+msgid ""
+"You've reached this page and there's nothing here. We might have eaten your "
+"pages or maybe someone ran away with it."
 msgstr ""
 
-#: 404.php:33
-#@ _s
-msgid "Most Used Categories"
+#: 404.php:22
+msgid "Here are a few options for you:"
 msgstr ""
 
-#. translators: %1$s: smiley
-#: 404.php:51
-#, php-format
-#@ _s
-msgid "Try looking in the monthly archives. %1$s"
+#: 404.php:24
+msgid "see if you can find your content via our search form below"
 msgstr ""
 
-#: comments.php:31
-#, php-format
-#@ _s
-msgctxt "comments title"
-msgid "One thought on &ldquo;%2$s&rdquo;"
-msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
-msgstr[0] ""
-msgstr[1] ""
+#: 404.php:25
+msgid "Use the main navigation menu at the top to find what you're looking for"
+msgstr ""
 
-#: comments.php:40
-#: comments.php:61
-#@ _s
+#: comments.php:52 comments.php:73
 msgid "Comment navigation"
 msgstr ""
 
-#: comments.php:43
-#: comments.php:64
-#@ _s
+#: comments.php:55 comments.php:76
 msgid "Older Comments"
 msgstr ""
 
-#: comments.php:44
-#: comments.php:65
-#@ _s
+#: comments.php:56 comments.php:77
 msgid "Newer Comments"
 msgstr ""
 
-#: comments.php:78
-#@ _s
+#: comments.php:90
 msgid "Comments are closed."
 msgstr ""
 
-#: footer.php:18
-#@ _s
+#: footer.php:56
 msgid "https://wordpress.org/"
 msgstr ""
 
-#: footer.php:18
-#, php-format
-#@ _s
+#: footer.php:56
 msgid "Proudly powered by %s"
 msgstr ""
 
-#: footer.php:20
-#, php-format
-#@ _s
+#: footer.php:58
 msgid "Theme: %1$s by %2$s."
 msgstr ""
 
-#: functions.php:47
-#@ _s
-msgid "Primary"
+#: functions.php:100
+msgid "All"
 msgstr ""
 
-#: functions.php:102
-#@ _s
-msgid "Sidebar"
+#: functions.php:313
+msgid "Standard Page Sidebar"
+msgstr ""
+
+#: functions.php:315
+msgid "Displayed when selecting the 'Page with Sidebar' page template"
+msgstr ""
+
+#: functions.php:323
+msgid "Footer Widget 1"
+msgstr ""
+
+#: functions.php:325
+msgid "First widget zone displayed in the footer"
+msgstr ""
+
+#: functions.php:333
+msgid "Footer Widget 2"
+msgstr ""
+
+#: functions.php:335
+msgid "Second widget zone displayed in the footer"
+msgstr ""
+
+#: functions.php:344
+msgid "Footer Widget 3"
+msgstr ""
+
+#: functions.php:346
+msgid "Third widget zone displayed in the footer"
+msgstr ""
+
+#: functions.php:355
+msgid "Post Bottom Widget Area"
+msgstr ""
+
+#: functions.php:357
+msgid ""
+"Widget zone that is displayed at the bottom of the post (before comments if "
+"enabled). Displayed as a single column"
+msgstr ""
+
+#: functions.php:593
+msgid "Primary nav menu"
+msgstr ""
+
+#: functions.php:597
+msgid "Footer nav menu"
 msgstr ""
 
 #: header.php:25
-#@ _s
 msgid "Skip to content"
 msgstr ""
 
-#: header.php:45
-#@ _s
-msgid "Primary Menu"
+#: inc/customizer.php:26
+msgid "Fonts"
 msgstr ""
 
-#: inc/template-tags.php:28
-#, php-format
-#@ _s
-msgctxt "post date"
-msgid "Posted on %s"
+#: inc/customizer.php:27
+msgid "Control how the fonts display across your site"
 msgstr ""
 
-#: inc/template-tags.php:33
-#, php-format
-#@ _s
-msgctxt "post author"
-msgid "by %s"
+#: inc/customizer.php:41
+msgid "Body Font"
 msgstr ""
 
-#. translators: used between list items, there is a space after the comma
-#: inc/template-tags.php:50
-#: inc/template-tags.php:56
-#@ _s
+#: inc/customizer.php:42
+msgid "Select the font family to use for your body text"
+msgstr ""
+
+#: inc/customizer.php:58
+msgid "Header Font"
+msgstr ""
+
+#: inc/customizer.php:59
+msgid "Select the font family to use for your H1-h6 tags"
+msgstr ""
+
+#: inc/customizer.php:71
+msgid "Hero Setting"
+msgstr ""
+
+#: inc/customizer.php:77 template-parts/header-hero.php:94
+msgid "A Compass For Small Business"
+msgstr ""
+
+#: inc/customizer.php:85
+msgid "Hero Title"
+msgstr ""
+
+#: inc/customizer.php:95 template-parts/header-hero.php:95
+msgid ""
+"The Captain Of WordPress Theme – Create an engaging, bold and sleek looking "
+"website design using Pacific."
+msgstr ""
+
+#: inc/customizer.php:103
+msgid "Hero Subtitle"
+msgstr ""
+
+#: inc/customizer.php:124
+msgid "Text Color"
+msgstr ""
+
+#: inc/customizer.php:125
+msgid "Color for standard text / body content"
+msgstr ""
+
+#: inc/customizer.php:143
+msgid "Link Text Color"
+msgstr ""
+
+#: inc/customizer.php:144
+msgid "Color used for standard links on the site"
+msgstr ""
+
+#: inc/customizer.php:162
+msgid "H1 - H6 Color"
+msgstr ""
+
+#: inc/customizer.php:163
+msgid "Color for H1-H6 tags"
+msgstr ""
+
+#: inc/customizer.php:190
+msgid "Footer Background Color"
+msgstr ""
+
+#: inc/customizer.php:191
+msgid "Background color for the footer."
+msgstr ""
+
+#: inc/customizer.php:201
+msgid "Footer Text Color"
+msgstr ""
+
+#: inc/customizer.php:202
+msgid "Colour used for text including headers when displayed in the footer"
+msgstr ""
+
+#: inc/customizer.php:221
+msgid "Theme Accent Colour"
+msgstr ""
+
+#: inc/customizer.php:222
+msgid ""
+"Colour used for various small element such as blockquote text, UL / OL "
+"bullets and dividers"
+msgstr ""
+
+#: inc/customizer.php:274
+msgid "Header Background Color"
+msgstr ""
+
+#: inc/customizer.php:275
+msgid "Background color for the header, useful if you don't want to upload an image"
+msgstr ""
+
+#: inc/customizer.php:285
+msgid "Header Text Color"
+msgstr ""
+
+#: inc/customizer.php:286
+msgid ""
+"Colour of the main title and subtitle when displayed in the header. Also "
+"determines search / nav icon colour"
+msgstr ""
+
+#: inc/customizer.php:294
+msgid "Primary CTA Text"
+msgstr ""
+
+#: inc/customizer.php:295
+msgid "The main call to action text button displayed in the header"
+msgstr ""
+
+#: inc/customizer.php:303
+msgid "Primary CTA URL"
+msgstr ""
+
+#: inc/customizer.php:304
+msgid "The URL the main call to action button will link to"
+msgstr ""
+
+#: inc/customizer.php:312
+msgid "Secondary CTA Text"
+msgstr ""
+
+#: inc/customizer.php:313
+msgid "The secondary call to action text button displayed in the header"
+msgstr ""
+
+#: inc/customizer.php:321
+msgid "Secondary CTA URL"
+msgstr ""
+
+#: inc/customizer.php:322
+msgid "The URL the secondary call to action button will link to"
+msgstr ""
+
+#: inc/template-tags.php:45 inc/template-tags.php:50
 msgid ", "
 msgstr ""
 
+#: inc/template-tags.php:47
+msgid "Categories"
+msgstr ""
+
 #: inc/template-tags.php:52
-#, php-format
-#@ _s
-msgid "Posted in %1$s"
+msgid "Tags"
 msgstr ""
 
-#: inc/template-tags.php:58
-#, php-format
-#@ _s
-msgid "Tagged %1$s"
+#: inc/template-tags.php:59
+msgid "Leave a Comment<span class=\"screen-reader-text\"> on %s</span>"
 msgstr ""
 
-#: inc/template-tags.php:64
-#@ _s
-msgid "Leave a comment"
-msgstr ""
-
-#: inc/template-tags.php:64
-#@ _s
-msgid "1 Comment"
-msgstr ""
-
-#: inc/template-tags.php:64
-#@ _s
-msgid "% Comments"
-msgstr ""
-
+#: inc/template-tags.php:65 template-parts/content-page.php:26
 #. translators: %s: Name of current post
-#: inc/template-tags.php:71
-#: template-parts/content-page.php:33
-#, php-format
-#@ _s
 msgid "Edit %s"
 msgstr ""
 
-#: search.php:19
-#, php-format
-#@ _s
+#: search.php:16
 msgid "Search Results for: %s"
 msgstr ""
 
-#: template-parts/content-none.php:14
-#@ _s
+#: searchform.php:8
+msgid "Search for:"
+msgstr ""
+
+#: template-parts/content-none.php:9
 msgid "Nothing Found"
 msgstr ""
 
-#: template-parts/content-none.php:21
-#, php-format
-#@ _s
+#: template-parts/content-none.php:16
 msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
 msgstr ""
 
-#: template-parts/content-none.php:25
-#@ _s
-msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
+#: template-parts/content-none.php:20
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
 msgstr ""
 
-#: template-parts/content-none.php:31
-#@ _s
-msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
+#: template-parts/content-none.php:26
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
 msgstr ""
 
-#: template-parts/content-page.php:22
-#: template-parts/content.php:38
-#@ _s
+#: template-parts/content-page.php:14 template-parts/content.php:22
 msgid "Pages:"
 msgstr ""
 
-#. translators: %s: Name of current post. 
-#: template-parts/content.php:33
-#, php-format
-#@ _s
+#: template-parts/content.php:17
+#. translators: %s: Name of current post.
 msgid "Continue reading %s <span class=\"meta-nav\">&rarr;</span>"
 msgstr ""
 
+#: template-parts/header-hero.php:98 template-parts/header-hero.php:101
+msgid "Latest News"
+msgstr ""
+
+#: template-parts/header-hero.php:114
+msgid "Categorised Under: "
+msgstr ""
+
+#: template-parts/header-hero.php:116
+msgid "Tagged As: "
+msgstr ""
+
 #. Theme Name of the plugin/theme
-msgid "_s"
+msgid "Pacific"
 msgstr ""
 
 #. Theme URI of the plugin/theme
-#@ _s
-msgid "http://underscores.me/"
+msgid "https://elevate360.com.au/"
 msgstr ""
 
 #. Description of the plugin/theme
-#@ _s
-msgid "Hi. I'm a starter theme called <code>_s</code>, or <em>underscores</em>, if you like. I'm a theme meant for hacking so don't use me as a <em>Parent Theme</em>. Instead try turning me into the next, most awesome, WordPress theme out there. That's what I'm here for."
+msgid ""
+"The Pacific Theme is built for small businesses looking to stand out. "
+"Pacific combines fluid design and user-based functionality to form "
+"something that is truly seaworthy. A theme that blasts all difficulty out "
+"of the water, it has all the building blocks necessary to establish your "
+"online presence. A certain level of customisation is also available to make "
+"sure your business feel uniquely yours. Create an engaging, bold and sleek "
+"looking website design using Pacific."
 msgstr ""
 
 #. Author of the plugin/theme
-#@ _s
-msgid "Automattic"
+msgid "Simon Codrington"
 msgstr ""
 
 #. Author URI of the plugin/theme
-#@ _s
-msgid "http://automattic.com/"
+msgid "https://www.simoncodrington.com.au"
+msgstr ""
+
+#. Template Name of the plugin/theme
+msgid "Full Width"
+msgstr ""
+
+#: comments.php:33
+#. translators: %s: post title
+msgctxt "comments title"
+msgid "One Reply to &ldquo;%s&rdquo;"
+msgstr ""
+
+#: comments.php:37
+#. translators: 1: number of comments, 2: post title
+msgctxt "comments title"
+msgid "%1$s Reply to &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s Replies to &ldquo;%2$s&rdquo;"
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/template-tags.php:25
+msgctxt "post date"
+msgid "%s"
 msgstr ""
