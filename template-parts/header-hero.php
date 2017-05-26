@@ -92,7 +92,7 @@ $object = get_queried_object();
 
 			<?php
 			$hero_title = get_theme_mod( 'hero_title', esc_attr__( 'A Compass For Small Business', 'pacific' ) );
-			$hero_subtitle = get_theme_mod( 'hero_subtitle', esc_attr__( 'The Captain Of WordPress Theme – Create an engaging, bold and sleek looking website design using Pacific.', 'pacific' ) );
+			$hero_subtitle = get_theme_mod( 'hero_subtitle', esc_attr__( 'The Captain Of WordPress Theme &#8211 Create an engaging, bold and sleek looking website design using Pacific.', 'pacific' ) );
 			//check if we're on the homepage and it's set to be a listing of the latest posts
 			if( is_home() ){
 				$title = __( 'Latest News', 'pacific' );
