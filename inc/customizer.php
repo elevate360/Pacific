@@ -92,7 +92,7 @@ function pacific_customize_register($wp_customize){
 		$wp_customize->add_setting(
 			'hero_subtitle' ,
 			array(
-			    'default' 			=> esc_attr__( 'The Captain Of WordPress Theme – Create an engaging, bold and sleek looking website design using Pacific.', 'pacific' ),
+			    'default' 			=> esc_attr__( 'The Captain Of WordPress Theme &#8211 Create an engaging, bold and sleek looking website design using Pacific.', 'pacific' ),
 			    'transport'			=> 'postMessage',
 			    'sanitize_callback' => 'pacific_sanitize_nohtml',
 		) );
