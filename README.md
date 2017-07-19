@@ -51,6 +51,14 @@ TGM Plugin Activation by [Thomas Griffin](https://thomasgriffin.io/)
 **License:** GPL-2.0+
 Source: http://tgmpluginactivation.com/
 
+Genericons Neue by [Automattic](https://github.com/Automattic/genericons-neue)
+**License:** GPL-2.0+
+Source: https://github.com/Automattic/genericons-neue
+
+Social Logos by [Automattic](https://github.com/Automattic/social-logos)
+**License:** GPL-2.0+
+Source: https://github.com/Automattic/social-logos
+
 Bundled header image, Pixabay
 **License:** CC0 1.0 Universal (CC0 1.0)
 Source: https://www.pexels.com/photo/beach-black-and-white-cliff-dawn-268455/
