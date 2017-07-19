@@ -1,21 +1,58 @@
 <?php
 /**
- * Template part for displaying posts.
+ * Template part for displaying posts
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
  * @package Pacific
  */
-
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class('el-row nested'); ?>>
-	<div class="entry-content el-col-small-12 el-col-medium-8 el-col-medium-offset-2 small-margin-top-medium medium-margin-top-bottom-large">
+<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+
+	<?php if( pacific_is_sticky() ) :?>
+		<div class="sticky-label">
+			<?php echo pacific_get_svg( array( 'icon' => 'star' ) );?>
+		</div>
+	<?php endif;?>
+
+	<?php if( ! is_singular() && has_post_thumbnail() ) : ?>
+		<div class="post-thumbnail">
+			<a href="<?php the_permalink();?>">
+				<?php the_post_thumbnail( 'post-thumbnail' );?>
+			</a>
+		</div><!-- .post-thumbnail -->
+	<?php endif;?>
+
+	<header class="entry-header">
+		<?php if ( 'post' === get_post_type() && ! pacific_is_sticky() ) : ?>
+		<div class="entry-meta">
+			<?php pacific_posted_on(); ?>
+		</div><!-- .entry-meta -->
+		<?php endif;?>
+		<?php
+		if ( is_singular() ) :
+			the_title( '<h1 class="entry-title screen-reader-text">', '</h1>' );
+		else :
+			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
+		endif;
+		?>
+	</header><!-- .entry-header -->
+
+	<?php if ( is_singular() || post_password_required() ) : ?>
+	<div class="entry-content">
 		<?php
 			the_content( sprintf(
-				/* translators: %s: Name of current post. */
-				wp_kses( __( 'Continue reading %s <span class="meta-nav">&rarr;</span>', 'pacific' ), array( 'span' => array( 'class' => array() ) ) ),
-				the_title( '<span class="screen-reader-text">"', '"</span>', false )
+				wp_kses(
+					/* translators: %s: Name of current post. Only visible to screen readers */
+					__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'pacific' ),
+					array(
+						'span' => array(
+							'class' => array(),
+						),
+					)
+				),
+				get_the_title()
 			) );
 
 			wp_link_pages( array(
@@ -24,31 +61,16 @@
 			) );
 		?>
 	</div><!-- .entry-content -->
+	<?php else :?>
+	<div class="entry-summary">
+		<?php the_excerpt();?>
+	</div><!-- .entry-summary -->
+	<?php endif;?>
 
-	<?php
-	//display widget zone if required
-	if(is_active_sidebar( 'widget-post-bottom-sidebar' )){?>
-		<div class="el-col-small-12 el-col-medium-8 el-col-medium-offset-2 widget-area small-margin-top-bottom-medium small-margin-top-small">
-			<?php dynamic_sidebar( 'widget-post-bottom-sidebar' ); ?>
-		</div>
-	<?php }?>
+	<?php if ( ! pacific_is_sticky() ) : ?>
+		<footer class="entry-footer">
+			<?php pacific_entry_footer(); ?>
+		</footer><!-- .entry-footer -->
+	<?php endif;?>
 
-	<footer class="entry-header el-col-medium-8 el-col-medium-offset-2 small-align-center">
-		<?php
-		//Entry meta if post
-		if ( get_post_type() == 'post' ){
-
-			echo '<div class="entry-meta">'; ?>
-				<hr class="small"/>
-				<?php
-				pacific_posted_on();
-				pacific_categories_and_tags();?>
-
-				<?php
-			echo '</div>';
-
-		}?>
-	</footer><!-- .entry-header -->
-
-
-</article><!-- #post-## -->
+</article><!-- #post-<?php the_ID(); ?> -->

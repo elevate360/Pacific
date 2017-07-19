@@ -1,71 +1,14 @@
-a {
-  text-decoration: none;
-  transition: all 250ms linear;
-
-  &:focus {
-    outline: thin dotted;
-  }
-  &:hover,
-  &:active {
-    outline: 0;
-  }
-}
-
-.button,
-a.button{
-  display: inline-block;
-  padding: 12px 20px;
-  border-radius: 0px;
-  border: solid 1px #fff;
-  text-decoration: none;
-  font-weight: 400;
-  color: #333;
-  transition: all 300ms ease-in;
-  
-  &.small{
-    @include font-size(0.9);
-    padding: 8px 13px;
-  }
-  &.fat{
-    font-weight: 700;
-  }
-  &.large{
-    @include font-size(1.2);
-    padding: 18px 24px;
-  }
-  
-  //White button
-  &.white{
-    color: #fff;
-    border: solid 1px #fff;
-    
-    &:active,
-    &:focus,
-    &:hover{
-      background: #fff;
-      color: #333;
-    }
-    
-  }
-  //black button
-  &.black{
-    color: #333;
-    border: solid 1px #333;
-    
-    &:active,
-    &:focus,
-    &:hover{
-      background: #333;
-      color: #fff;
-    }
-    
-  }
-  &.no-border{
-    border: 0px;
-  }
-}
+/*--------------------------------------------------------------
+## Links
+--------------------------------------------------------------*/
+@import "links";
 
 /*--------------------------------------------------------------
 ## Menus
 --------------------------------------------------------------*/
 @import "menus";
+
+/*--------------------------------------------------------------
+## Social Links
+--------------------------------------------------------------*/
+@import "social-links";

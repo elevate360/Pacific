@@ -1,6 +1,6 @@
 <?php
 /**
- * The template for displaying comments.
+ * The template for displaying comments
  *
  * This is the template that displays the area of the page that contains both the current comments
  * and the comment form.
@@ -27,28 +27,26 @@ if ( post_password_required() ) {
 	if ( have_comments() ) : ?>
 		<h2 class="comments-title">
 			<?php
-				$comments_number = get_comments_number();
-				if ( '1' === $comments_number ) {
-					/* translators: %s: post title */
-					printf( _x( 'One Reply to &ldquo;%s&rdquo;', 'comments title', 'pacific' ), get_the_title() );
-				} else {
+				$comment_count = get_comments_number();
+				if ( 1 === $comment_count ) {
 					printf(
-						/* translators: 1: number of comments, 2: post title */
-						_nx(
-							'%1$s Reply to &ldquo;%2$s&rdquo;',
-							'%1$s Replies to &ldquo;%2$s&rdquo;',
-							$comments_number,
-							'comments title',
-							'pacific'
-						),
-						number_format_i18n( $comments_number ),
-						get_the_title()
+						/* translators: 1: title. */
+						esc_html_e( 'One thought on &ldquo;%1$s&rdquo;', 'pacific' ),
+						'<span>' . get_the_title() . '</span>'
+					);
+				} else {
+					printf( // WPCS: XSS OK.
+						/* translators: 1: comment count number, 2: title. */
+						esc_html( _nx( '%1$s thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', $comment_count, 'comments title', 'pacific' ) ),
+						number_format_i18n( $comment_count ),
+						'<span>' . get_the_title() . '</span>'
 					);
 				}
-			?>		</h2>
+			?>
+		</h2><!-- .comments-title -->
 
 		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // Are there comments to navigate through? ?>
-		<nav id="comment-nav-above" class="navigation comment-navigation" role="navigation">
+		<nav id="comment-nav-above" class="navigation comment-navigation">
 			<h2 class="screen-reader-text"><?php esc_html_e( 'Comment navigation', 'pacific' ); ?></h2>
 			<div class="nav-links">
 
@@ -62,14 +60,15 @@ if ( post_password_required() ) {
 		<ol class="comment-list">
 			<?php
 				wp_list_comments( array(
-					'style'      => 'ol',
-					'short_ping' => true,
+					'style'      	=> 'ol',
+					'short_ping' 	=> true,
+					'avatar_size'	=> 48,
 				) );
 			?>
 		</ol><!-- .comment-list -->
 
 		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // Are there comments to navigate through? ?>
-		<nav id="comment-nav-below" class="navigation comment-navigation" role="navigation">
+		<nav id="comment-nav-below" class="navigation comment-navigation">
 			<h2 class="screen-reader-text"><?php esc_html_e( 'Comment navigation', 'pacific' ); ?></h2>
 			<div class="nav-links">
 
@@ -91,10 +90,7 @@ if ( post_password_required() ) {
 	<?php
 	endif;
 
-	$comment_args = array(
-		'class_submit'		=> 'button orange'
-	);
-	comment_form($comment_args);
+	comment_form();
 	?>
 
 </div><!-- #comments -->

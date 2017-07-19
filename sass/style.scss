@@ -1,18 +1,49 @@
 /*!
 Theme Name: Pacific
-Theme URI: https://elevate360.com.au/
-Author: Simon Codrington
-Author URI: https://www.simoncodrington.com.au
-Description: The Pacific Theme is built for small businesses looking to stand out. Pacific combines fluid design and user-based functionality to form something that is truly seaworthy. A theme that blasts all difficulty out of the water, it has all the building blocks necessary to establish your online presence. A certain level of customisation is also available to make sure your business feel uniquely yours. Create an engaging, bold and sleek looking website design using Pacific.
-Version: 1.0.2
+Theme URI: https://pacific.elevate360.com.au/
+Author: Elevate
+Author URI: https://elevate360.com.au/
+Description: WordPress
+Version: 1.1.0
 License: GNU General Public License v2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+License URI: LICENSE
 Text Domain: pacific
-Tags: one-column, two-columns, right-sidebar, grid-layout, custom-background, custom-colors, custom-header, custom-menu, custom-logo, featured-image-header, featured-images, footer-widgets, full-width-template, theme-options, threaded-comments, blog
+Tags: one-column, flexible-header, custom-colors, custom-header, custom-menu, custom-logo, editor-style, featured-images, footer-widgets, sticky-post, theme-options, threaded-comments, translation-ready, blog
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+
+Pacific is based on Underscores http://underscores.me/, (C) 2012-2016 Automattic, Inc.
+Underscores is distributed under the terms of the GNU GPL v2 or later.
+
+Normalizing styles have been helped along thanks to the fine work of
+Nicolas Gallagher and Jonathan Neal http://necolas.github.io/normalize.css/
+*/
 
 /*--------------------------------------------------------------
-# Variables / mixins
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+# Normalize
+# Typography
+# Elements
+# Forms
+# Navigation
+	## Links
+	## Menus
+# Accessibility
+# Alignments
+# Clearings
+# Widgets
+# Content
+	## Posts and pages
+	## Comments
+# Modules
+# Media
+	## Captions
+	## Galleries
+# Layout
 --------------------------------------------------------------*/
+@import "../node_modules/susy/sass/susy";
 @import "variables-site/variables-site";
 @import "mixins/mixins-master";
 
@@ -20,18 +51,6 @@ Tags: one-column, two-columns, right-sidebar, grid-layout, custom-background, cu
 # Normalize
 --------------------------------------------------------------*/
 @import "normalize";
-
-/*--------------------------------------------------------------
-# Universal
---------------------------------------------------------------*/
-@import "universal/universal";
-@import "universal/animations";
-@import "universal/tables";
-
-/*--------------------------------------------------------------
-# Grid (Responsive and universal site layouts)
---------------------------------------------------------------*/
-@import "grid/grid";
 
 /*--------------------------------------------------------------
 # Typography
@@ -54,18 +73,41 @@ Tags: one-column, two-columns, right-sidebar, grid-layout, custom-background, cu
 @import "navigation/navigation";
 
 /*--------------------------------------------------------------
+# Accessibility
+--------------------------------------------------------------*/
+@import "modules/accessibility";
+
+/*--------------------------------------------------------------
+# Alignments
+--------------------------------------------------------------*/
+@import "modules/alignments";
+
+/*--------------------------------------------------------------
+# Clearings
+--------------------------------------------------------------*/
+@import "modules/clearings";
+
+/*--------------------------------------------------------------
+# Widgets
+--------------------------------------------------------------*/
+@import "site/secondary/widgets";
+
+/*--------------------------------------------------------------
+# Content
+--------------------------------------------------------------*/
+@import "site/site";
+
+/*--------------------------------------------------------------
+# Modules
+--------------------------------------------------------------*/
+@import "modules/modules";
+
+/*--------------------------------------------------------------
 # Media
 --------------------------------------------------------------*/
 @import "media/media";
 
 /*--------------------------------------------------------------
-# Site (Primary and Secondary content)
+# Layout
 --------------------------------------------------------------*/
-@import "site/site";
-
-/*--------------------------------------------------------------
-# Blogs (blog styling)
---------------------------------------------------------------*/
-@import "blogs/blogs";
-@import "blogs/comments";
-
+@import "layout/layout";

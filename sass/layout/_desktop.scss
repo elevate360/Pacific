@@ -1,0 +1,85 @@
+@media (min-width: 992px) {
+
+	.site-header {
+		padding-top: 2rem;
+		padding-bottom: 0;
+		&.stick {
+			padding-top: 0;
+		}
+		.admin-bar &.stick{
+			top: 32px!important;
+		}
+
+	}
+
+	.section-hero {
+		min-height: 75vh;
+		.error404 & {
+			height: auto;
+			min-height: auto;
+		}
+	}
+
+	.hero-content {
+		padding-top: 4rem;
+		padding-bottom: 4rem;
+		.entry-title,
+		.entry-hero,
+		.archive-description {
+			max-width: 60%;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		.entry-title {
+			@include font-size(2.5);
+		}
+	}
+
+	.entry-title {
+		@include font-size(1.75);
+	}
+
+	.masonry-container {
+
+		.entry {
+			padding: 3rem 3rem 0;
+		}
+
+		.post-thumbnail {
+			margin-top: -3rem;
+			margin-left: -3rem;
+			margin-right: -3rem;
+		}
+
+		.entry-footer {
+			margin-left: -3rem;
+			margin-right: -3rem;
+			padding-left: 3rem;
+			padding-right: 3rem;
+		}
+
+	}
+
+	#primary {
+		.single-content &,
+		.error404 &,
+		.search & {
+			width: 780px;
+			margin-left: auto;
+			margin-right: auto;
+		}
+	}
+
+}
+
+@media (min-width: 1200px) {
+
+	.wrap,
+	.breadcrumb,
+	.content-sidebar-wrap {
+		max-width: 1140px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+}

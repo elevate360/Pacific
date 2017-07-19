@@ -1,6 +1,6 @@
 <?php
 /**
- * The template for displaying archive pages.
+ * The template for displaying archive pages
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
@@ -8,9 +8,10 @@
  */
 
 get_header(); ?>
-<div class="el-row inner">
-	<div id="primary" class="content-area el-col-small-9">
-		<main id="main" class="site-main" role="main">
+
+<div class="content-sidebar-wrap">
+	<div id="primary" class="content-area">
+		<main id="main" class="site-main masonry-container">
 
 		<?php
 		if ( have_posts() ) : ?>
@@ -28,8 +29,6 @@ get_header(); ?>
 
 			endwhile;
 
-			the_posts_navigation();
-
 		else :
 
 			get_template_part( 'template-parts/content', 'none' );
@@ -37,8 +36,11 @@ get_header(); ?>
 		endif; ?>
 
 		</main><!-- #main -->
+
+		<?php pacific_posts_navigation();?>
+
 	</div><!-- #primary -->
-	<?php get_sidebar(); ?>
-</div>
+</div><!-- .content-sidebar-wrap -->
+
 <?php
 get_footer();

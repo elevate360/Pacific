@@ -1,0 +1,69 @@
+@media (min-width: 782px) {
+
+	.site-header {
+		&.stick {
+			background-color: rgba( 0,0,0,.8 );
+			border-bottom: 1px solid #202020;
+		}
+	}
+
+	.site-branding {
+		float: left;
+		margin-right: 0;
+	}
+
+	@import "../navigation/menu-desktop";
+
+	.masonry-container,
+	.footer-widgets {
+		margin-left: -1rem;
+		margin-right: -1rem;
+	}
+
+	.site-content {
+		padding-top: 6rem;
+	}
+
+	.masonry-container {
+		.entry {
+			float: left;
+			width: 47.19298245614035%; // 538/1140
+			margin-left: 1.40350877192982%; // 16/1140
+			margin-right: 1.40350877192982%; // 16/1140
+		}
+	}
+
+	.form-submit input[type="submit"] {
+		width: auto;
+	}
+
+	#secondary {
+		padding-top: 6rem;
+		.widget {
+			float: left;
+			width: 30.52631578947368%;
+			margin-left: 1.40350877192982%; // 16/1140
+			margin-right: 1.40350877192982%; // 16/1140
+		}
+	}
+
+	blockquote {
+		&.alignleft {
+			border-left: 4px solid rgba( 0,0,0,.05 );
+			margin-right: 1.5rem;
+			padding-top: 1.5rem;
+			padding-left: 1.5rem;
+			margin-bottom: 1.5rem;
+			width: 45%;
+		}
+		&.alignright {
+			border-right: 4px solid rgba( 0,0,0,.05 );
+			margin-left: 1.5rem;
+			padding-top: 1.5rem;
+			padding-right: 1.5rem;
+			margin-bottom: 1.5rem;
+			width: 45%;
+		}
+	}
+
+}

@@ -1,0 +1,250 @@
+.site {
+	position: relative;
+}
+
+/** Site Header */
+.site-header {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 5;
+	padding-top: .5rem;
+	padding-bottom: .5rem;
+	transition: all 0.25s ease-in-out;
+}
+
+.site-branding {
+	position: relative;
+	margin-top: .5rem;
+	margin-bottom: .5rem;
+	margin-right: 58px;
+	&,
+	a {
+		color: #fff;
+	}
+}
+
+.site-title,
+.site-description {
+	text-transform: uppercase;
+	margin: 0;
+	line-height: 1;
+}
+
+.site-description {
+	@include font-size(0.75);
+	margin-top: .5rem;
+}
+
+.site-title a{
+	@include font-size(2);
+	font-weight: bold;
+}
+
+a.custom-logo-link {
+	display: block;
+}
+
+.custom-logo {
+	display: block;
+	width: auto;
+	max-height: 52px;
+	vertical-align: middle;
+}
+
+// Custom header
+.custom-header-media {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	&:after {
+		/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&0.65+0,0.25+100 */
+		background: -moz-linear-gradient(top, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.25) 100%); /* FF3.6-15 */
+		background: -webkit-linear-gradient(top, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0.25) 100%); /* Chrome10-25,Safari5.1-6 */
+		background: linear-gradient(to bottom, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0.25) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#40000000',GradientType=0 ); /* IE6-9 */
+		content: " ";
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+}
+
+.wp-custom-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    img {
+	    display: none;
+	    position: absolute;
+	    left: 50%;
+	    bottom: 0;
+	    min-width: 100%;
+	    min-height: 100%;
+	    opacity: 0.75;
+	    transform: translate3d(0, 0, 0);
+	    transform: translateX(-50%);
+    }
+	.wp-custom-header-video-button {
+		background-color: rgba(34, 34, 34, 0.5);
+		border: 1px solid rgba(255, 255, 255, 0.6);
+		color: rgba(255, 255, 255, 0.6);
+		height: 45px;
+		overflow: hidden;
+		padding: 0;
+		position: absolute;
+		right: 30px;
+		top: 30px;
+		transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.3s ease-in-out;
+		width: 45px;
+		&:hover,
+		&:focus {
+			border-color: rgba(255, 255, 255, 0.8);
+			background-color: rgba(34, 34, 34, 0.8);
+			color: #fff;
+			outline: none;
+		}
+	}
+}
+
+#wp-custom-header-video {
+	position: absolute;
+	width: 100%;
+	top: 50%;
+	left: 0;
+	transform: translateY(-50%);
+}
+
+.wp-custom-header-video-button {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	z-index: 1;
+}
+
+/** Section Hero */
+.section-hero {
+	background-color: #000;
+	display: table;
+	position: relative;
+	width: 100%;
+	height: 25vh;
+	padding-top: 76px;
+}
+
+.hero-content {
+	color: #fff;
+	display: table-cell;
+	position: relative;
+	width: 100%;
+	@include font-size(1.125);
+	padding-top: 2rem;
+	padding-bottom: 2rem;
+	vertical-align: middle;
+	text-align: center;
+	.entry-title {
+		text-transform: uppercase;
+		padding-bottom: 1.5rem;
+		margin-bottom: 1.5rem;
+		position: relative;
+		&:before {
+			background-color: #fff;
+			content: " ";
+			width: 64px;
+			height: 2px;
+			position: absolute;
+			bottom: -1px;
+			left: 50%;
+			margin-left: -32px;
+		}
+	}
+}
+
+/** Site Content */
+.site-content {
+	padding-top: 4rem;
+	padding-bottom: 2rem;
+}
+
+/** Footer Widgets */
+.footer-widgets,
+.site-footer {
+	a {
+		color: #fff;
+		&:hover,
+		&:focus {
+			color: $color__link;
+		}
+	}
+}
+
+/** Site Footer */
+.site-footer {
+	background-color: $color__background-footer;
+	color: $color__text-footer;
+	padding-top: 2rem;
+	padding-bottom: 2rem;
+	text-align: center;
+	position: relative;
+	&:before {
+		background-color: rgba( 0,0,0,.25 );
+		content: " ";
+		width: 64px;
+		height: 2px;
+		position: absolute;
+		top: -1px;
+		left: 50%;
+		margin-left: -32px;
+	}
+}
+
+
+
+/** Common */
+.wrap,
+.content-sidebar-wrap {
+	padding-left: 1rem;
+	padding-right: 1rem;
+	position: relative;
+	transition: all ease-in-out .25s;
+}
+
+/** Return to top */
+.return-to-top {
+    background-color: rgba( 255,255,255,.25 );
+    border: 1px solid $color__text-main;
+    color: $color__text-main;
+    width: 48px;
+    height: 48px;
+	line-height: 48px;
+    position: fixed;
+    bottom: 1rem;
+    right: 0;
+    text-align: center;
+    z-index: 5;
+    opacity: 0;
+    transition: all 0.1s ease-in-out;
+    &:hover,
+    &:focus {
+    	background-color: $color__link;
+    	border-color: $color__link;
+    	color: #fff;
+    }
+	&.off {
+	    right: -60px;
+	    opacity: 0;
+	}
+	&.on {
+	    right: 1rem;
+	    opacity: 1;
+	}
+}

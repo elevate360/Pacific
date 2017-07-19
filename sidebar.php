@@ -1,12 +1,21 @@
 <?php
-/*
- * Sidebar
- * displays the standard page sidebar
+/**
+ * The sidebar containing the main widget area
+ *
+ * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
+ *
+ * @package Pacific
  */
 
-if(is_active_sidebar( 'widget-page-sidebar' )){
-	echo '<aside id="secondary" class="el-col-small-12 el-col-medium-3 widget-area small-margin-top-small medium-margin-top-medium" role="complementary">';
-		dynamic_sidebar( 'widget-page-sidebar' );
-	echo '</aside><!-- #secondary -->';
+if ( ! is_active_sidebar( 'sidebar-1' ) ) {
+	return;
 }
 ?>
+
+<aside id="secondary" class="widget-area">
+	<div class="wrap">
+		<div class="footer-widgets">
+		<?php dynamic_sidebar( 'sidebar-1' ); ?>
+		</div>
+	</div><!-- .wrap -->
+</aside><!-- #secondary -->

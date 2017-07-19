@@ -1,19 +1,37 @@
 <?php
-/*
- * 404 template
+/**
+ * Template part for displaying a message that posts cannot be found
+ *
+ * @link https://codex.wordpress.org/Template_Hierarchy
+ *
+ * @package Pacific
  */
+
 ?>
 
-<section class="no-results not-found el-row">
-	<header class="page-header  el-col-small-12 el-col-medium-8 el-col-medium-offset-2 small-align-center">
+<section class="no-results not-found">
+	<header class="page-header">
 		<h1 class="page-title"><?php esc_html_e( 'Nothing Found', 'pacific' ); ?></h1>
 	</header><!-- .page-header -->
 
-	<div class="page-content  el-col-small-12 el-col-medium-8 el-col-medium-offset-2 small-align-center">
+	<div class="page-content">
 		<?php
 		if ( is_home() && current_user_can( 'publish_posts' ) ) : ?>
 
-			<p><?php printf( wp_kses( __( 'Ready to publish your first post? <a href="%1$s">Get started here</a>.', 'pacific' ), array( 'a' => array( 'href' => array() ) ) ), esc_url( admin_url( 'post-new.php' ) ) ); ?></p>
+			<p><?php
+				printf(
+					wp_kses(
+						/* translators: 1: link to WP admin new post page. */
+						__( 'Ready to publish your first post? <a href="%1$s">Get started here</a>.', 'pacific' ),
+						array(
+							'a' => array(
+								'href' => array(),
+							),
+						)
+					),
+					esc_url( admin_url( 'post-new.php' ) )
+				);
+			?></p>
 
 		<?php elseif ( is_search() ) : ?>
 

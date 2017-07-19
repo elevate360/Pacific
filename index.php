@@ -1,32 +1,46 @@
 <?php
 /**
- * The main template file.
+ * The main template file
  *
- * This is the most generic template file used by WP when nothing else matches (also used as a blog index)
-
+ * This is the most generic template file in a WordPress theme
+ * and one of the two required files for a theme (the other being style.css).
+ * It is used to display a page when nothing more specific matches a query.
+ * E.g., it puts together the home page when no home.php file exists.
+ *
+ * @link https://codex.wordpress.org/Template_Hierarchy
+ *
+ * @package Pacific
  */
 
 get_header(); ?>
-?>
-<div class="el-row inner">
-	<div id="primary" class="content-area el-col-small-9">
-		<main id="main" class="site-main" role="main">
+
+<div class="content-sidebar-wrap">
+	<div id="primary" class="content-area">
+		<main id="main" class="site-main masonry-container">
 
 		<?php
 		if ( have_posts() ) :
-			//Listing of masonry blogs
-			echo '<div class="el-row animation-container inner blog-listing masonry-elements small-margin-top-bottom-medium">';
-			
+
+			if ( is_home() && ! is_front_page() ) : ?>
+				<header>
+					<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
+				</header>
+
+			<?php
+			endif;
+
+			/* Start the Loop */
 			while ( have_posts() ) : the_post();
 
-				get_template_part( 'template-parts/content');
-
-				//displays the comments template
-				do_action('el_display_comment_template');
+				/*
+				 * Include the Post-Format-specific template for the content.
+				 * If you want to override this in a child theme, then include a file
+				 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
+				 */
+				get_template_part( 'template-parts/content', get_post_format() );
 
 			endwhile;
-			
-			echo '</div>';
+
 		else :
 
 			get_template_part( 'template-parts/content', 'none' );
@@ -34,8 +48,8 @@ get_header(); ?>
 		endif; ?>
 
 		</main><!-- #main -->
+		<?php pacific_posts_navigation();?>
 	</div><!-- #primary -->
-	<?php get_sidebar() ?>
-</div>
+</div><!-- .content-sidebar-wrap -->
 <?php
 get_footer();

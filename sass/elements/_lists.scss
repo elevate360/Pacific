@@ -1,6 +1,6 @@
-//general styling
 ul, ol {
-	margin: 0em;
+	margin: 0 0 1.5em 0;
+	padding-left: 1.5em;
 }
 
 ul {
@@ -13,7 +13,8 @@ ol {
 
 li > ul,
 li > ol {
-	padding-left: 1em;
+	margin-bottom: 0;
+	margin-left: 0;
 }
 
 dt {
@@ -23,65 +24,3 @@ dt {
 dd {
 	margin: 0 1.5em 1.5em;
 }
-
-//styling for content area lists
-.entry-content{
-  
-  //ordered lists
-  ol{
-    list-style-type: none;
-    counter-reset: section;
-    margin: 1rem 0rem 1.5rem 1.5rem;
-    padding: 0%;
-    
-    li{
-      margin-bottom: 10px;
-      
-       &:before{
-         counter-increment: section;
-         content: counters(section,".") " ";
-         background: $color__red;
-         color: $color__white;
-         border-radius: 50%;
-         vertical-align: middle;
-         width: 30px;
-         height: 30px;
-         display: inline-block;
-         text-align: center;
-         line-height: 30px;
-         margin-right: 10px;
-       } 
-    }
-  }
-  
-  //unordered lists
-  ul{
-    list-style-type: none;
-    margin: 1rem 0rem 1.5rem 1.5rem;
-    padding: 0%;
-    
-    li{
-       margin-bottom: 10px;
-       
-       &:before{
-         font-family: FontAwesome;
-         content: '\f105';
-         background: $color__orange;
-         color: $color__white;
-         border-radius: 50%;
-         vertical-align: middle;
-         width: 30px;
-         height: 30px;
-         display: inline-block;
-         text-align: center;
-         line-height: 30px;
-         margin-right: 10px;
-         
-       }
-    }
-    
-  }
-  
-}
-
-

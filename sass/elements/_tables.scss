@@ -1,4 +1,39 @@
 table {
+	background-color: #fff;
 	margin: 0 0 1.5em;
 	width: 100%;
+}
+
+caption{
+	font-weight: bold;
+}
+
+th {
+	font-weight: bold;
+}
+
+caption {
+	margin-bottom: 1em;
+}
+
+th,
+td {
+	border: 1px solid $color__background-hr;
+	padding: 0.5rem;
+	text-align: left;
+}
+
+thead {
+	background: rgba( 0,0,0,.025 );
+}
+
+.table-responsive {
+	display: block;
+	width: 100%;
+	min-height: 0%;
+	overflow-x: auto;
+	margin-bottom: 1.5em;
+	& > table {
+		margin: 0;
+	}
 }

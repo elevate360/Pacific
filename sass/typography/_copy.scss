@@ -1,5 +1,5 @@
 p {
-	margin-bottom: 1.5em;
+	margin: 0 0 1.5rem;
 }
 
 dfn, cite, em, i {
@@ -7,7 +7,24 @@ dfn, cite, em, i {
 }
 
 blockquote {
-	margin: 0 1.5em;
+	color: $color__text-blockquote;
+	@include font-size(1.125);
+	font-style: italic;
+	line-height: 1.7;
+	margin: 0;
+	overflow: hidden;
+	padding: 0;
+	cite {
+		display: block;
+		font-style: normal;
+		font-weight: 600;
+		margin-top: .5rem;
+	}
+	&.alignleft,
+	&.alignright {
+		margin-left: 0;
+		margin-right: 0;
+	}
 }
 
 address {
@@ -28,6 +45,14 @@ pre {
 code, kbd, tt, var {
 	font-family: $font__code;
 	@include font-size(0.9375);
+}
+
+code {
+    background-color: $color__background-pre;
+    color: $color__text-code;
+    padding: .2rem .4rem;
+    font-size: 90%;
+    border-radius: .25rem;
 }
 
 abbr, acronym {

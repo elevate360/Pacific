@@ -14,6 +14,23 @@ object {
 	max-width: 100%;
 }
 
+/* Make sure logo link wraps around logo image. */
+.custom-logo-link{
+	display: inline-block;
+}
+
+.icon {
+	display: inline-block;
+	fill: currentColor;
+	height: 1rem;
+	position: relative; /* Align more nicely with capital letters */
+	top: -0.0625em;
+	vertical-align: middle;
+	width: 1rem;
+	stroke-width: 0;
+	stroke: currentColor;
+}
+
 /*--------------------------------------------------------------
 ## Captions
 --------------------------------------------------------------*/

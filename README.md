@@ -1,21 +1,64 @@
-Pacific
-===
+# Pacific
 
-[Homepage](http://pacific.elevate360.com.au/)
+**Contributors:** elevate360
+**Requires at least:** WordPress 4.7
+**Tested up to:** WordPress 4.8
+**Stable tag:** 1.1.0
+**Version:** 1.1.0
+**License:** GPLv2 or later
+**License URI:** http://www.gnu.org/licenses/gpl-2.0.html
+**Tags:** one-column, flexible-header, custom-colors, custom-header, custom-menu, custom-logo, editor-style, featured-images, footer-widgets, sticky-post, theme-options, threaded-comments, translation-ready, blog
 
 The Pacific Theme is built for small businesses looking to stand out. Pacific combines fluid design and user-based functionality to form something that is truly seaworthy. A theme that blasts all difficulty out of the water, it has all the building blocks necessary to establish your online presence. A certain level of customisation is also available to make sure your business feel uniquely yours. Create an engaging, bold and sleek looking website design using Pacific.
 
-Copyright and License
----
-The following resources are included within the theme package.
+## Description
 
-* [Sanitization Callbacks Script](https://github.com/WPTRT/code-examples/blob/master/customizer/sanitization-callbacks.php) - [GPL 2.0](http://www.gnu.org/licenses/old-licenses/gpl-2.0.html)
-* [FontAwesome](http://fontawesome.io/) by [Dave Gandy](http://twitter.com/davegandy) - [SIL](http://scripts.sil.org/OFL) & [MIT](https://opensource.org/licenses/mit-license.html)
-* Screenshot image :
-	* [Ocean](https://unsplash.com/search/photos/sea?photo=v0HKYymJVC0) - [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/)
+The Pacific Theme is built for small businesses looking to stand out. Pacific combines fluid design and user-based functionality to form something that is truly seaworthy. A theme that blasts all difficulty out of the water, it has all the building blocks necessary to establish your online presence. A certain level of customisation is also available to make sure your business feel uniquely yours. Create an engaging, bold and sleek looking website design using Pacific.
 
 
-All other resources and theme elements are licensed under the [GNU GPL](http://www.gnu.org/licenses/old-licenses/gpl-2.0.html), version 2 or later.
+## Frequently Asked Questions
 
-Pacific free WordPress theme, 2016 &copy; [Elevate360](https://elevate360.com.au).
-Distributed free under the terms of the GNU GPL.
+* Does this theme require any plugins?
+WP Term Images plugin is recommended to display featured image inside category page or tag page.
+
+* How to change Pacific theme fonts?
+You can easily install and use Easy Google Fonts plugin.
+
+## Copyright
+
+Pacific WordPress Theme, Copyright 2016 WordPress.org
+Pacific is distributed under the terms of the GNU GPL
+
+Pacific bundles the following third-party resources:
+
+Based on Underscores, (C) 2012-2017 Automattic, Inc.
+**License:** GPLv2 or later
+Source: http://underscores.me/
+
+normalize.css, Copyright 2012-2016 Nicolas Gallagher and Jonathan Neal
+**License:** MIT
+Source: https://necolas.github.io/normalize.css/
+
+Fitvids by [Chris Coyier](http://chriscoyier.net/) and [Paravel](http://paravelinc.com/)
+**License:** WTFPL
+Source: https://github.com/davatron5000/FitVids.js
+
+Jquery Stickit by [emn178](https://github.com/emn178)
+**License:** MIT
+Source: https://github.com/emn178/jquery-stickit
+
+TGM Plugin Activation by [Thomas Griffin](https://thomasgriffin.io/)
+**License:** GPL-2.0+
+Source: http://tgmpluginactivation.com/
+
+Bundled header image, Pixabay
+**License:** CC0 1.0 Universal (CC0 1.0)
+Source: https://www.pexels.com/photo/beach-black-and-white-cliff-dawn-268455/
+
+## Changelog
+
+### 1.1.0 - July 19, 2017
+* Major Update
+
+### 1.0.0 - October 4, 2016
+* Initial release
