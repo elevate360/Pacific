@@ -245,6 +245,11 @@ add_action( 'wp_enqueue_scripts', 'pacific_scripts' );
 require get_template_directory() . '/inc/utility.php';
 
 /**
+ * Vendor plugin.
+ */
+require get_template_directory() . '/inc/vendor/vendor.php';
+
+/**
  * Custom template tags for this theme.
  */
 require get_template_directory() . '/inc/template-tags.php';

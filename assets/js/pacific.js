@@ -360,8 +360,7 @@
 	});
 
 	$( window ).load(function(){
-        $footerWidgets.masonry( 'reloadItems' );
-        $footerWidgets.masonry( 'layout' );
+		runMasonry();
 	});
 
 	$( window ).on('resize', function(){
@@ -374,8 +373,7 @@
 
 	$( document.body ).on( 'post-load', function () {
 		run_fitVids();
-        $footerWidgets.masonry( 'reloadItems' );
-        $footerWidgets.masonry( 'layout' );
+		runMasonry();
 	});
 
 } )( jQuery );
