@@ -27,6 +27,14 @@ function pacific_custom_header_setup() {
 		'wp-head-callback'      => 'pacific_header_style',
 	) ) );
 
+	register_default_headers( array(
+		'default-image' => array(
+			'url'           => '%s/assets/images/header.jpg',
+			'thumbnail_url' => '%s/assets/images/header.jpg',
+			'description'   => __( 'Default Header Image', 'pacific' ),
+		),
+	) );
+
 }
 add_action( 'after_setup_theme', 'pacific_custom_header_setup' );
 
