@@ -208,8 +208,7 @@ function pacific_customize_register( $wp_customize ) {
 		'posts_navigation',
 		array(
 			'default'           => $setting['posts_navigation'],
-			'sanitize_callback' => 'pacific_sanitize_select',
-			'transport'         => 'postMessage',
+			'sanitize_callback' => 'pacific_sanitize_select'
 	) );
 
 	$wp_customize->add_control(
@@ -263,15 +262,6 @@ function pacific_customize_register( $wp_customize ) {
 		$wp_customize->selective_refresh->add_partial( 'blogdescription', array(
 			'selector'        => '.site-description',
 			'render_callback' => 'pacific_customize_partial_blogdescription',
-		) );
-
-		$wp_customize->selective_refresh->add_partial(
-			'posts_navigation',
-			array(
-				'selector' 				=> array( '.navigation.posts-navigation', '.navigation.pagination' ),
-				'settings' 				=> array( 'posts_navigation' ),
-				'render_callback' 		=> 'pacific_posts_navigation',
-				'container_inclusive'	=> true,
 		) );
 
 		$wp_customize->selective_refresh->add_partial(

@@ -186,19 +186,6 @@ function pacific_resource_hints( $urls, $relation_type ) {
 add_filter( 'wp_resource_hints', 'pacific_resource_hints', 10, 2 );
 
 /**
- * Enqueue script support for older browser.
- */
-function pacific_ie_specific(){
-
-	echo '<!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script><![endif]-->' . "\n";
-	echo '<!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script><![endif]-->' . "\n";
-	echo '<!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/nwmatcher/1.3.6/nwmatcher.min.js"></script><![endif]-->' . "\n";
-	echo '<!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/selectivizr/1.0.2/selectivizr-min.js"></script><![endif]-->' . "\n";
-
-}
-add_action( 'wp_head', 'pacific_ie_specific', 15 );
-
-/**
  * Handles JavaScript detection.
  * Adds a `js` class to the root `<html>` element when JavaScript is detected.
  */
@@ -220,6 +207,18 @@ function pacific_scripts() {
 	}
 
 	wp_enqueue_style( 'pacific-style', get_stylesheet_uri() );
+
+	wp_enqueue_script( 'html5', get_theme_file_uri( '/assets/vendor/js/html5.js' ), array(), '3.7.3' );
+	wp_script_add_data( 'html5', 'conditional', 'lt IE 9' );
+
+	wp_enqueue_script( 'respond', get_theme_file_uri( '/assets/vendor/js/respond.js' ), array(), '1.4.2' );
+	wp_script_add_data( 'respond', 'conditional', 'lt IE 9' );
+
+	wp_enqueue_script( 'nwmatcher', get_theme_file_uri( '/assets/vendor/js/nwmatcher.js' ), array(), '1.4.1' );
+	wp_script_add_data( 'nwmatcher', 'conditional', 'lt IE 9' );
+
+	wp_enqueue_script( 'selectivizr', get_theme_file_uri( '/assets/vendor/js/selectivizr.js' ), array(), '1.0.2' );
+	wp_script_add_data( 'selectivizr', 'conditional', 'lt IE 9' );
 
 	wp_enqueue_script( 'jquery-fitvids', get_template_directory_uri() . '/assets/js/fitvids/jquery.fitvids.min.js', array( 'jquery' ), '1.2.0', true );
 	wp_enqueue_script( 'jquery-stickit', get_template_directory_uri() . '/assets/js/stickit/jquery.stickit.min.js', array( 'jquery' ), '0.2.13', true );

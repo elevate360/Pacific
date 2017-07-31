@@ -80,15 +80,3 @@ function pacific_header_style() {
 	<?php
 }
 endif;
-
-/**
- * Customize video play/pause button in the custom header.
- *
- * @param array $settings Video settings.
- */
-function pacific_video_controls( $settings ) {
-	$settings['l10n']['play'] = '<span class="screen-reader-text">' . __( 'Play background video', 'pacific' ) . '</span>' . pacific_get_svg( array( 'icon' => 'play' ) );
-	$settings['l10n']['pause'] = '<span class="screen-reader-text">' . __( 'Pause background video', 'pacific' ) . '</span>' . pacific_get_svg( array( 'icon' => 'pause' ) );
-	return $settings;
-}
-add_filter( 'header_video_settings', 'pacific_video_controls' );

@@ -2,9 +2,9 @@
 # This file is distributed under the GNU General Public License v2 or later.=!>
 msgid ""
 msgstr ""
-"Project-Id-Version: Pacific 1.1.0\n"
+"Project-Id-Version: Pacific 1.1.1\n"
 "Report-Msgid-Bugs-To: https://github.com/elevate360/caspian/issues\n"
-"POT-Creation-Date: 2017-07-19 08:12:35+00:00\n"
+"POT-Creation-Date: 2017-07-31 12:20:14+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -64,7 +64,7 @@ msgstr ""
 msgid "Add widgets here."
 msgstr ""
 
-#: functions.php:231
+#: functions.php:230
 msgid "Sub Navigation"
 msgstr ""
 
@@ -78,87 +78,83 @@ msgid ""
 "%s. Please upgrade and try again."
 msgstr ""
 
-#: inc/custom-header.php:82
-msgid "Play background video"
-msgstr ""
-
-#: inc/custom-header.php:83
-msgid "Pause background video"
+#: inc/custom-header.php:34
+msgid "Default Header Image"
 msgstr ""
 
 #: inc/customizer/settings.php:19
 msgid "Theme Settings"
 msgstr ""
 
-#: inc/customizer/settings.php:51
+#: inc/customizer/settings.php:44
 msgid "Link Color"
 msgstr ""
 
-#: inc/customizer/settings.php:52
+#: inc/customizer/settings.php:45
 msgid "Used for link, button, selection."
 msgstr ""
 
-#: inc/customizer/settings.php:69
+#: inc/customizer/settings.php:62
 msgid "Hover Color"
 msgstr ""
 
-#: inc/customizer/settings.php:70
+#: inc/customizer/settings.php:63
 msgid "Used for link:hover, button:hover."
 msgstr ""
 
-#: inc/customizer/settings.php:80
+#: inc/customizer/settings.php:73
 msgid "Blog Setting"
 msgstr ""
 
-#: inc/customizer/settings.php:96
+#: inc/customizer/settings.php:89
 msgid "Display Post Date"
 msgstr ""
 
-#: inc/customizer/settings.php:114
+#: inc/customizer/settings.php:107
 msgid "Display Post Author"
 msgstr ""
 
-#: inc/customizer/settings.php:132
+#: inc/customizer/settings.php:125
 msgid "Display Post Category"
 msgstr ""
 
-#: inc/customizer/settings.php:150
+#: inc/customizer/settings.php:143
 msgid "Display Post Tag"
 msgstr ""
 
-#: inc/customizer/settings.php:168
+#: inc/customizer/settings.php:161
 msgid "Display comments count"
 msgstr ""
 
-#: inc/customizer/settings.php:186
+#: inc/customizer/settings.php:179
 msgid "Display Author biography at single post"
 msgstr ""
 
-#: inc/customizer/settings.php:203
+#: inc/customizer/settings.php:196
 msgid "Excerpt length"
 msgstr ""
 
-#: inc/customizer/settings.php:225
+#: inc/customizer/settings.php:217
 msgid "Posts Navigation"
 msgstr ""
 
-#: inc/customizer/settings.php:230
+#: inc/customizer/settings.php:222
 msgid "Prev / Next"
 msgstr ""
 
-#: inc/customizer/settings.php:231
+#: inc/customizer/settings.php:223
 msgid "Numeric"
 msgstr ""
 
-#: inc/customizer/settings.php:239
+#: inc/customizer/settings.php:231
 msgid "Footer"
 msgstr ""
 
-#: inc/customizer/settings.php:255
+#: inc/customizer/settings.php:247
 msgid "Footer copyright"
 msgstr ""
 
-#: inc/customizer/settings.php:256
+#: inc/customizer/settings.php:248
 msgid "Use [YEAR] for dynamic current year. Use [SITE] to render site link."
 msgstr ""
 
@@ -667,7 +663,14 @@ msgid "https://pacific.elevate360.com.au/"
 msgstr ""
 
 #. Description of the plugin/theme
-msgid "WordPress"
+msgid ""
+"The Pacific Theme is built for small businesses looking to stand out. "
+"Pacific combines fluid design and user-based functionality to form "
+"something that is truly seaworthy. A theme that blasts all difficulty out "
+"of the water, it has all the building blocks necessary to establish your "
+"online presence. A certain level of customisation is also available to make "
+"sure your business feel uniquely yours. Create an engaging, bold and sleek "
+"looking website design using Pacific."
 msgstr ""
 
 #. Author of the plugin/theme

@@ -360,7 +360,8 @@
 	});
 
 	$( window ).load(function(){
-		runMasonry();
+		$masonryContainer.masonry( 'reloadItems' );
+		$masonryContainer.masonry( 'layout' );
 	});
 
 	$( window ).on('resize', function(){
@@ -372,8 +373,9 @@
 	});
 
 	$( document.body ).on( 'post-load', function () {
+		$masonryContainer.masonry( 'reloadItems' );
+		$masonryContainer.masonry( 'layout' );
 		run_fitVids();
-		runMasonry();
 	});
 
 } )( jQuery );

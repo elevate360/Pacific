@@ -230,6 +230,7 @@ module.exports = function (grunt) {
 					'!.gitmodules',
 					'!**/Gruntfile.js',
 					'!**/package.json',
+					'!**/package-lock.json',
 					'!phpcs.xml.dist',
 					'!**/*~'
 				],

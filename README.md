@@ -31,39 +31,47 @@ Pacific is distributed under the terms of the GNU GPL
 
 Pacific bundles the following third-party resources:
 
-Based on Underscores, (C) 2012-2017 Automattic, Inc.
+- Based on Underscores, (C) 2012-2017 Automattic, Inc.
 **License:** GPLv2 or later
 Source: http://underscores.me/
 
-normalize.css, Copyright 2012-2016 Nicolas Gallagher and Jonathan Neal
+- normalize.css, Copyright 2012-2016 Nicolas Gallagher and Jonathan Neal
 **License:** MIT
 Source: https://necolas.github.io/normalize.css/
 
-Fitvids by [Chris Coyier](http://chriscoyier.net/) and [Paravel](http://paravelinc.com/)
+- Fitvids by [Chris Coyier](http://chriscoyier.net/) and [Paravel](http://paravelinc.com/)
 **License:** WTFPL
 Source: https://github.com/davatron5000/FitVids.js
 
-Jquery Stickit by [emn178](https://github.com/emn178)
+- Jquery Stickit by [emn178](https://github.com/emn178)
 **License:** MIT
 Source: https://github.com/emn178/jquery-stickit
 
-TGM Plugin Activation by [Thomas Griffin](https://thomasgriffin.io/)
+- TGM Plugin Activation by [Thomas Griffin](https://thomasgriffin.io/)
 **License:** GPL-2.0+
 Source: http://tgmpluginactivation.com/
 
-Genericons Neue by [Automattic](https://github.com/Automattic/genericons-neue)
+- Genericons Neue by [Automattic](https://github.com/Automattic/genericons-neue)
 **License:** GPL-2.0+
 Source: https://github.com/Automattic/genericons-neue
 
-Social Logos by [Automattic](https://github.com/Automattic/social-logos)
+- Social Logos by [Automattic](https://github.com/Automattic/social-logos)
 **License:** GPL-2.0+
 Source: https://github.com/Automattic/social-logos
 
-Bundled header image, Pixabay
+- Bundled header image, Pixabay
 **License:** CC0 1.0 Universal (CC0 1.0)
 Source: https://www.pexels.com/photo/beach-black-and-white-cliff-dawn-268455/
 
 ## Changelog
+
+### 1.1.1 - July 19, 2017
+* Fixed various issue based on [theme trac review](https://themes.trac.wordpress.org/ticket/43174#comment:14) 
+* Fixed header image default image
+* Fixed header image customizer
+* Updated gallery style 
+* Updated `readme.md` and `readme.txt`
+* Updated `package.json` and `gruntfile.js` for development
 
 ### 1.1.0 - July 19, 2017
 * Major Update

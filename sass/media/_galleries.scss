@@ -1,5 +1,5 @@
 .gallery {
-	margin-bottom: 20px;
+	margin-bottom: 1.5rem;
 }
 
 .gallery-item {
@@ -9,6 +9,9 @@
 	position: relative;
 	img {
 		vertical-align: middle;
+	}
+	a {
+		display: block;
 	}
 }
 
@@ -100,6 +103,7 @@
 	left: 0;
 	text-align: left;
 	width: 100%;
+	transition: all 0.25s ease-in-out;
 }
 
 .gallery-caption:before {

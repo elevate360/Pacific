@@ -46,6 +46,7 @@ function pacific_add_inline_style(){
 		input[type="button"],
 		input[type="reset"],
 		input[type="submit"],
+		.screen-reader-text:focus,
 		.sticky-label,
 		.post-edit-link:hover,
 		.post-edit-link:focus,

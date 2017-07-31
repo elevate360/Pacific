@@ -14,7 +14,7 @@ The Pacific Theme is built for small businesses looking to stand out. Pacific co
 
 == Description ==
 
-WordPress
+The Pacific Theme is built for small businesses looking to stand out. Pacific combines fluid design and user-based functionality to form something that is truly seaworthy. A theme that blasts all difficulty out of the water, it has all the building blocks necessary to establish your online presence. A certain level of customisation is also available to make sure your business feel uniquely yours. Create an engaging, bold and sleek looking website design using Pacific.
 
 == Installation ==
 
@@ -31,6 +31,14 @@ WP Term Images plugin is recommended to display featured image inside category p
 You can easily install and use Easy Google Fonts plugin.
 
 == Changelog ==
+
+= 1.1.1 - July 19, 2017
+* Fixed various issue based on [theme trac review](https://themes.trac.wordpress.org/ticket/43174#comment:14)
+* Fixed header image default image
+* Fixed header image customizer
+* Updated gallery style
+* Updated `readme.md` and `readme.txt`
+* Updated `package.json` and `gruntfile.js` for development
 
 = 1.1.0 - July 19, 2017
 * Major Update
