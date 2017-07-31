@@ -18,10 +18,10 @@ The Pacific Theme is built for small businesses looking to stand out. Pacific co
 
 ## Frequently Asked Questions
 
-* Does this theme require any plugins?
+- Does this theme require any plugins?
 WP Term Images plugin is recommended to display featured image inside category page or tag page.
 
-* How to change Pacific theme fonts?
+- How to change Pacific theme fonts?
 You can easily install and use Easy Google Fonts plugin.
 
 ## Copyright
@@ -38,6 +38,22 @@ Source: http://underscores.me/
 - normalize.css, Copyright 2012-2016 Nicolas Gallagher and Jonathan Neal
 **License:** MIT
 Source: https://necolas.github.io/normalize.css/
+
+- html5shiv by [aFarkas](https://github.com/aFarkas)
+**License:** MIT and GPL-2.0
+Source: https://github.com/aFarkas/html5shiv
+
+- nwmatcher by [dperini](https://github.com/dperini)
+**License:** MIT
+Source: https://github.com/dperini/nwmatcher
+
+- Respond by [scottjehli](https://github.com/scottjehli)
+**License:** MIT
+Source: https://github.com/scottjehl/Respond
+
+- selectivizr by [keithclark](https://github.com/keithclark)
+**License:** MIT
+Source: https://github.com/keithclark/selectivizr
 
 - Fitvids by [Chris Coyier](http://chriscoyier.net/) and [Paravel](http://paravelinc.com/)
 **License:** WTFPL

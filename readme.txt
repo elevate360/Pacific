@@ -53,13 +53,29 @@ Pacific is distributed under the terms of the GNU GPL
 
 Pacific bundles the following third-party resources:
 
-Based on Underscores, (C) 2012-2017 Automattic, Inc.
+- Based on Underscores, (C) 2012-2017 Automattic, Inc.
 **License:** GPLv2 or later
 Source: http://underscores.me/
 
 normalize.css, Copyright 2012-2016 Nicolas Gallagher and Jonathan Neal
 **License:** MIT
 Source: https://necolas.github.io/normalize.css/
+
+html5shiv by [aFarkas](https://github.com/aFarkas)
+**License:** MIT and GPL-2.0
+Source: https://github.com/aFarkas/html5shiv
+
+nwmatcher by [dperini](https://github.com/dperini)
+**License:** MIT
+Source: https://github.com/dperini/nwmatcher
+
+Respond by [scottjehli](https://github.com/scottjehli)
+**License:** MIT
+Source: https://github.com/scottjehl/Respond
+
+selectivizr by [keithclark](https://github.com/keithclark)
+**License:** MIT
+Source: https://github.com/keithclark/selectivizr
 
 Fitvids by [Chris Coyier](http://chriscoyier.net/) and [Paravel](http://paravelinc.com/)
 **License:** WTFPL
