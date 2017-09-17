@@ -3,8 +3,8 @@
 **Contributors:** elevate360
 **Requires at least:** WordPress 4.7
 **Tested up to:** WordPress 4.8
-**Stable tag:** 1.1.0
-**Version:** 1.1.0
+**Stable tag:** 1.1.2
+**Version:** 1.1.2
 **License:** GPLv2 or later
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html
 **Tags:** one-column, flexible-header, custom-colors, custom-header, custom-menu, custom-logo, editor-style, featured-images, footer-widgets, sticky-post, theme-options, threaded-comments, translation-ready, blog
@@ -80,12 +80,16 @@ Source: https://github.com/Automattic/social-logos
 Source: https://www.pexels.com/photo/beach-black-and-white-cliff-dawn-268455/
 
 ## Changelog
+### 1.1.2 - September 18, 2017
+* Update customizer css color selector
+* Updated `readme.md` and `readme.txt`
+* Updated `package.json` and `gruntfile.js` for development
 
 ### 1.1.1 - July 19, 2017
-* Fixed various issue based on [theme trac review](https://themes.trac.wordpress.org/ticket/43174#comment:14) 
+* Fixed various issue based on [theme trac review](https://themes.trac.wordpress.org/ticket/43174#comment:14)
 * Fixed header image default image
 * Fixed header image customizer
-* Updated gallery style 
+* Updated gallery style
 * Updated `readme.md` and `readme.txt`
 * Updated `package.json` and `gruntfile.js` for development
 

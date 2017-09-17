@@ -127,20 +127,18 @@
 
 	api( 'primary_color', function( value ){
 		value.bind( function( to ) {
-			var primaryColorBgColor 	= 'button, input[type="button"], input[type="reset"], input[type="submit"], .screen-reader-text:focus, .sticky-label, .post-edit-link:hover, .post-edit-link:focus, .masonry-container a.more-link:hover, .masonry-container a.more-link:focus, .comment-body > .reply a:hover, .comment-body > .reply a:focus, #cancel-comment-reply-link:hover, #cancel-comment-reply-link:focus, .posts-navigation .nav-previous a:hover, .posts-navigation .nav-previous a:focus, .posts-navigation .nav-next a:hover, .posts-navigation .nav-next a:focus, .post-navigation .nav-previous a:hover, .post-navigation .nav-previous a:focus, .post-navigation .nav-next a:hover, .post-navigation .nav-next a:focus, .page-numbers:hover:not(.current), .page-numbers:focus:not(.current), #secondary .widget_tag_cloud a:hover, #secondary .widget_tag_cloud a:focus, .return-to-top:hover, .return-to-top:focus',
-				primaryColorTextColor 	= 'a, .main-navigation ul.menu .sub-menu .menu-item a:hover, .main-navigation ul.menu .sub-menu .menu-item a:focus, .entry-meta a:hover, .entry-meta a:focus, .entry-title a:hover, .entry-title a:focus, .entry-footer a:hover, .entry-footer a:focus, .author-title a:hover, .author-title a:focus, .comment-meta a:hover, .comment-meta a:focus, .footer-widgets a:hover, .footer-widgets a:focus, .site-footer a:hover, .site-footer a:focus',
-				primaryColorBorderColor = '.post-edit-link:hover, .post-edit-link:focus, .masonry-container a.more-link:hover, .masonry-container a.more-link:focus, .comment-body > .reply a:hover, .comment-body > .reply a:focus, .page-numbers:hover:not(.current), .page-numbers:focus:not(.current), #secondary .widget_tag_cloud a:hover, #secondary .widget_tag_cloud a:focus, .return-to-top:hover, .return-to-top:focus';
-
-			$( '#primary-color' ).text( primaryColorBgColor + '{background-color:'+ to +'}' + primaryColorTextColor + '{color:'+ to +'}' + primaryColorBorderColor + '{border-color:'+ to +'}' );
+			$( '#primary-color' ).text(
+				PacificCustomizerl10n.primary_color_background + '{background-color:'+ to +'}' +
+				PacificCustomizerl10n.primary_color_border + '{border-color:'+ to +'}' +
+				PacificCustomizerl10n.primary_color_text + '{color:'+ to +'}' );
 		} );
 	} );
 
 	api( 'secondary_color', function( value ){
 		value.bind( function( to ) {
-			var secondaryColorBgColor 	= 'button:hover, button:active, button:focus, input[type="button"]:hover, input[type="button"]:active, input[type="button"]:focus, input[type="reset"]:hover, input[type="reset"]:active, input[type="reset"]:focus, input[type="submit"]:hover, input[type="submit"]:active, input[type="submit"]:focus',
-				secondaryColorTextColor = 'a:hover, a:focus';
-
-			$( '#secondary-color' ).text( secondaryColorBgColor + '{background-color:'+ to +'}' + secondaryColorTextColor + '{color:'+ to +'}' );
+			$( '#secondary-color' ).text(
+				PacificCustomizerl10n.secondary_color_background + '{background-color:'+ to +'}' +
+				PacificCustomizerl10n.secondary_color_text + '{color:'+ to +'}' );
 		} );
 	} );
 

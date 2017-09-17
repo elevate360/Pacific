@@ -3,8 +3,8 @@
 Contributors: elevate360
 Requires at least: 4.7
 Tested up to: 4.8
-Stable tag: 1.1.0
-Version: 1.2
+Stable tag: 1.1.2
+Version: 1.1.2
 License: GNU General Public License v2 or later
 License URI: LICENSE
 Tags: one-column, flexible-header, custom-colors, custom-header, custom-menu, custom-logo, editor-style, featured-images, footer-widgets, sticky-post, theme-options, threaded-comments, translation-ready, blog
@@ -37,6 +37,12 @@ You can easily install and use Easy Google Fonts plugin.
 * Fixed header image default image
 * Fixed header image customizer
 * Updated gallery style
+* Updated `readme.md` and `readme.txt`
+* Updated `package.json` and `gruntfile.js` for development
+
+
+= 1.1.2 - September 18, 2017
+* Update customizer css color selector
 * Updated `readme.md` and `readme.txt`
 * Updated `package.json` and `gruntfile.js` for development
 

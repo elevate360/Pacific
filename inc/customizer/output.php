@@ -12,7 +12,12 @@
  */
 function pacific_add_inline_style(){
 
-	$setting = pacific_setting_default();
+	$setting 			= pacific_setting_default();
+
+	$css_selector 		= pacific_css_color_selector();
+
+	$primary_color 		= get_theme_mod( 'primary_color', $setting['primary_color'] );
+	$secondary_color 	= get_theme_mod( 'secondary_color', $setting['secondary_color'] );
 
 	$css= '';
 
@@ -40,102 +45,16 @@ function pacific_add_inline_style(){
 		$css .= '.masonry-container .entry-footer { display: none }';
 	}
 
-	$primary_color = get_theme_mod( 'primary_color', $setting['primary_color'] );
-	$primary_color_background_color = '
-		button,
-		input[type="button"],
-		input[type="reset"],
-		input[type="submit"],
-		.screen-reader-text:focus,
-		.sticky-label,
-		.post-edit-link:hover,
-		.post-edit-link:focus,
-		.masonry-container a.more-link:hover,
-		.masonry-container a.more-link:focus,
-		.comment-body > .reply a:hover,
-		.comment-body > .reply a:focus,
-		#cancel-comment-reply-link:hover,
-		#cancel-comment-reply-link:focus,
-		.posts-navigation .nav-previous a:hover,
-		.posts-navigation .nav-previous a:focus,
-		.posts-navigation .nav-next a:hover,
-		.posts-navigation .nav-next a:focus,
-		.post-navigation .nav-previous a:hover,
-		.post-navigation .nav-previous a:focus,
-		.post-navigation .nav-next a:hover,
-		.post-navigation .nav-next a:focus,
-		.page-numbers:hover:not(.current),
-		.page-numbers:focus:not(.current),
-		#secondary .widget_tag_cloud a:hover,
-		#secondary .widget_tag_cloud a:focus,
-		.return-to-top:hover,
-		.return-to-top:focus
-	';
-	$primary_color_text_color = '
-		a,
-		.main-navigation ul.menu .sub-menu .menu-item a:hover,
-		.main-navigation ul.menu .sub-menu .menu-item a:focus,
-		.entry-meta a:hover,
-		.entry-meta a:focus,
-		.entry-title a:hover,
-		.entry-title a:focus,
-		.entry-footer a:hover,
-		.entry-footer a:focus,
-		.author-title a:hover,
-		.author-title a:focus,
-		.comment-meta a:hover,
-		.comment-meta a:focus,
-		.footer-widgets a:hover,
-		.footer-widgets a:focus,
-		.site-footer a:hover,
-		.site-footer a:focus
-	';
-
-	$primary_color_border_color = '
-		.post-edit-link:hover,
-		.post-edit-link:focus,
-		.masonry-container a.more-link:hover,
-		.masonry-container a.more-link:focus,
-		.comment-body > .reply a:hover,
-		.comment-body > .reply a:focus,
-		.page-numbers:hover:not(.current),
-		.page-numbers:focus:not(.current),
-		#secondary .widget_tag_cloud a:hover,
-		#secondary .widget_tag_cloud a:focus,
-		.return-to-top:hover,
-		.return-to-top:focus
-	';
-
 	if ( $primary_color ) {
-		$css .= sprintf( '%s{ background-color: %s }', $primary_color_background_color, esc_attr( $primary_color ) );
-		$css .= sprintf( '%s{ color: %s }', $primary_color_text_color, esc_attr( $primary_color ) );
-		$css .= sprintf( '%s{ border-color: %s }', $primary_color_border_color, esc_attr( $primary_color ) );
+		$css .= sprintf( '%s{ background-color: %s }', $css_selector['primary_color_background'], esc_attr( $primary_color ) );
+		$css .= sprintf( '%s{ border-color: %s }', $css_selector['primary_color_border'], esc_attr( $primary_color ) );
+		$css .= sprintf( '%s{ color: %s }', $css_selector['primary_color_text'], esc_attr( $primary_color ) );
 		$css .= sprintf( '::selection{background-color:%1$s}::-moz-selection{background-color:%1$s}', esc_attr( $primary_color ) );
 	}
 
-	$secondary_color = get_theme_mod( 'secondary_color', $setting['secondary_color'] );
-	$secondary_color_background_color = '
-		button:hover,
-		button:active,
-		button:focus,
-		input[type="button"]:hover,
-		input[type="button"]:active,
-		input[type="button"]:focus,
-		input[type="reset"]:hover,
-		input[type="reset"]:active,
-		input[type="reset"]:focus,
-		input[type="submit"]:hover,
-		input[type="submit"]:active,
-		input[type="submit"]:focus
-	';
-	$secondary_color_text_color = '
-		a:hover,
-		a:focus
-	';
-
 	if ( $secondary_color ) {
-		$css .= sprintf( '%s{ background-color: %s }', $secondary_color_background_color, esc_attr( $secondary_color ) );
-		$css .= sprintf( '%s{ color: %s }', $secondary_color_text_color, esc_attr( $secondary_color ) );
+		$css .= sprintf( '%s{ background-color: %s }', $css_selector['secondary_color_background'], esc_attr( $secondary_color ) );
+		$css .= sprintf( '%s{ color: %s }', $css_selector['secondary_color_text'], esc_attr( $secondary_color ) );
 	}
 
     $css = str_replace( array( "\n", "\t", "\r" ), '', $css );

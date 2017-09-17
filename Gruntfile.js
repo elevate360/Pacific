@@ -226,12 +226,12 @@ module.exports = function (grunt) {
 					'!.git/**',
 					'!Gruntfile.js',
 					'!package.json',
+					'!package-lock.json',
+					'!phpcs.xml.dist',
 					'!.gitignore',
 					'!.gitmodules',
 					'!**/Gruntfile.js',
 					'!**/package.json',
-					'!**/package-lock.json',
-					'!phpcs.xml.dist',
 					'!**/*~'
 				],
 				dest: 'dist/<%= pkg.name %>/'
