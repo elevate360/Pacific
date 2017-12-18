@@ -32,17 +32,20 @@ You can easily install and use Easy Google Fonts plugin.
 
 == Changelog ==
 
+= 1.1.4 - December 19, 2017
+* Updated `readme.md` and `readme.txt`
+* Updated `package.json` and `gruntfile.js` for development
+
+= 1.1.2 - September 18, 2017
+* Update customizer css color selector
+* Updated `readme.md` and `readme.txt`
+* Updated `package.json` and `gruntfile.js` for development
+
 = 1.1.1 - July 19, 2017
 * Fixed various issue based on [theme trac review](https://themes.trac.wordpress.org/ticket/43174#comment:14)
 * Fixed header image default image
 * Fixed header image customizer
 * Updated gallery style
-* Updated `readme.md` and `readme.txt`
-* Updated `package.json` and `gruntfile.js` for development
-
-
-= 1.1.2 - September 18, 2017
-* Update customizer css color selector
 * Updated `readme.md` and `readme.txt`
 * Updated `package.json` and `gruntfile.js` for development
 

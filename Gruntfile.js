@@ -45,7 +45,7 @@ module.exports = function (grunt) {
 				type: 'wp-theme',
 				domainPath: 'languages',
 				potHeaders: {
-					'report-msgid-bugs-to': 'https://github.com/elevate360/caspian/issues',
+					'report-msgid-bugs-to': 'https://elevate360/contact',
 					'language-team': 'LANGUAGE <EMAIL@ADDRESS>'
 				}
 			},
@@ -61,11 +61,9 @@ module.exports = function (grunt) {
 			}
 		},
 
-		// Compile all .scss files.
 		sass: {
 			dist: {
 				options: {
-					require: 'susy',
 					sourceMap: false
 				},
 				files: [{
@@ -75,11 +73,30 @@ module.exports = function (grunt) {
 			}
 		},
 
+		cmq: {
+			options: {
+				compress: false,
+				logFile: false
+			},
+			media: {
+				files: {
+					'style.css': ['style.css'],
+					'assets/css/editor-style.css': ['assets/css/editor-style.css']
+				}
+			}
+		},
+
 		postcss: {
 			options: {
 				processors: [
 					require( 'autoprefixer' )({
-						browsers: ['> 1%', 'last 2 versions', 'Firefox ESR', 'Opera 12.1', 'ie 9']
+						browsers: [
+							'> 1%',
+							'last 2 versions',
+							'Firefox ESR',
+							'Opera 12.1',
+							'ie 9'
+						]
 					})
 				]
 			},
@@ -110,14 +127,18 @@ module.exports = function (grunt) {
 				files: [{
 					expand: true,
 					cwd: './',
-					src: ['assets/css/*.css', '!assets/css/*.min.css'],
+					src: [
+						'./*.css',
+						'!./*.min.css',
+						'assets/css/*.css',
+						'!assets/css/*.min.css'
+					],
 					dest: './',
 					ext: '.min.css'
 				}]
 			}
 		},
 
-		// JavaScript linting with JSHint.
 		jshint: {
 			options: {
 				jshintrc: '.jshintrc'
@@ -150,47 +171,25 @@ module.exports = function (grunt) {
 		watch: {
 			css: {
 				files: [
-					'sass/style.scss',
-					'sass/editor-style.scss',
-					'sass/elements/*.scss',
-					'sass/forms/*.scss',
-					'sass/layout/*.scss',
-					'sass/layout/*-*.scss',
-					'sass/media/*.scss',
-					'sass/mixins/*.scss',
-					'sass/modules/*.scss',
-					'sass/navigation/*.scss',
-					'sass/navigation/*-*.scss',
-					'sass/site/*.scss',
-					'sass/site/**/*.scss',
-					'sass/typography/*.scss',
-					'sass/variables-site/*.scss'
+					'sass/*.scss',
+					'sass/*/*.scss',
+					'sass/*/*/*.scss',
+					'sass/*/*/*/*.scss'
 				],
 				tasks: [
-					'sass'
+					'sass',
+					'cssmin'
 				]
 			},
-			js: {
+			frontend: {
 				files: [
-					'assets/js/<%= pkg.name %>.js',
+					'assets/js/pacific.js',
 					'assets/js/customizer.js'
 				],
 				tasks: [
-					'uglify'
+					'uglify:theme'
 				]
 			}
-		},
-
-		browserSync: {
-		    dev: {
-		        bsFiles: {
-		            src: ['style.css', 'assets/**/**', '**/*.php']
-		        },
-		        options: {
-		        	watchTask: true,
-		            proxy: 'http://localhost/elevate/<%= pkg.name %>'
-		        }
-		    }
 		},
 
 		// Replace text
@@ -255,10 +254,11 @@ module.exports = function (grunt) {
 	});
 
 	grunt.loadNpmTasks( 'grunt-postcss' );
-	grunt.loadNpmTasks( 'grunt-browser-sync' );
     grunt.loadNpmTasks( 'grunt-checktextdomain' );
+    grunt.loadNpmTasks( 'grunt-combine-media-queries' );
     grunt.loadNpmTasks( 'grunt-contrib-clean' );
     grunt.loadNpmTasks( 'grunt-contrib-compress' );
+    grunt.loadNpmTasks( 'grunt-contrib-concat' );
     grunt.loadNpmTasks( 'grunt-contrib-copy' );
     grunt.loadNpmTasks( 'grunt-contrib-cssmin' );
     grunt.loadNpmTasks( 'grunt-contrib-jshint' );
@@ -269,13 +269,9 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks( 'grunt-wp-css' );
     grunt.loadNpmTasks( 'grunt-wp-i18n' );
 
-	grunt.registerTask( 'default', [
-		'browserSync',
-		'watch'
-	]);
-
 	grunt.registerTask( 'css', [
 		'sass',
+		'cmq',
 		'postcss',
 		'wpcss',
 		'cssmin'
@@ -285,6 +281,7 @@ module.exports = function (grunt) {
 		'replace',
 		'css',
 		'uglify',
+		'makepot',
 		'clean',
 		'copy',
 		'compress'

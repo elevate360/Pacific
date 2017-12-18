@@ -4,7 +4,7 @@ Theme URI: https://pacific.elevate360.com.au/
 Author: Elevate
 Author URI: https://elevate360.com.au/
 Description: The Pacific Theme is built for small businesses looking to stand out. Pacific combines fluid design and user-based functionality to form something that is truly seaworthy. A theme that blasts all difficulty out of the water, it has all the building blocks necessary to establish your online presence. A certain level of customisation is also available to make sure your business feel uniquely yours. Create an engaging, bold and sleek looking website design using Pacific.
-Version: 1.1.3
+Version: 1.1.4
 License: GNU General Public License v2 or later
 License URI: LICENSE
 Text Domain: pacific
@@ -117,12 +117,12 @@ dfn {
 }
 
 h1 {
-	margin: 0.67em 0; 
+	margin: 0.67em 0;
 	font-size: 2em;
 }
 
 mark {
-	color: #000; 
+	color: #000;
 	background: #ff0;
 }
 
@@ -181,7 +181,7 @@ input,
 optgroup,
 select,
 textarea {
-	margin: 0; 
+	margin: 0;
 	color: inherit;
 	font: inherit;
 }
@@ -199,7 +199,7 @@ button,
 html input[type="button"],
 input[type="reset"],
 input[type="submit"] {
-	cursor: pointer; 
+	cursor: pointer;
 
 	-webkit-appearance: button;
 }
@@ -211,7 +211,7 @@ html input[disabled] {
 
 button::-moz-focus-inner,
 input::-moz-focus-inner {
-	padding: 0; 
+	padding: 0;
 	border: 0;
 }
 
@@ -238,12 +238,12 @@ input[type="search"]::-webkit-search-decoration {
 
 fieldset {
 	margin: 0 2px;
-	padding: 0.35em 0.625em 0.75em; 
+	padding: 0.35em 0.625em 0.75em;
 	border: 1px solid #c0c0c0;
 }
 
 legend {
-	padding: 0; 
+	padding: 0;
 	border: 0;
 }
 
@@ -256,7 +256,7 @@ optgroup {
 }
 
 table {
-	border-spacing: 0; 
+	border-spacing: 0;
 	border-collapse: collapse;
 }
 
@@ -290,7 +290,7 @@ h4,
 h5,
 h6 {
 	clear: both;
-	margin: 0 0 1rem; 
+	margin: 0 0 1rem;
 	font-weight: normal;
 }
 
@@ -308,22 +308,24 @@ i {
 blockquote {
 	overflow: hidden;
 	margin: 0;
-	padding: 0; 
+	padding: 0;
 	color: #909090;
 	font-size: 18px;
 	font-size: 1.125rem;
 	font-style: italic;
 	line-height: 1.7;
 }
+
 blockquote cite {
 	display: block;
-	margin-top: 0.5rem; 
+	margin-top: 0.5rem;
 	font-weight: 600;
 	font-style: normal;
 }
+
 blockquote.alignleft,
 blockquote.alignright {
-	margin-right: 0; 
+	margin-right: 0;
 	margin-left: 0;
 }
 
@@ -335,7 +337,7 @@ pre {
 	overflow: auto;
 	max-width: 100%;
 	margin-bottom: 1.6em;
-	padding: 1.6em; 
+	padding: 1.6em;
 	background: #eceff1;
 	font-family: "Courier 10 Pitch", Courier, monospace;
 	font-size: 15px;
@@ -354,7 +356,7 @@ var {
 
 code {
 	padding: 0.2rem 0.4rem;
-	border-radius: 0.25rem; 
+	border-radius: 0.25rem;
 	color: #bd4147;
 	background-color: #eceff1;
 	font-size: 90%;
@@ -395,14 +397,14 @@ html {
 }
 
 body {
-	background: #fff;
-	/* Fallback for when there is no custom background color defined. */
+	background: #fff; /* Fallback for when there is no custom background color defined. */
 }
 
 blockquote,
 q {
 	quotes: "" "";
 }
+
 blockquote:before,
 blockquote:after,
 q:before,
@@ -412,7 +414,7 @@ q:after {
 
 hr {
 	height: 1px;
-	margin-bottom: 1.5em; 
+	margin-bottom: 1.5em;
 	border: 0;
 	background-color: #eceff1;
 }
@@ -446,15 +448,12 @@ dd {
 }
 
 img {
-	/* Make sure images are scaled correctly. */
-	max-width: 100%;
-	height: auto;
-	/* Adhere to container width. */
+	max-width: 100%; /* Adhere to container width. */
+	height: auto; /* Make sure images are scaled correctly. */
 }
 
 figure {
-	margin: 1em 0;
-	/* Extra wide images within figure tags don't overflow the content area. */
+	margin: 1em 0; /* Extra wide images within figure tags don't overflow the content area. */
 }
 
 ::-webkit-input-placeholder {
@@ -886,6 +885,7 @@ a:active {
 }
 
 /** Breadcrumb */
+
 #breadcrumb {
 	padding-top: 1rem;
 	padding-bottom: 1rem;
@@ -894,6 +894,7 @@ a:active {
 }
 
 /** Navigation / Pagination */
+
 .comment-navigation,
 .posts-navigation,
 .post-navigation {
@@ -1089,6 +1090,7 @@ a:active {
 --------------------------------------------------------------*/
 
 /* Text meant only for screen readers. */
+
 .screen-reader-text {
 	overflow: hidden;
 	clip: rect(1px, 1px, 1px, 1px);
@@ -1122,6 +1124,7 @@ a:active {
 }
 
 /* Do not show the outline on the skip link target. */
+
 #page[tabindex="-1"]:focus,
 #site-navigation[tabindex="-1"]:focus,
 #content[tabindex="-1"]:focus,
@@ -1927,6 +1930,7 @@ span.count {
 --------------------------------------------------------------*/
 
 /* Globally hidden elements when Infinite Scroll is supported and in use. */
+
 .infinite-scroll .posts-navigation,
 .infinite-scroll.neverending .site-footer {
 	/* Theme Footer (when set to scrolling) */
@@ -1934,6 +1938,7 @@ span.count {
 }
 
 /* When Infinite Scroll has reached its end we need to re-display elements that were hidden (via .neverending) before. */
+
 .infinity-end.neverending .site-footer {
 	display: block;
 }
@@ -2057,6 +2062,7 @@ div.wpcf7 .placeheld {
 }
 
 /* Make sure embeds and iframes fit their containers. */
+
 embed,
 iframe,
 object {
@@ -2064,6 +2070,7 @@ object {
 }
 
 /* Make sure logo link wraps around logo image. */
+
 .custom-logo-link {
 	display: inline-block;
 }
@@ -2255,16 +2262,12 @@ object {
 # Layout
 --------------------------------------------------------------*/
 
-
-/*--------------------------------------------------------------
-## Main
---------------------------------------------------------------*/
-
 .site {
 	position: relative;
 }
 
 /** Site Header */
+
 .site-header {
 	position: absolute;
 	z-index: 5;
@@ -2335,9 +2338,7 @@ a.custom-logo-link {
 	left: 0;
 	width: 100%;
 	height: 100%;
-	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&0.65+0,0.25+100 */
-	/* FF3.6-15 */
-	/* Chrome10-25,Safari5.1-6 */
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&0.65+0,0.25+100 */ /* FF3.6-15 */ /* Chrome10-25,Safari5.1-6 */
 	background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.65)), to(rgba(0, 0, 0, 0.25)));
 	background: linear-gradient(to bottom, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0.25) 100%);
 	/* IE6-9 */
@@ -2411,6 +2412,7 @@ a.custom-logo-link {
 }
 
 /** Section Hero */
+
 .section-hero {
 	display: table;
 	position: relative;
@@ -2452,12 +2454,14 @@ a.custom-logo-link {
 }
 
 /** Site Content */
+
 .site-content {
 	padding-top: 4rem;
 	padding-bottom: 2rem;
 }
 
 /** Footer Widgets */
+
 .footer-widgets a,
 .site-footer a {
 	color: #fff;
@@ -2471,6 +2475,7 @@ a.custom-logo-link {
 }
 
 /** Site Footer */
+
 .site-footer {
 	position: relative;
 	padding-top: 2rem;
@@ -2492,6 +2497,7 @@ a.custom-logo-link {
 }
 
 /** Common */
+
 .wrap,
 .content-sidebar-wrap {
 	position: relative;
@@ -2502,6 +2508,7 @@ a.custom-logo-link {
 }
 
 /** Return to top */
+
 .return-to-top {
 	position: fixed;
 	z-index: 5;
@@ -2536,11 +2543,6 @@ a.custom-logo-link {
 	opacity: 1;
 }
 
-
-/*--------------------------------------------------------------
-## Tablet
---------------------------------------------------------------*/
-
 @media (min-width: 782px) {
 	.site-header.stick {
 		border-bottom: 1px solid #202020;
@@ -2553,6 +2555,7 @@ a.custom-logo-link {
 	}
 
 /* Small menu */
+
 	.menu-toggle,
 	.sub-menu-toggle {
 		display: none;
@@ -2789,11 +2792,6 @@ a.custom-logo-link {
 		border-right: 4px solid rgba(0, 0, 0, 0.05);
 	}
 }
-
-
-/*--------------------------------------------------------------
-## Desktop
---------------------------------------------------------------*/
 
 @media (min-width: 992px) {
 	.site-header {

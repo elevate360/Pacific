@@ -80,6 +80,10 @@ Source: https://github.com/Automattic/social-logos
 Source: https://www.pexels.com/photo/beach-black-and-white-cliff-dawn-268455/
 
 ## Changelog
+### 1.1.4 - December 19, 2017
+* Updated `readme.md` and `readme.txt`
+* Updated `package.json` and `gruntfile.js` for development
+
 ### 1.1.2 - September 18, 2017
 * Update customizer css color selector
 * Updated `readme.md` and `readme.txt`
