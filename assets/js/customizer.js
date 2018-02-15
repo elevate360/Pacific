@@ -125,6 +125,34 @@
 		} );
 	} );
 
+	api( 'theme_designer', function( value ) {
+		value.bind( function( to ) {
+			if ( true === to ) {
+				$( '.site-designer' ).css( {
+					'display': 'block'
+				} );
+			} else {
+				$( '.site-designer' ).css( {
+					'display': 'none'
+				} );
+			}
+		} );
+	} );
+
+	api( 'return_top', function( value ) {
+		value.bind( function( to ) {
+			if ( true === to ) {
+				$( '.return-to-top' ).css( {
+					'display': 'block'
+				} );
+			} else {
+				$( '.return-to-top' ).css( {
+					'display': 'none'
+				} );
+			}
+		} );
+	} );
+
 	api( 'primary_color', function( value ){
 		value.bind( function( to ) {
 			$( '#primary-color' ).text(

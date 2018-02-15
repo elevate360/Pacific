@@ -195,7 +195,10 @@ if( ! function_exists( 'pacific_do_footer_copyright' ) ) :
 function pacific_do_footer_copyright(){
 
 	echo '<div class="site-info">'. pacific_get_footer_copyright() . '</div>';
-	echo '<div class="site-designer">'. sprintf( __( 'Theme design by %s.', 'pacific' ), '<a href="'. esc_url( 'https://elevate360.com.au/' ) .'">Elevate</a>' ) .'</div>';
+
+	if ( get_theme_mod( 'theme_designer', true ) ) {
+		echo '<div class="site-designer">'. sprintf( __( 'Theme design by %s.', 'pacific' ), '<a href="'. esc_url( 'https://campaignkit.co/' ) .'">CampaignKit</a>' ) .'</div>';
+	}
 
 }
 endif;

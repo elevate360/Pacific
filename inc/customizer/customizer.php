@@ -41,6 +41,7 @@ function pacific_setting_default(){
 		'author_display'	=> true,
 		'excerpt_length'	=> 20,
 		'posts_navigation'	=> 'posts_navigation',
+		'theme_designer'	=> true
 	);
 
 	return apply_filters( 'pacific_setting_default', $settings );

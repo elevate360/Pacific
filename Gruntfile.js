@@ -184,7 +184,8 @@ module.exports = function (grunt) {
 			frontend: {
 				files: [
 					'assets/js/pacific.js',
-					'assets/js/customizer.js'
+					'assets/js/customizer.js',
+					'assets/js/customizer-control.js'
 				],
 				tasks: [
 					'uglify:theme'

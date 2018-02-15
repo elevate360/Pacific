@@ -1,14 +1,14 @@
-# <!=Copyright (C) 2017 Elevate
+# <!=Copyright (C) 2018 Elevate
 # This file is distributed under the GNU General Public License v2 or later.=!>
 msgid ""
 msgstr ""
-"Project-Id-Version: Pacific 1.1.4\n"
+"Project-Id-Version: Pacific 1.1.5\n"
 "Report-Msgid-Bugs-To: https://elevate360/contact\n"
-"POT-Creation-Date: 2017-12-18 20:08:08+00:00\n"
+"POT-Creation-Date: 2018-02-15 20:36:51+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
 "X-Generator: grunt-wp-i18n1.0.1\n"
@@ -86,76 +86,88 @@ msgstr ""
 msgid "Theme Settings"
 msgstr ""
 
-#: inc/customizer/settings.php:44
+#: inc/customizer/settings.php:40
+msgid "Campaign Kit"
+msgstr ""
+
+#: inc/customizer/settings.php:41
+msgid "Learn More"
+msgstr ""
+
+#: inc/customizer/settings.php:58
 msgid "Link Color"
 msgstr ""
 
-#: inc/customizer/settings.php:45
+#: inc/customizer/settings.php:59
 msgid "Used for link, button, selection."
 msgstr ""
 
-#: inc/customizer/settings.php:62
+#: inc/customizer/settings.php:76
 msgid "Hover Color"
 msgstr ""
 
-#: inc/customizer/settings.php:63
+#: inc/customizer/settings.php:77
 msgid "Used for link:hover, button:hover."
 msgstr ""
 
-#: inc/customizer/settings.php:73
+#: inc/customizer/settings.php:87
 msgid "Blog Setting"
 msgstr ""
 
-#: inc/customizer/settings.php:89
+#: inc/customizer/settings.php:103
 msgid "Display Post Date"
 msgstr ""
 
-#: inc/customizer/settings.php:107
+#: inc/customizer/settings.php:121
 msgid "Display Post Author"
 msgstr ""
 
-#: inc/customizer/settings.php:125
+#: inc/customizer/settings.php:139
 msgid "Display Post Category"
 msgstr ""
 
-#: inc/customizer/settings.php:143
+#: inc/customizer/settings.php:157
 msgid "Display Post Tag"
 msgstr ""
 
-#: inc/customizer/settings.php:161
+#: inc/customizer/settings.php:175
 msgid "Display comments count"
 msgstr ""
 
-#: inc/customizer/settings.php:179
+#: inc/customizer/settings.php:193
 msgid "Display Author biography at single post"
 msgstr ""
 
-#: inc/customizer/settings.php:196
+#: inc/customizer/settings.php:210
 msgid "Excerpt length"
 msgstr ""
 
-#: inc/customizer/settings.php:217
+#: inc/customizer/settings.php:231
 msgid "Posts Navigation"
 msgstr ""
 
-#: inc/customizer/settings.php:222
+#: inc/customizer/settings.php:236
 msgid "Prev / Next"
 msgstr ""
 
-#: inc/customizer/settings.php:223
+#: inc/customizer/settings.php:237
 msgid "Numeric"
 msgstr ""
 
-#: inc/customizer/settings.php:231
+#: inc/customizer/settings.php:245
 msgid "Footer"
 msgstr ""
 
-#: inc/customizer/settings.php:247
+#: inc/customizer/settings.php:261
 msgid "Footer copyright"
 msgstr ""
 
-#: inc/customizer/settings.php:248
+#: inc/customizer/settings.php:262
 msgid "Use [YEAR] for dynamic current year. Use [SITE] to render site link."
+msgstr ""
+
+#: inc/customizer/settings.php:280
+msgid "Display theme designer at footer?"
 msgstr ""
 
 #: inc/icon-functions.php:37
@@ -233,7 +245,7 @@ msgstr ""
 msgid "Y"
 msgstr ""
 
-#: inc/template-tags.php:198
+#: inc/template-tags.php:200
 msgid "Theme design by %s."
 msgstr ""
 
@@ -678,7 +690,7 @@ msgid "Elevate"
 msgstr ""
 
 #. Author URI of the plugin/theme
-msgid "https://elevate360.com.au/"
+msgid "https://campaignkit.co/"
 msgstr ""
 
 #. Template Name of the plugin/theme

@@ -29,6 +29,20 @@ function pacific_customize_register( $wp_customize ) {
 	$wp_customize->get_section( 'background_image' )->panel 			= 'theme_settings';
 	$wp_customize->get_section( 'colors' )->panel 						= 'theme_settings';
 
+	// Load custom sections.
+	require_once( get_parent_theme_file_path( "/inc/customizer/controls/class-section-pro.php" ) );
+
+	// Register custom section types.
+	$wp_customize->register_section_type( 'Pacific_Customize_Section_Pro' );
+
+	// Register sections.
+	$wp_customize->add_section( new Pacific_Customize_Section_Pro( $wp_customize, 'pacific_pro', array(
+		'title'    			=> esc_html__( 'Campaign Kit', 'pacific' ),
+		'pro_text' 			=> esc_html__( 'Learn More', 'pacific' ),
+		'pro_url'  			=> esc_url( 'https://campaignkit.co/' ),
+		'priority'			=> 999
+	) ) );
+
 	/** Theme Colors */
 	$wp_customize->add_setting(
 		'primary_color',
@@ -249,6 +263,24 @@ function pacific_customize_register( $wp_customize ) {
 			'section'  		=> 'footer_area',
 			'settings' 		=> 'footer_copyright',
 			'type'     		=> 'textarea'
+		)
+	);
+
+	$wp_customize->add_setting(
+		'theme_designer' ,
+		 array(
+		    'default' 			=> $setting['theme_designer'],
+		    'transport'			=> 'postMessage',
+		    'sanitize_callback' => 'pacific_sanitize_checkbox',
+	) );
+
+	$wp_customize->add_control(
+		'theme_designer',
+		array(
+			'label'    => __( 'Display theme designer at footer?', 'pacific' ),
+			'section'  => 'footer_area',
+			'settings' => 'theme_designer',
+			'type'     => 'checkbox'
 		)
 	);
 
