@@ -15,7 +15,7 @@
   "main": "Gruntfile.js",
   "devDependencies": {
     "autoprefixer": "^7.1.5",
-    "grunt": "^1.0.1",
+    "grunt": "^1.5.2",
     "grunt-checktextdomain": "^1.0.1",
     "grunt-combine-media-queries": "^1.0.20",
     "grunt-contrib-clean": "^1.1.0",
